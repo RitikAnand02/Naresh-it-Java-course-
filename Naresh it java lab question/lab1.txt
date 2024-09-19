@@ -1,0 +1,96 @@
+Q1) Write a program to perform addition,subtraction, multiplication and 
+    division between two numbers using 3rd variable.
+ans:
+class  Calculator
+{
+	public static void main(String[] args) 
+	{
+		
+       int a= 200;
+	   int b= 100;
+	   int c= a+b;
+	   int d= a-b;
+	   int e= a*b;
+	   int f= a/b;
+	   
+	   System.out.println("Addtion: " + c);
+	   System.out.println("subtraction: " + d);
+	   System.out.println("multiplication: " + e);
+	   System.out.println("Divison: " + f);
+	}
+}
+================================================================================================================
+
+Q2) Write a program to perform addition using command line Argument.
+ans:
+class Addition
+{
+	public static void main(String[] args) 
+	{
+	     int a = Integer.parseInt(args[0]);
+                      int b = Integer.parseInt(args[1]);
+		 
+		 System.out.println("Sum: "+ (a+b));
+	
+	}
+}
+===================================================================================================================
+
+Q3) Write a program to find out the area of circle by taking the value
+    from Command line arguments
+ans:
+class  AreaOfCircle
+{
+	public static void main(String[] args) 
+	{
+		double r = Double.parseDouble(args[0]);
+		final double pi = 3.14;
+		double Area = pi*r*r;
+		System.out.println("Area of Circle: " + Area);
+	}
+}
+==================================================================================================================
+
+Q4) Write a program to swap to numbers without using 3rd variable using 
+    command line argument.
+ans:
+class Swap 
+{
+	public static void main(String[] args) 
+	{
+		int a = Integer.parseInt(args[0]);
+		int b = Integer.parseInt(args[1]);
+			
+		System.out.println("After Swap a: " + a);
+		System.out.println("After Swap b: " + b);
+		
+		 a = a + b;
+		 b = a - b;
+		 a = a - b;
+		
+		System.out.println("Before Swap a: " + a);
+		System.out.println("Before Swap b: " + b);
+	}
+}
+=====================================================================================================================
+
+ 
+Q5) Write a Java program to calculate the factorial of a number where number must be taken from command line argument.
+ans:
+class Factorial
+{
+	public static void main(String[] args) 
+	{
+		int num = Integer.parseInt(args[0]);
+		int f=1;
+		while(num>0)
+		{
+			f=f*num;
+			num--;
+		}
+			System.out.println("Factorial: " + f);	
+	}
+}
+
+
+ 
