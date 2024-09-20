@@ -9,7 +9,7 @@ class  AreaOfCircle
 	{
 		double r = Double.parseDouble(args[0]);
 		final double pi = 3.14;
-		double Area = pi*r*r;
-		System.out.println("Area of Circle: " + Area);
+		double area = pi*r*r;
+		System.out.println("Area of Circle: " + area);
 	}
 }
