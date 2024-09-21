@@ -1,0 +1,117 @@
+Program 01:
+-----------
+Write a  program in Java that will generate and print the bill at Dominos for four chicken rolls (@ Rs 60 per chicken rolls) and three vegetable puffs (@ Rs 25 per vegetable puffs). There is a special discount of Rs 50 on the final bill amount. Calculate and print final bill as well as all item bill.
+ans:
+ public class DominosBill 
+{
+	public static void main(String[] args) 
+	{
+		int chicken_rolls = 60;
+		int vegetable_rolls = 25;
+		
+		int chicken = Integer.parseInt(args[0]);
+		int vegetable = Integer.parseInt(args[1]);
+		
+		int chicken_bill = chicken * chicken_rolls;
+		int vegetable_bill = vegetable * vegetable_rolls;
+		
+		int total_bill = chicken_bill + vegetable_bill;
+		int discount = 50;
+		int final_bill = total_bill - discount;
+		
+		System.out.println("Final Bill: " + final_bill);
+		System.out.println("Chicken Bill: " + chicken_bill);
+		System.out.println("Vegetable Bill: " + vegetable_bill);
+		System.out.println("Total Bill: " + total_bill);
+	}
+}
+====================================================================================================================
+Program 02:
+-----------
+Write a Java program to check if a given number is a palindrome. A number is a palindrome if it remains the same when its digits are reversed.
+ans:public class Palindrone 
+{
+	public static void main(String[] args) 
+	{
+		int num1=Integer.parseInt(args[0]);
+		int r,rev=0;
+		int temp=num1;
+		while(num1!=0){
+		r=num1%10;
+		rev=rev*10+r;
+		num1=num1/10;
+	}
+	if(temp==rev){
+		System.out.println("the number is palindrone");
+	}
+	else{
+		System.out.println("the number is not palindrone");
+	}
+}
+}
+================================================================================================================
+
+Program 03:
+----------
+Write a program in Java to display the following pattern on the screen without using loop.
+@@@@@@@@
+@      @
+@      @
+@      @
+@      @
+@      @
+@@@@@@@@
+ans:
+public class printpattern 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("@@@@@@@@@");
+		System.out.println("@\t@");
+		System.out.println("@\t@");
+		System.out.println("@\t@");
+		System.out.println("@\t@");
+		System.out.println("@\t@");
+		System.out.println("@@@@@@@@@");
+	}
+}
+======================================================================================================================
+Program 04:
+-----------
+Write a program to input the basic salary of a person. He gets 15% of the basic as HRA, 15% of the basic as Conveyance allowance and 10% of the basic as Entertainment allowance. The total salary is calculated by adding Basic + HRA + Conveyance + Entertainment Allowance. Calculate and print the total salary of person.
+Take the Basic Salary from Command Line Argument
+ans:
+public class CalculateSalary 
+{
+	public static void main(String[] args) 
+	{
+		double salary=Double.parseDouble(args[0]);
+		double hra=salary*0.15;
+		double conveyance=salary*0.15;
+		double entertainment_allowence=salary*0.10;
+
+		double total_salary=hra+conveyance+entertainment_allowence;
+
+		System.out.println("the salary is"+salary);
+		System.out.println("the hra of the salary"+hra);
+		System.out.println("the conveyance of salary is"+conveyance);
+		System.out.println("the entertainment allowance is"+entertainment_allowence);
+		System.out.println("the total salary is "+total_salary);
+	}
+}
+==================================================================================================================
+
+Program 05 :
+-------------
+Write a program in java to Fahrenheit to Celsius Program
+Formula is :-  celsius=((fahrenheit-32)*5)/9;
+ans:
+public class FahrenheitToCelsius 
+{
+	public static void main(String[] args) 
+	{
+		int fahrenheit=Integer.parseInt(args[0]);
+		double celsius=((fahrenheit-32)*5)/9;
+		System.out.println("the celsius is "+celsius);
+	}
+}
