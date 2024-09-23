@@ -1,0 +1,130 @@
+Program-1
+-----------
+A shopkeeper buys a TV set for Rs. 32,500 and sells it at a profit of 27%. Apart from this a VAT of 12.7% and Service Charge is 3.87% is charged. Display total selling price, profit along with vat and service charge.
+ans:
+class CalculateProfit
+{
+	public static void main(String[] args) 
+	{
+		double cp = 32500;
+		double profitPercent = 27.0;
+		double servicePercent = 3.87;
+		double vatPercent = 12.7;
+		
+		double profit = (profitPercent/100)*cp;
+		double sp = cp + profit;
+		double serviceCharge = (servicePercent/100)*sp;
+		double vatCharge = (vatPercent/100)*sp;
+		
+		double totalCost = sp+serviceCharge+vatCharge;
+		
+		System.out.println("Cost Price" + cp);
+		System.out.println("Profit: " + profit);
+		System.out.println("Selling Price: " +sp);
+		System.out.println("Service Charge: " + serviceCharge);
+		System.out.println("Vat Charge: " +vatCharge);
+		System.out.println("Total Cost: " + totalCost);
+	}
+}
+================================================================================================================
+Program-2
+----------
+Rohan purchased an old cycle for Rs. 1200 and spend Rs. 250 on repairs, Rs. 350 in coloring and added new accessories worth Rs. 500. Rohan wants to make a profit of Rs. 1500 on selling the cycle. Find the selling price of the cycle. Write a java program to store all values and calculate and display the selling price.
+ans:
+class CycleBill 
+{
+	public static void main(String[] args) 
+	{
+		int oldCyclePrice = 1200;
+		int repairCost = 250;
+		int colorCost = 350;
+		int accessoriesCost = 500;
+		int profit = 1500;
+		
+		int totalCost = oldCyclePrice +repairCost + colorCost + accessoriesCost;
+		int sellingPrice = totalCost + profit;
+		
+		System.out.println("Total Cost : " + totalCost);
+		System.out.println("Selling Price: " + sellingPrice);
+	}
+}
+==================================================================================================================
+Program-3
+----------
+Write a program to enter Principal, Rate and Time. Calculate and display Simple Interest and Amount.
+ans:
+
+Program-4
+----------
+Write a program in java to input number of days. Find and display number of years, months and days.
+ans:
+public class NumberOfDays 
+{
+	public static void main(String[] args) 
+	{
+		int days = Integer.parseInt(args[0]);
+		int year,month,week,day;
+		 year = days/365;
+		 days = days%365;
+		 month = days/30;
+		 days = days%30;
+		 week = days/7;
+		 day = days%7;
+		 
+		 System.out.println("Number Of Days: " + day);
+		 System.out.println("Number Of Week: " + week);
+		 System.out.println("Number Of Month: " + month);
+		 System.out.println("Number Of Year: " + year);
+		 
+		 
+		 
+	}
+}
+=================================================================================================================
+Program-5
+-----------
+A whole-seller gives incentives in the form of discounts on the net bill. Write a program to input the net bill and calculate the discount as follows:
+
+     Net Bill in Rupees			    Discount %
+	<5000					5
+	>=5000 and <10000			10
+	>=10000					15
+
+Display Discount %, Discount Amount and Amount Payable
+ans:
+public class WholeSellerBill
+{
+	public static void main(String[] args) 
+	{
+		double amount = Double.parseDouble(args[0]);
+		if(amount<5000)
+		{
+			double discount1 = 5.0;
+			double discountBill = (amount * discount1)/100;
+			double netBill = amount - discountBill;
+				System.out.println("Discount Bill: " + discountBill);
+		        System.out.println("Net Bill: " + netBill);
+		}
+		else if(amount>=5000 && amount< 10000)
+		{
+			double discount2 = 10.0;
+			double discountBill = (amount * discount2)/100;
+			double netBill = amount - discountBill;
+				System.out.println("Discount Bill: " + discountBill);
+		        System.out.println("Net Bill: " + netBill);
+		}
+		else if(amount>=10000)
+		{
+			double discount3 = 15.0;
+			double discountBill = (amount * discount3)/100;
+			double netBill = amount - discountBill;
+				System.out.println("Discount Bill: " + discountBill);
+		        System.out.println("Net Bill: " + netBill);
+		}
+		else
+		{
+			System.out.println("Invalid Amount");
+		}
+			
+	}
+}

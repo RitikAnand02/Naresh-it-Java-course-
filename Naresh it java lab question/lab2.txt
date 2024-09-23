@@ -49,9 +49,10 @@ class SumOfTwoDigitNumber
 {
 	public static void main(String[] args) 
 	{
-		int num = Integer.parseInt(args[0]);
-		int digitSum = num%10+num/10;
-		System.out.println("Sum of two digit number: " + digitSum);
+		int num1 = Integer.parseInt(""+args[0].charAt(0));
+		int num2 = Integer.parseInt(""+args[0].charAt(1));
+		int sum = num1 + num2;
+		System.out.println("Sum of digit is : "+num1+" + "+num2+" = "+sum);
 	}
 }
 ================================================================================================================
