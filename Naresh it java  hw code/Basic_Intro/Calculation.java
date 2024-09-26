@@ -7,6 +7,11 @@ class Integer {
 		return (num * num);
 	}
 
+    public static int parseInt(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'parseInt'");
+    }
+
 }
 
 public class Calculation {
