@@ -1,0 +1,190 @@
+Program-1
+Define a method which returns the sum of digits of the given two digit number.
+Write the method with the following specifications: 
+Name of the BLC class:TwoDigitsSum
+Name of method: getSumOfDigits()
+Access Modifier : public, static
+Arguments: one argument of type integer
+Return type: an integer value
+For example,
+If the given value is 34, return 7
+
+Create an ELC class Main to test the application
+ans:
+package com.test1;
+
+public class TwoDigitsSum {
+
+	public static int getSumOfDigits(int num) {
+		int result = num%10+num/10;
+		return result;
+
+	}
+
+}
+
+package com.test1;
+
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a no: ");
+        int num=sc.nextInt();
+        int sumOfDigits = TwoDigitsSum.getSumOfDigits(num);
+        System.out.println("The Sum of two Digit: "+sumOfDigits);
+        sc.close();
+
+	}
+
+}
+
+------------------------------------------------------------------------
+Program-2 
+Define a method which returns the difference of digits of the given two digit number.
+Write the method with the following specifications: 
+Name of the BLC class:TwoDigitsDifference
+Name of method: getDiffOfDigits()
+Access Modifier : public, static
+Arguments: one argument of type integer
+Return type: an integer value
+For example,
+If the given value is 83, 8 - 3 return 5.  If x = 38, 3 - 8 return -5.
+
+Create an ELC class Main to test the application
+ans:
+package com.test2;
+
+public class TwoDigitsDifference {
+
+	public static int getDiffOfDigits(int num) {
+		int result = (num/10)-(num%10);
+		return result;
+
+	}
+
+}
+
+package com.test2;
+
+import java.util.Scanner;
+
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		 Scanner sc = new Scanner(System.in);
+	        System.out.print("Enter a no: ");
+	        int num=sc.nextInt();
+	         int diffOfDigits = TwoDigitsDifference.getDiffOfDigits(num);
+	        System.out.println("The Differnce of two Digit: "+diffOfDigits);
+	        sc.close();
+
+	}
+
+}
+
+------------------------------------------------------------------------
+Program-3
+Define a method which returns the next multiple of 100 for the given number.
+Write the method with the following specifications: 
+Name of the BLC class:NextMultipleOfHundred
+Name of method: getNextMultipleOfHundred()
+Access Modifier : public, static
+Arguments: one argument of type integer
+Return type: an integer value
+For example,
+If the given value is 123, return 200.
+
+Create an ELC class Main to test the application
+ans:
+package com.test3;
+
+public class NextMultipleOfHundred {
+
+	public static int getNextMultipleOfHundred(int num) {
+		int result = (num/100+1)*100;
+		return result;
+		
+		
+
+	}
+
+}
+
+package com.test3;
+
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a no: ");
+		int num=sc.nextInt();
+		int nextMultipleOfHundred = NextMultipleOfHundred.getNextMultipleOfHundred(num);
+		System.out.println(" the next multiple of 100 for the given number: "+nextMultipleOfHundred);
+		sc.close();
+
+	}
+
+}
+
+------------------------------------------------------------------------
+
+Program-4
+Define a method which returns the sum of three rounded numbers. If the right most digit of the number is less than 5, then round off its value to the previous multiple of 10 otherwise if the right most digit of the number is greater or equal to 5, and then round off to the next multiple of 10. 
+Write the method with the following specifications: 
+Name of the BLC class:RoundedSum
+Name of method: sumOfRoundedValues() 
+Access Modifier : public, static
+Arguments: three argument of type integer
+Return type: an integer value 
+For example
+If a = 23, b = 34, c = 66
+   20 + 30 + 70 = 120
+Note:Don't use any control statements and looping statements
+
+Create an ELC class Main to test the application
+ans:
+package com.test4;
+
+public class RoundedSum {
+
+	public static int sumOfRoundedValues(int num1,int num2,int num3)  {
+		num1=((num1/10)+((num1%10)/5))*10;
+		num2=((num2/10)+((num2%10)/5))*10;
+		num3=((num3/10)+((num3%10)/5))*10;
+		return num1 + num2 + num3;
+
+	}
+
+}
+
+package com.test4;
+
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the first no : ");
+		int num1 = sc.nextInt();
+		System.out.print("Enter the second no : ");
+		int num2 = sc.nextInt();
+		System.out.print("Enter the third no : ");
+		int num3 = sc.nextInt();
+		int sumOfRoundedValues = RoundedSum.sumOfRoundedValues(num1, num2,num3);
+		System.out.println("The sum of rounded digit: "+sumOfRoundedValues);
+		sc.close();
+		
+
+	}
+
+}
+
+------------------------------------------------------------------------
