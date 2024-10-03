@@ -1,0 +1,241 @@
+Program 01
+----------
+Write a Program on OOPs to define Dog class properties and behaviour.
+
+properties :
+
+name    : String
+height  : double
+age	: int
+
+behaviour:
+
+getDogInformation() : public void
+             bark() : public void    
+ans:
+package com.test1;
+
+public class Dog {
+	String name;
+	Double height;
+	int age;
+
+	public void getDogInformation() {
+		System.out.println("Dog Name is: " + name);
+
+		System.out.println("Dog height is: " + height);
+
+		System.out.println("Dog age is: " + age);
+	}
+
+	public void bark() {
+		System.out.println("Dog is barking!!!");
+	}
+}
+
+
+package com.test1;
+
+public class DogDemo {
+
+	public static void main(String[] args) {
+
+		Dog siri = new Dog();
+
+		siri.name = "Siri";
+		siri.height = 4.5;
+		siri.age = 5;
+
+		siri.getDogInformation();
+		siri.bark();
+	}
+
+}
+
+------------------------------------------------------------------------
+Program 02
+----------
+Write a Program on OOPs to define Fan class properties and behaviour.
+
+properties :
+
+name    : String
+coil    : String
+wings	: int
+
+behaviour:
+
+switchOn()  : public void
+switchOff() : public void   
+ans:
+package com.test2;
+
+public class Fan {
+	String name;
+	String coil;
+	int wings;
+
+	public void switchOn() {
+
+		System.out.println("Fan company name is: " + name);
+
+		System.out.println("Fan coil is: " + coil);
+
+		System.out.println("No of Wings is: " + wings);
+	}
+
+	public void switchOff() {
+		System.out.println("The fan is switch off!!!");
+	}
+}
+
+
+package com.test2;
+
+public class FanDemo {
+
+	public static void main(String[] args) {
+
+		Fan bajaj = new Fan();
+
+		bajaj.name = "Bajaj";
+		bajaj.coil = "Copper";
+
+		bajaj.wings = 4;
+
+		bajaj.switchOn();
+		bajaj.switchOff();
+	}
+
+}
+
+
+------------------------------------------------------------------------
+Program 03
+-----------
+Write 2 programs on OOPs by your own thinking and imagination.
+ans:
+Program: 1
+--------------
+package com.test3;
+
+public class BankAccount {
+	String bankName;
+	String branchName;
+	String ifsc;
+
+	long accNum;
+	String accHName;
+	double balance;
+
+	public void getAccount1Info() {
+		System.out.println("acc1 detials");
+		System.out.println("------------------------------");
+		System.out.println(" acc1.bankName\t: " + bankName);
+		System.out.println(" acc1.branchName: " + branchName);
+		System.out.println(" acc1.ifsc\t: " + ifsc);
+		System.out.println(" acc1.accNum\t: " + accNum);
+		System.out.println(" acc1.accHName\t: " + accHName);
+		System.out.println(" acc1.balance\t: " + balance);
+	}
+
+	public void getAccount2Info() {
+		System.out.println("\nacc2 detials");
+		System.out.println("------------------------------");
+		System.out.println(" acc2.bankName\t: " + bankName);
+		System.out.println(" acc2.branchName: " + branchName);
+		System.out.println(" acc2.ifsc\t: " + ifsc);
+		System.out.println(" acc2.accNum\t: " + accNum);
+		System.out.println(" acc2.accHName\t: " + accHName);
+		System.out.println(" acc2.balance\t: " + balance);
+	}
+}
+
+
+package com.test3;
+
+public class Bank {
+
+	public static void main(String[] args) {
+		BankAccount acc1 = new BankAccount();
+
+		BankAccount acc2 = new BankAccount();
+
+		acc1.bankName = "HDFC";
+		acc1.branchName = "SR Nagar";
+		acc1.ifsc = "HD123SR";
+		acc1.accNum = 123456764353L;
+		acc1.accHName = "Ritik";
+		acc1.balance = 9845363;
+
+		acc2.bankName = "HDFC";
+		acc2.branchName = "SR Nagar";
+		acc2.ifsc = "HD123SR";
+		acc2.accNum = 123456764373L;
+		acc2.accHName = "Roushan";
+		acc2.balance = 9845365;
+
+		acc1.getAccount1Info();
+		acc2.getAccount2Info();
+
+	}
+
+}
+
+Program: 2
+--------------
+
+package com.test4;
+
+public class Student {
+	int sno;
+	String sname;
+	String course;
+	double fee;
+
+	public void getStudent1Info() {
+
+		System.out.println("Student1 Information");
+		System.out.println("-------------------------------");
+		System.out.println(" s1.sno\t\t: " + sno);
+		System.out.println(" s1.sname\t: " + sname);
+		System.out.println(" s1.course\t: " + course);
+		System.out.println(" s1.fee\t\t: " + fee);
+	}
+
+	public void getStudent2Info() {
+
+		System.out.println("Student2 Information");
+		System.out.println("-------------------------------");
+		System.out.println(" s1.sno\t\t: " + sno);
+		System.out.println(" s1.sname\t: " + sname);
+		System.out.println(" s1.course\t: " + course);
+		System.out.println(" s1.fee\t\t: " + fee);
+	}
+}
+
+
+package com.test4;
+
+public class College {
+
+	public static void main(String[] args) {
+
+		Student s1 = new Student();
+		Student s2 = new Student();
+
+		s1.sno = 101;
+		s1.sname = "Ritik";
+		s1.course = "core java";
+		s1.fee = 3500;
+
+		s2.sno = 102;
+		s2.sname = "Roushan";
+		s2.course = "web desgin";
+		s2.fee = 5000;
+		s1.getStudent1Info();
+
+		s2.getStudent2Info();
+	}
+
+}
