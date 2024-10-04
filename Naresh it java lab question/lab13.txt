@@ -1,0 +1,260 @@
+Read the class notes and develop the programs.
+Program 01:
+-----------
+Write a Program on OOPs to define Product class properties and behaviour.
+
+properties :
+productId : int
+productName : String
+productPrice : double
+
+Initialize these properties with the help of Methods using Scanner class not by using Object reference.
+
+behavior:
+setProductData() : public void
+getProductInfo() : public void
+ans:
+package com.test1;
+
+import java.util.Scanner;
+
+public class Product {
+	int productid;
+	String productname;
+	double productprice;
+
+	public void setProductData() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter Product Id is: ");
+
+		productid = sc.nextInt();
+
+		System.out.print("Enter Product Name is: ");
+
+		productname = sc.next();
+
+		System.out.print("Enter Product Price is: ");
+
+		productprice = sc.nextDouble();
+		sc.close();
+	}
+
+	public void getProductInfo() {
+		System.out.println("The Product is: " + productid);
+		System.out.println("The Name is: " + productname);
+
+		System.out.println("The Price is: " + productprice);
+
+	}
+}
+
+
+package com.test1;
+
+public class ProductDemo {
+
+	public static void main(String[] args) {
+		Product p1 = new Product();
+
+		p1.setProductData();
+
+		p1.getProductInfo();
+	}
+}
+===================================================================================================================
+
+Program 02:
+-----------
+Write a Program on OOPs to define Employee class properties and behaviour.
+
+properties :
+employeeId : int
+employeeName : String
+employeeSalary : double
+
+Initialize these properties with the help of Methods using Scanner class not by using Object reference.
+
+behavior:
+setEmployeeData() : public void
+getEmployeeData() : public void
+
+ans:
+package com.test2;
+
+import java.util.Scanner;
+
+public class Employee {
+	int Employeeid;
+	String Employeename;
+	double Employeesalary;
+
+	public void setEmployeeData() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter Employee Id is: ");
+
+		Employeeid = sc.nextInt();
+
+		System.out.print("Enter Employee Name is: ");
+
+		Employeename = sc.nextLine();
+
+		System.out.print("Enter Employee Salary is: ");
+
+		Employeesalary = sc.nextDouble();
+		sc.close();
+	}
+
+	public void getEmployeeData() {
+		System.out.println("The Employee Idis: " + Employeeid);
+		System.out.println("The Employee Name is: " + Employeename);
+
+		System.out.println("The Employee Salary is: " + Employeesalary);
+	}
+}
+
+
+
+package com.test2;
+
+public class EmpolyeeDemo {
+
+	public static void main(String[] args) {
+		Employee e1 = new Employee();
+
+		e1.setEmployeeData();
+
+		e1.getEmployeeData();
+
+	}
+
+}
+=====================================================================================================================
+Note : Create two more programs based on your imagination
+ans:
+
+Program:- 1
+----------------
+package com.test3;
+
+import java.util.Scanner;
+
+public class Student {
+	int Studentid;
+	String Studentname;
+	double Studentfees;
+
+	public void setStudentData() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter Student Id is: ");
+
+		Studentid = sc.nextInt();
+
+		System.out.print("Enter Student Name is: ");
+
+		Studentname = sc.nextLine();
+
+		System.out.print("Enter Student Fees is: ");
+
+		Studentfees = sc.nextDouble();
+		sc.close();
+	}
+
+	public void getStudentData() {
+		System.out.println("The Student Id is: " + Studentid);
+		System.out.println("The Student Name is: " + Studentname);
+
+		System.out.println("The Student Fees is: " + Studentfees);
+	}
+
+}
+
+
+package com.test3;
+
+public class StudentDemo {
+
+	public static void main(String[] args) {
+
+		Student s1 = new Student();
+
+		s1.setStudentData();
+
+		s1.getStudentData();
+
+	}
+}
+===================================================================================================================
+
+Program:-2
+--------------
+
+package com.test4;
+
+import java.util.Scanner;
+
+public class Bank {
+	int Bankifsc;
+	String Bankname;
+	String Accountholdername;
+	int Bankaccount;
+	double Bankamount;
+
+	public void setBankData() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter Bnak Ifsc Code is: ");
+
+		Bankifsc = sc.nextInt();
+
+		System.out.print("Enter Bank Name is: ");
+
+		Bankname = sc.nextLine();
+
+		System.out.print("Enter Account Holder Name is: ");
+
+		Accountholdername = sc.nextLine();
+
+		System.out.print("Enter account no is: ");
+
+		Bankaccount = sc.nextInt();
+
+		System.out.print("Enter Amount is: ");
+
+		Bankamount = sc.nextInt();
+		sc.close();
+	}
+
+	public void getBankData() {
+		System.out.println("The Bank Ifsc Code is: " + Bankifsc);
+		System.out.println("The Bank Name is: " + Bankname);
+
+		System.out.println("The Bnak Account Holder Name is: " + Accountholdername);
+		System.out.println("The Bank Account No is: " + Bankaccount);
+		System.out.println("The Bank Amount is: " + Bankamount);
+	}
+
+}
+
+
+package com.test4;
+
+public class BankAccount {
+
+	public static void main(String[] args) {
+
+		Bank acc = new Bank();
+
+		acc.setBankData();
+
+		acc.getBankData();
+
+	}
+
+}
