@@ -1,0 +1,374 @@
+Program 01 :
+-----------
+Create a Loan class to calculate loan payments based on principal, interest rate, and duration.
+
+Class name Loan with the Instance variable double principal ,private  
+ double interestRate ,private
+ int durationMonths ,private
+1.Create a public constructor with parameters are principal,interestRate and durationMonths. To initialise the instance variable.
+Access modifier:-
+
+public
+
+If any parameter value is 0 the print "Error".
+
+2.Create a method name as calculateMonthlyPayment().Public method to calculate the monthly loan payment
+
+Access modifier:-
+public
+return type:-
+double
+3.Create a method name as getPrincipal().To get the principal amount
+
+Access modifier:-
+
+public
+
+return type:-
+
+double
+
+4.Create a method name as getInterestRate().To get the interest rate
+
+Access modifier:-
+
+public
+return type:-
+double
+
+5.Create a method name as getDurationMonths().To get the loan duration in months
+
+Access modifier:-
+public
+return type:-
+
+int
+Create a Class CheckLoan to check your functionalities of the class.Like to intialise the instance variable which is present in Loan class.
+ans:
+package com.test5;
+
+public class Loan {
+	private double principal;
+	private double rate;
+	private int months;
+	public Loan(double principal, double rate, int months) 
+	{
+		super();
+		this.principal = principal;
+		this.rate = rate;
+		this.months = months;
+	}
+	
+	public double calculateMonthlyPayment() {
+		double amount = (principal *rate*months) /100;
+		return amount;
+	}
+
+	public double getPrincipal() {
+		return principal;
+	}
+
+	public double getRate() {
+		return rate;
+	}
+
+	public int getMonths() {
+		return months;
+	}
+
+}
+
+
+package com.test5;
+
+import java.util.Scanner;
+
+public class LoanDemo {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Principal");
+		double principal = sc.nextDouble();
+		System.out.println("Enter Rate");
+		double rate = sc.nextDouble();
+		System.out.println("Enter Months");
+		int months = sc.nextInt();
+		Loan l1 = new Loan(principal,rate,months);
+	    double amount=	l1.calculateMonthlyPayment();
+		
+		double principals = l1.getPrincipal();
+		double rates = l1.getRate();
+		int month = l1.getMonths();
+		
+		if(principals<=0.0) 
+		{
+				System.err.println("error");
+				System.exit(0);
+		}
+		if(rates<=0.0) 
+		{
+				System.err.println("error");
+				System.exit(0);
+		}
+		if(month<=0.0) 
+		{
+				System.err.println("error");
+				System.exit(0);
+		}
+		
+		else
+		{
+			System.out.println("Principal "+principals);
+			System.out.println("Rate "+rates);
+			System.out.println("Months "+month);
+			System.out.println("Total Amount "+amount);
+		}
+        sc.close();
+	}
+
+}
+=======================================================================================================================
+
+Program-2
+----------
+
+Design a Movie class with attributes like title, release year, and genre.
+
+Create a class Movie (Business Logic Class)
+Instance Variables: 
+String title - private
+int releaseYear - private
+String genre - private
+
+
+Create a parameterized constructor to initialilize all the fields.
+Create getters and setters method for all the fields.
+
+Create another class Main which contains main method (ELC class) which will receive all the instance variable value from BLC class.
+Use elc class for:-
+// Accessing movie details using getters
+// Modifying movie details using setters
+// Displaying modified movie details
+ans:
+package com.test4;
+
+public class Employee {
+	public int employeeNumber;
+	public String employeeName;
+	public double employeeSalary;
+	public Employee(int employeeNumber, String employeeName, double employeeSalary) {
+		super();
+		this.employeeNumber = employeeNumber;
+		this.employeeName = employeeName;
+		this.employeeSalary = employeeSalary;
+	}
+	
+	
+	public int getEmployeeNumber() {
+		return employeeNumber;
+	}
+
+
+	public void setEmployeeNumber(int employeeNumber) {
+		this.employeeNumber = employeeNumber;
+	}
+
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
+
+	public double getEmployeeSalary() {
+		return employeeSalary;
+	}
+
+
+	public void setEmployeeSalary(double employeeSalary) {
+		this.employeeSalary = employeeSalary;
+	}
+
+
+
+	
+	
+
+}
+
+
+package com.test4;
+
+import java.util.Scanner;
+
+public class EmployeeDemo {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter empolyee Number");
+		int employeeNumber = sc.nextInt();
+		 sc.nextLine();
+		
+		
+		System.out.println("Enter empolyee Name");
+		String employeeName = sc.nextLine();
+		
+		System.out.println("Enter empolyee Salary");
+		double employeeSalary = sc.nextDouble();
+		
+		Employee e1 = new Employee(employeeNumber,employeeName,employeeSalary);
+		
+		String ename = e1.getEmployeeName();
+		double esalary = e1.getEmployeeSalary();
+		int eid = e1.getEmployeeNumber();
+		if(eid<0)
+		{
+			System.err.println("id must be always positive integer");
+			System.exit(0);
+		}
+		else if(esalary<0.0)
+		{
+			System.err.println("Salary cannot be negative");
+			System.exit(0);
+		}
+		else if(ename=="") {
+			System.err.println("name must initialize with any default name");
+			System.exit(0);
+		}
+		else if(esalary>=60000)
+		{
+			System.out.println(ename+" is a Developer");
+		}
+		else if(esalary>=40000 && esalary<60000)
+		{
+			System.out.println(ename+" is a Designer");
+		}
+		else
+		{
+			System.out.println(ename+" is a Tester");
+		}
+		sc.close();
+
+	}
+
+}
+=====================================================================================================================
+
+Question-3
+--------------
+
+Create a class Employee (Business Logic Class)
+
+ Instance Variables:
+
+Names		 Type
+---------	 ----------------
+ employeeNumber : int
+
+ employeeName 	: String
+
+ employeeSalary	: double
+
+ Access Modifier  :public (for all variables)
+
+ Create a parameterized constructor to initialilize all the fields.
+ 
+ Create another class Tester (ELC class)
+
+ which contains main method  which will receive all the instance variable value from BLC class.
+
+
+ In this ELC class print the following details
+
+ a) If salary is >=60000, Print Employee is a Developer
+
+ b) If salary is >=40000 and <60000 , Print Employee is a Designer
+
+ c) If Salary is <40000 , Print Employee is a Tester
+
+
+Input:
+
+232, "Naresh Kumar", 43000
+
+
+Output:
+
+Employee is a Designer
+
+
+Instruction:
+
+Test Cases :
+========
+
+Parameterized Constructor: Checks each input parameter (name, id, fee) for validity.
+
+--> If id is negative, it sets it to 0 and prints an error message like (id must be always positive integer)
+--> If fee is negative, it sets it to 0.0 and prints an error message like (Fee cannot be negative)
+--> If name is null, it sets it to an empty string and prints an error message.(name must initialize with any default name)
+ans:
+
+package com.test3;
+
+public class Movie {
+	private String title;
+	private int releaseYear;
+	private String genre;
+	public Movie(String title, int releaseYear, String genre) {
+		super();
+		this.title = title;
+		this.releaseYear = releaseYear;
+		this.genre = genre;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public int getReleaseYear() {
+		return releaseYear;
+	}
+	public void setReleaseYear(int releaseYear) {
+		this.releaseYear = releaseYear;
+	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	@Override
+	public String toString() {
+		return "Movie [title=" + title + ", releaseYear=" + releaseYear + ", genre=" + genre + "]";
+	}
+	
+	
+	
+
+}
+
+
+
+package com.test3;
+
+public class MovieDemo {
+
+	public static void main(String[] args) {
+		Movie m1 = new Movie("comedy",2000,"user");
+		System.out.println(m1);
+		m1.setTitle(m1.getTitle()+"Action");
+		m1.setReleaseYear(m1.getReleaseYear()+10);
+		m1.setGenre(m1.getGenre()+"friendly");
+		System.out.println(m1);
+		
+
+	}
+
+}
+
