@@ -12,7 +12,65 @@ void setVehicleDetails(String vehicleModel, String licensePlate, String color, d
 String getVehicleDetails(): Returns a formatted string with vehicle information.
 
 Take another ELC class TestVehicle which is having main method and create instance and call the method and  pass the argument by using Scanner Class.
+ans:
+package com.test1;
 
+public class Vehicle {
+
+   String vehicleModel;
+   String licensePlate;
+   String color;
+   double engineCapacity;
+public void setVehicleDetails(String vehicleModel, String licensePlate, String color, double engineCapacity)
+{
+	
+	this.vehicleModel = vehicleModel;
+	this.licensePlate = licensePlate;
+	this.color = color;
+	this.engineCapacity = engineCapacity;
+}
+@Override
+public String toString() {
+	return "Vehicle [vehicleModel=" + vehicleModel + ", licensePlate=" + licensePlate + ", color=" + color
+			+ ", engineCapacity=" + engineCapacity + "]";
+}
+
+   
+   
+
+}
+
+
+package com.test1;
+
+import java.util.Scanner;
+
+public class VehicleDemo {
+
+	public static void main(String[] args) {
+		Vehicle v1 = new Vehicle();
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Vehicle Model");
+		String vehicleModel = sc.nextLine();
+		System.out.println("Enter License Plate");
+		String licensePlate = sc.nextLine();
+		System.out.println("Enter color");
+		String color = sc.nextLine();
+		System.out.println("Enter Engine Capacity");
+		double engineCapacity = sc.nextDouble();
+		
+		v1.setVehicleDetails(vehicleModel, licensePlate, color, engineCapacity);
+		System.out.println(v1.toString());
+		sc.close();
+				
+
+	}
+
+}
+
+
+==================================================================================================================
 Q-2)
 ----
 Owner Class:
@@ -27,14 +85,64 @@ void setOwnerDetails(String ownerName, int ownerId, String address)
 String getOwnerDetails(): Returns a formatted string with owner information.
 
 Take another ELC class TestOwner which is having main method and create instance and call the method and  pass the argument by using Scanner Class.
+ans:
+package com.test2;
 
+public class Owner {
+	String ownerName;
+	int ownerId;
+	String address;
+	public void setOwnerDetails(String ownerName, int ownerId, String address) 
+	{
+		this.ownerName = ownerName;
+		this.ownerId = ownerId;
+		this.address = address;
+	}
+	@Override
+	public String toString() {
+		return "Owner [ownerName=" + ownerName + ", ownerId=" + ownerId + ", address=" + address + "]";
+	}
+	
+	
+	
+	
+
+}
+
+
+package com.test2;
+
+import java.util.Scanner;
+
+public class OwnerDemo {
+
+	public static void main(String[] args) {
+		Owner o1 = new Owner();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Owner Name");
+		String ownerName = sc.nextLine();
+		System.out.println("Enter Owner Id");
+		int ownerId = sc.nextInt();
+		sc.nextLine();
+		System.out.println("Enter Address");
+		String address = sc.nextLine();
+		
+		o1.setOwnerDetails(ownerName, ownerId, address);
+		System.out.println(o1.toString());
+		sc.close();
+		
+
+	}
+
+}
+====================================================================================================================
 Q-3)
 ----
 Registration Class:
 Attributes:
 
-Vehicle vehicle
-Owner owner
+String vehicle
+String owner
 String registrationDate
 Methods:
 
@@ -42,6 +150,62 @@ void setRegistrationDetails(Vehicle vehicle, Owner owner, String registrationDat
 String getRegistrationDetails(): Returns a formatted string with registration information.
 
 Take another ELC class TestRegistration which is having main method and create instance and call the method and  pass the argument by using Scanner Class.
+ans:
+package com.test3;
+
+public class Registration {
+	
+	String vehicle;
+	String owner;
+	String registrationDate;
+
+	public void setRegistrationDetails(String vehicle, String owner, String registrationDate) 
+	{
+	
+		this.vehicle = vehicle;
+		this.owner = owner;
+		this.registrationDate = registrationDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Registration [vehicle=" + vehicle + ", owner=" + owner + ", registrationDate=" + registrationDate + "]";
+	}
+	
+	
+	
+	
+
+}
+
+
+package com.test3;
+
+import java.util.Scanner;
+
+public class RegistrationDemo {
+
+	public static void main(String[] args) {
+		Registration r1 = new Registration();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Vehicle");
+		String vehicle = sc.nextLine();
+		
+		System.out.println("Enter Owner");
+		String owner = sc.nextLine();
+		
+		System.out.println("Enter Registration Date");
+		String registrationDate = sc.nextLine();
+		
+		r1.setRegistrationDetails(vehicle, owner, registrationDate);
+		System.out.println(r1.toString());
+		sc.close();
+
+	}
+
+}
+================================================================================================================
 
 Q-4)
 ----
@@ -57,7 +221,52 @@ void setPlanetDetails(String planetName, double mass, double radius)
 String getPlanetDetails(): Returns a formatted string with planet information.
 
 Take another ELC class TestPlanet which is having main method and create instance and call the method and  pass the argument by using Scanner Class.
+ans:
+package com.test4;
 
+public class Planet {
+	String planetName;
+	double mass;
+	double radius;
+	public void setPlanetDetails(String planetName, double mass, double radius) 
+	{
+		this.planetName = planetName;
+		this.mass = mass;
+		this.radius = radius;
+	}
+	@Override
+	public String toString() {
+		return "Planet [planetName=" + planetName + ", mass=" + mass + ", radius=" + radius + "]";
+	}
+}
+
+
+package com.test4;
+
+import java.util.Scanner;
+
+public class PlanetDemo {
+
+	public static void main(String[] args) {
+		Planet p1 = new Planet();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Planet Name");
+		String planetName = sc.nextLine();
+		
+		System.out.println("Enter mass");
+		double mass = sc.nextDouble();
+		
+		System.out.println("Enter radius");
+		double radius = sc.nextDouble();
+		
+		p1.setPlanetDetails(planetName, mass, radius);
+		System.out.println(p1.toString());
+		sc.close();
+
+	}
+
+}
+==================================================================================================================
 
 
 Q5)
@@ -65,8 +274,8 @@ Q5)
 Inventory Class:
 Attributes:
 
-Game game
-Developer developer
+String game
+String developer
 int stockQuantity
 Methods:
 
@@ -77,6 +286,61 @@ Functionality:
 Use the Scanner class to take user input for game, developer, and inventory details.
 Initialize Game, Developer, and Inventory objects by passing the inputs to their respective methods.
 Display the inventory details after initialization.
+ans:
+package com.test5;
+
+public class Inventory {
+	String game;
+	String developer;
+	int stockQuantity;
+	public void setInventoryDetails(String game, String developer, int stockQuantity) 
+	{
+
+		this.game = game;
+		this.developer = developer;
+		this.stockQuantity = stockQuantity;
+	}
+	@Override
+	public String toString() {
+		return "Inventory [game=" + game + ", developer=" + developer + ", stockQuantity=" + stockQuantity + "]";
+	}
+	
+	
+	
+	
+
+}
+
+
+package com.test5;
+
+import java.util.Scanner;
+
+public class InventoryDemo {
+
+	public static void main(String[] args) {
+		Inventory i1 = new Inventory();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Game");
+		String game = sc.nextLine();
+		
+		System.out.println("Enter developer");
+		String developer = sc.nextLine();
+		
+		System.out.println("Enter Stock Quantity");
+		int stockQuantity = sc.nextInt();
+		
+		i1.setInventoryDetails(game, developer, stockQuantity);
+		
+		System.out.println(i1.toString());
+		sc.close();
+
+	}
+
+}
+
+====================================================================================================================
 
 Q-6)
 -----
@@ -93,4 +357,68 @@ void setElectricVehicleDetails(String vehicleModel, String licensePlate, double 
 String getElectricVehicleDetails(): Returns a formatted string with vehicle information.
 
 Take another ELC class TestVehicle which is having main method and create instance and call the method and  pass the argument by using Scanner Class.
+ans:
+package com.test6;
+
+public class ElectricVehicle {
+
+
+   String vehicleModel;
+   String licensePlate;
+   double batteryCapacity;
+   double rentalPricePerHour;
+public void setElectricVehicleDetails(String vehicleModel, String licensePlate, double batteryCapacity, double rentalPricePerHour) 
+{
+
+	this.vehicleModel = vehicleModel;
+	this.licensePlate = licensePlate;
+	this.batteryCapacity = batteryCapacity;
+	this.rentalPricePerHour = rentalPricePerHour;
+}
+@Override
+public String toString() {
+	return "ElectricVehicle [vehicleModel=" + vehicleModel + ", licensePlate=" + licensePlate + ", batteryCapacity="
+			+ batteryCapacity + ", rentalPricePerHour=" + rentalPricePerHour + "]";
+}
+
+
+   
+   
+}
+
+
+package com.test6;
+
+import java.util.Scanner;
+
+public class ElectricVehicleDemo {
+
+	public static void main(String[] args) {
+		ElectricVehicle e1 = new ElectricVehicle();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Vehicle Model");
+		String vehicleModel = sc.nextLine();
+		
+		System.out.println("Enter License Plate");
+		String licensePlate = sc.nextLine();
+		
+		System.out.println("Enter Battery Capacity");
+		double batteryCapacity = sc.nextDouble();
+		
+		System.out.println("Enter Rental Price Per Hour");
+		double rentalPricePerHour = sc.nextDouble();
+		
+		e1.setElectricVehicleDetails(vehicleModel, licensePlate, batteryCapacity, rentalPricePerHour);
+		
+		System.out.println(e1.toString());
+		sc.close();
+		
+		
+		
+		
+
+	}
+
+}
 
