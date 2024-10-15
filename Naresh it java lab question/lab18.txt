@@ -1,0 +1,507 @@
+Question-1
+-------------
+You've been assigned the task of developing a Java program to manage employee information and salary updates based on performance evaluations.
+
+Employee Class:[BLC Class]
+-------------------
+Create an Employee class with the following 
+Attributes:
+--------------
+Names			dataType
+---------		-----------
+name                    String
+age                     int 
+department              String
+salary                  double 
+performance 		String
+
+Implement a constructor that takes parameters to initialize the attributes of the Employee object.
+
+Provide getter and setter methods for each attribute to ensure proper encapsulation.
+
+Update Salary Method:
+
+Method:
+-------------
+MethodName  		:updateSalary()
+Return Type		:double
+Access Modifier 	:public
+
+Implement a method named updateSalary within the Employee class. This method should update the salary based on the employee's performance evaluation.
+
+notes:
+If the performance is "good", add a bonus of ?10,000 to  the salary.
+If the performance is "average", add a bonus of ?5,000 to the salary.
+If the performance is null, no bonus is added.
+
+Create a EmployeeTester class [ELC Class]
+In the main method:
+Create at least three Employee objects with different performance evaluations.
+Call the updateSalary method for each employee.
+Print the updated salaries of all employees.
+
+Test Cases :
+---------------
+case-1
+---------
+Name: shaktiman
+Age: 30
+Department: Sales
+Salary: 50000
+Performance: good
+
+Expected Output :
+valid input (print all the above details)
+
+case-2
+--------
+Sample Input :
+
+Name: Gangadhar
+Age: -25
+Department: HR
+Salary: 47000
+Performance: good
+
+Expected Output :
+Invalid input. Age must be a positive integer.
+
+ans:
+package com.test3;
+
+public class Employee {
+	private String name;
+	private int age;
+	private String department;
+	private double salary;
+	private String performance;
+	public Employee(String name, int age, String department, double salary, String performance) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.department = department;
+		this.salary = salary;
+		this.performance = performance;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	public String getPerformance() {
+		return performance;
+	}
+	public void setPerformance(String performance) {
+		this.performance = performance;
+	}
+	
+	public double updateSalary() {
+		if(this.age <=0) {
+			System.err.println(" Age must be a positive integer.");
+			System.exit(0);
+		}
+		else if(this.performance=="good") {
+			 this.salary = this.salary+10000;
+		}
+		else if(this.performance=="average") {
+			 this.salary = this.salary+5000;
+		}
+			return this.salary;
+	}
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", age=" + age + ", department=" + department + ", salary=" + salary
+				+ ", performance=" + performance + "]";
+	}
+	
+	
+
+}
+
+
+package com.test3;
+
+public class EmployeeDemo {
+
+	public static void main(String[] args) {
+       Employee e1 = new Employee("ritik",50,"developer",20000,"good");
+       Employee e2 = new Employee("aman",60,"tester",10000,"average");
+       Employee e3 = new Employee("roushan",55,"software",25000,null);
+       
+       e1.updateSalary();
+       e2.updateSalary();
+       e3.updateSalary();
+       
+       System.out.println(e1);
+       System.out.println(e2);
+       System.out.println(e3);
+	}
+
+}
+===============================================================================================================
+
+
+
+
+Question -2   
+---------------  
+Design a inventory system for a retail store :
+  
+InventoryItem Class: [BLC Class]
+
+Create an InventoryItem class with the following 
+ 
+Attributes:
+--------------
+Names			dataType
+---------		-----------
+itemName        	String 
+pricePerUnit    	double 
+quantityInStock 	int 
+
+Implement a constructor that takes parameters to initialize the attributes of the InventoryItem object.
+
+Provide getter and setter methods for each attribute to ensure proper encapsulation.
+
+ Method:
+-------------
+MethodName  		:calculateTotalValue()
+Return Type		:double
+Access Modifier 	:public
+
+This method should calculate and return the total value of the inventory item in stock, which is the product of the price per unit and the quantity in stock.
+
+
+Take a InventoryMain class (ELC Class) which is having  main method to  Create instances of the InventoryItem class, perform calculations, and display relevant information such as the total value of the item in stock and whether a reorder is required.
+
+Taste Case -1
+-----------------
+Sample Input :
+
+Item Name: "Apples"
+Price per Unit: 10
+Quantity in Stock: 15
+
+Expected Output: 
+Total Value of Apples in Stock: 150
+
+Test Case 2:
+--------------- 
+Sample Input:
+
+Item Name: "Oranges"
+Price per Unit: -5.0
+Quantity in Stock: 20
+
+Expected Output: 
+Error message indicating invalid price.
+
+Test Case 3: 
+---------------
+Sample Input :
+
+Item Name: "Bananas"
+Price per Unit: 5.0
+Quantity in Stock: -10
+
+Expected Output:
+ Error message indicating invalid quantity.
+
+Test Case 4 :
+--------------- 
+sample input :
+
+Item Name: ""
+Price per Unit: 8.0
+Quantity in Stock: 10
+
+Expected Output:
+ Error message indicating invalid item name.
+ans:
+package com.test4;
+
+public class InventoryItem {
+    private String itemName;
+    private double pricePerUnit;
+    private int quantityInStock;
+	public InventoryItem(String itemName, double pricePerUnit, int quantityInStock) {
+		super();
+		this.itemName = itemName;
+		this.pricePerUnit = pricePerUnit;
+		this.quantityInStock = quantityInStock;
+	}
+	@Override
+	public String toString() {
+		return "InventoryItem [itemName=" + itemName + ", pricePerUnit=" + pricePerUnit + ", quantityInStock="
+				+ quantityInStock + "]";
+	}
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	public double getPricePerUnit() {
+		return pricePerUnit;
+	}
+	public void setPricePerUnit(double pricePerUnit) {
+		this.pricePerUnit = pricePerUnit;
+	}
+	public int getQuantityInStock() {
+		return quantityInStock;
+	}
+	public void setQuantityInStock(int quantityInStock) {
+		this.quantityInStock = quantityInStock;
+	}
+    
+    
+	public double calculateTotalValue() {
+		double totalValue=0;
+		if(this.itemName.length()==0) {
+			System.err.println("Error message indicating invalid item name.");
+			System.exit(0);
+		}
+		else if (this.pricePerUnit<0) {
+			System.err.println("Error message indicating invalid price.");
+			System.exit(0);
+		}
+		else if (this.quantityInStock<0) {
+			System.err.println("Error message indicating invalid quantity.");
+			System.exit(0);
+		}
+		else {
+			 totalValue = this.pricePerUnit * this.quantityInStock;
+		}
+		return totalValue;
+	}
+}
+
+
+package com.test4;
+
+import java.util.Scanner;
+
+public class InventoryItemDemo {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the item name");
+		String itemName=sc.nextLine();
+		
+		System.out.println("Enter the per unit price of item");
+		double pricePerUnit=sc.nextDouble();
+		
+		System.out.println("Enter the quantity in stock");
+		int quantityInStock=sc.nextInt();
+		
+		InventoryItem item =new InventoryItem(itemName, pricePerUnit, quantityInStock);
+		
+		double result=item.calculateTotalValue();
+		System.out.println(item);
+		System.out.println("total value is "+result);
+		sc.close();
+		
+
+	}
+
+}
+===============================================================================================================
+
+
+Question - 3
+---------------
+You are developing a task management application that allows users to create and manage their tasks efficiently. 
+
+Design a Java class named Task (Business Class)
+
+Attributes :
+
+name			data type
+-------			------------
+title			: String
+description		: String
+priority		: String
+
+Acess modifier : private(for all varriables)
+
+Constructor: Initialize the task object all properties.
+
+
+Methods:
+[Return type of all methods is void and acess modifier is public]
+
+updateDescription(String newDescription): This method should update the description of the task.
+
+updatePriority(String newPriority): This method should update the priority level of the task.
+
+markAsCompleted(): This method should mark the task as completed.
+
+getTitle(): This method should return the title of the task.
+
+getDescription(): This method should return the description of the task.
+
+getPriority(): This method should return the priority level of the task.
+
+isCompleted(): This method should return true if the task is completed, and false otherwise.
+
+
+Create another class main which is having main method and instantiate the task object and execute the method.
+
+Test Cases :
+
+case -1
+---------
+Task Title: Finish Project
+Task Description: Complete documentation
+Task Priority: High
+Is Task Completed? false
+
+Expected Output: 
+Valid input, (print all the above information)
+
+case-2
+---------
+Title: ""
+Description: "Complete documentation"
+Priority: "High"
+
+Expected Output: 
+Error message indicating invalid title.
+
+case-3
+--------
+Title: "Finish Project"
+Description: ""
+Priority: "High"
+
+Expected Output: 
+Error message indicating invalid description
+ans:
+
+package com.test5;
+
+public class Employee {
+	private String tittle;
+	private String desc;
+	private String priority;
+	public Employee(String tittle, String desc, String priority) {
+		  if(tittle.length()==0 && priority.length()==0 && desc.length()==0) {
+			  System.err.println("Fill the varaible first");
+			  System.exit(1);
+			  
+		  }
+		
+		  else if(tittle.length()==0)
+		{
+			System.out.println("--------------------- 1");
+			System.out.println("invalid tittle");
+			System.err.println("Fill the title variables properly");
+			System.exit(1);
+		}
+		else if(desc.length()==0)
+		{
+			System.out.println("--------------------- 2");
+			System.out.println("invalid desc");
+			System.err.println("Fill the desc variables properly");
+			System.exit(1);
+		}
+		
+		else {
+		this.tittle = tittle;
+		this.desc = desc;
+		this.priority = priority;
+		}
+	}
+	public String getTittle() {
+		return tittle;
+	}
+	public String getDesc() {
+		return desc;
+	}
+	public String getPriority() {
+		return priority;
+	}
+
+	public void marksAsCompleted()
+	{
+		boolean task=isCompleted();
+		if(task)
+		{
+			
+			
+			
+		}
+		else {
+					System.out.println("Title ="+tittle);
+					System.out.println("description ="+desc);
+					System.out.println("priority ="+priority);
+					System.out.println("is completed ="+task);
+		}
+		
+	}
+
+	public boolean isCompleted()
+	{
+		  boolean result=true;
+
+		if(this.priority.equalsIgnoreCase("high"))
+		{
+			result=false;
+		}
+		else {
+			System.err.println("Task is invalid");
+		}
+		  
+		  return result;
+	}
+	@Override
+	public String toString() {
+		return "Employee [tittle=" + tittle + ", desc=" + desc + ", priority=" + priority + "]";
+	}
+}
+
+
+package com.test5;
+
+import java.util.Scanner;
+
+public class EmployeeDemo {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Employee Title");
+		String title = sc.nextLine();
+		
+		System.out.println("Enter Employee Description");
+		String desc = sc.nextLine();
+		
+		System.out.println("Enter Employee Priority");
+		String priority = sc.nextLine();
+		
+		Employee e1= new Employee(title,desc, priority);
+		e1.marksAsCompleted();
+		sc.close();
+
+
+	}
+
+}
