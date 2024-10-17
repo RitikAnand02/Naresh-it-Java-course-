@@ -28,7 +28,8 @@ public class Employee {
     	if(employeeId<0)
     	{
     		System.err.println("Employee Id Must Be Positive");
-    		System.exit(0);
+    		//System.exit(0);
+    		return null;
     	}
     	
     	System.out.println("Enter Employee Name: ");
