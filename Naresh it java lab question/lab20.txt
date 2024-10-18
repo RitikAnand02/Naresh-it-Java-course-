@@ -50,15 +50,15 @@ public static void main(String[] args)
 {
 int val=200;
 Employee e1 = new Employee();
-e1.id=val;
+e1.id=val;   //e1.id = 900
 update(e1);
-System.out.println(e1.id);
+System.out.println(e1.id);//900
  Employee e2 = new Employee(); 
-e2.id=500;
-switchEmployees(e2,e1);
+e2.id=500;   //e2.id = 900
+switchEmployees(e2,e1);//e2.id=500,e1.id=900
  //GC 
-System.out.println(e1.id);
- System.out.println(e2.id);
+System.out.println(e1.id);//900
+ System.out.println(e2.id);//900
  } 
 public static void update(Employee e)
 {
@@ -66,12 +66,12 @@ public static void update(Employee e)
 e=new Employee();
 e.id=400;
 }
-public static void switchEmployees(Employee e1,Employee e2)
+public static void switchEmployees(Employee e1,Employee e2)//e1.id=500 ,e2.id=900
  {
-int temp=e1.id;
-e1.id=e2.id;
+int temp=e1.id;//temp = 500
+e1.id=e2.id;//e1.id=900
 e2= new Employee();
-e2.id=temp;
+e2.id=temp;//e2.id=500
  }
  }
 ans: 900
@@ -91,20 +91,20 @@ public class Sample
 	{
 		Sample s1 = new Sample();
 
-		Sample s2 = new Sample();
+		Sample s2 = new Sample();//s2.i1=9
 
 		Sample s3 = modify(s2);
 
 		s1=null;
                 //GC 
-		System.out.println(s2.i1);
+		System.out.println(s2.i1);//9
 	}
 	public static Sample modify(Sample s)
 	{
 		s.i1=9;
 		s = new Sample();
 		s.i1= 20;  
-                                   System.out.println(s.i1);
+                                   System.out.println(s.i1);//20
 		s=null;
 		return s;
 	}
