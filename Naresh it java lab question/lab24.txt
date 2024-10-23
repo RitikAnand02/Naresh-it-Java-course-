@@ -1,0 +1,191 @@
+A BLC class Student is given to you. It contains the following implementation.
+
+Instance Variables: studentId : int , name :String , examFee:double
+
+Methods: displayDetails(): String , payFee() :double
+
+Define parameterized constructor and a toString method.
+
+Create two BLC sub classes of Student called DayScholar and Hosteller. 
+Add the following implementations to each class.
+
+DayScholar:
+
+Instance Variables : transportFee:double ,
+
+Methods: Define parameterized constructor
+
+Hosteller:
+
+Instance Variables: hostelFee :double
+
+Methods: Define parameterized constructor 
+
+Add the following methods in BOTH classes.
+
+Method: displayDetails(): This method should return a string containing the details of the student
+
+in the following format: fee=7000  5000
+
+Student [name=John Smith,studentId=123,examFee=100.0] OR
+
+DayScholar[transportFee=500, name=John Smith,studentId=123,examFee=100.0] and so on.
+
+Method: payFee(amount): This method takes amount as parameter that represents the fee
+
+provided. You must calculate and then return the remaining amount paid in excess. If excess is
+
+paid, the returned amount will be negative. The total fees that each student must pay must
+
+include all the fees applicable to that Student(examFees, transportFees, hostelFees as applicable).
+
+Subtract the given amount from total fee for each student and return the remaining amount.
+
+An ELC class Tester is given to you with a main method. Use this class to test your solution's
+
+classes and methods.
+
+
+
+Example Output:
+
+Student[name=John Smith,studentId=1,examFee=25000.0]
+
+DayScholar[TransportFee=5000.0,name=Brian Lara,studentId=2,examFee=25000.0]
+
+Remaining amount to pay is: 12000.0
+
+Hosteller[HostelFee=8000.0,name=Virat Kohli,studentId=3,examFee=25000.0]
+
+All Fees are clear
+ans:
+
+package com.test1;
+
+public class Student {
+   int studentId;
+   String name;
+   double examFee;
+public Student(int studentId, String name, double examFee) {
+	super();
+	this.studentId = studentId;
+	this.name = name;
+	this.examFee = examFee;
+}
+@Override
+public String toString() {
+	return "Student [studentId=" + studentId + ", name=" + name + ", examFee=" + examFee + "]";
+}
+   
+   
+}
+
+
+package com.test1;
+
+ class DayScholar extends Student {
+	 double transportFee;
+	 double totalFee;
+	 
+
+	public DayScholar(int studentId, String name, double examFee, double transportFee) {
+		super(studentId, name, examFee);
+		this.transportFee = transportFee;
+		this.totalFee= transportFee+examFee;
+		
+	}
+
+	
+	public String displayDetails() {
+		return "DayScholar [transportFee=" + transportFee + ", studentId=" + studentId + ", name=" + name + ", examFee="
+				+ examFee + "]";
+	}
+	
+	public double payFee(double amount){
+
+		return  totalFee -amount;
+		
+		
+	}
+	 
+	 
+
+}
+
+
+package com.test1;
+
+ class Hosteller extends Student {
+	 double hostelFee;
+	 double totalFee;
+
+	public Hosteller(int studentId, String name, double examFee, double hostelFee) {
+		super(studentId, name, examFee);
+		this.hostelFee = hostelFee;
+		this.totalFee= hostelFee+examFee;
+	}
+
+
+	public String displayDetails() {
+		return "Hosteller [hostelFee=" + hostelFee + ", studentId=" + studentId + ", name=" + name + ", examFee="
+				+ examFee + "]";
+	}
+	
+	public double payFee(double amount) {
+
+		return  totalFee-amount;
+
+	}
+	
+	 
+	
+
+}
+
+
+package com.test1;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		Student s1 = new Student(1, "John Smith", 25000.0);
+		System.out.println(s1);
+		
+		System.out.println();
+		DayScholar d1 = new DayScholar(2,"Brian Lara",5000.0,2000.0);
+		System.out.println(d1.displayDetails());
+		double payFee = d1.payFee(10000);
+		if(payFee<0) {
+			System.out.println("the amount is negative:"+payFee);
+		}
+		else if(payFee>0) {
+			System.out.println("extra amount to pay:"+payFee);
+		}
+		else {
+			System.out.println("All Fees are clear");
+		}
+		
+		System.out.println();
+		
+		
+		
+		Hosteller h1 = new Hosteller(3, "Virat Kohli",  2000.0,8000.0);
+		System.out.println(h1.displayDetails());
+		double payFee2 = h1.payFee(10000);
+		if(payFee2<0) {
+			System.out.println("the amount is negative:"+payFee2);
+		}
+		else if(payFee2>0) {
+			System.out.println("extra amount to pay:"+payFee2);
+		}
+		else {
+			System.out.println("All Fees are clear");
+		}
+		
+
+	}
+
+}
+
+
+
