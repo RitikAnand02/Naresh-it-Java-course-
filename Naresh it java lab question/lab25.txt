@@ -1,0 +1,561 @@
+Que 1 : Simple Vehicle Inheritance in Java
+===========================================
+
+Demonstrating Inheritance to Simplify and Extend Class Functionality and 
+This motto emphasizes the key educational goal of the program: to show how inheritance can be used to simplify code by 
+reusing existing class functionality and extending it with new features specific to derived classes.
+
+
+Define the base class Vehicle
+-------------------------------
+
+Attributes:
+make: String
+model: String
+year: int
+
+Constructor:
+Vehicle(String make, String model, int year): Constructor to initialize the attributes.
+
+Methods:
+void displayDetails(): Method to display the details of the vehicle.
+
+
+
+Define the subclass Car Inherits from Vehicle
+---------------------------------------------
+
+Attributes:
+numberOfDoors: int
+
+Constructor:
+Car(String make, String model, int year, int numberOfDoors): Constructor to initialize the attributes.
+
+Methods:
+void displayDetails(): Method to display the details of the car, overriding the method from Vehicle.
+
+
+
+Define the subclass Bike Inherits from Vehicle
+----------------------------------------------
+
+Attribute:
+type: String
+
+Constructor:
+Bike(String make, String model, int year, String type): Constructor to initialize the attributes.
+
+Methods:
+void displayDetails(): Method to display the details of the bike, overriding the method from Vehicle.
+
+
+
+Create Test class
+-----------------
+-> create main method
+-> in main method create Car object and Bick object.
+-> Print the details of Car class and Bick class by calling displayDetails() methods of both class.
+
+
+Condition :
+-----------
+if any numeric value is zero or negative then print "Error Invalid Input".
+
+
+TEST CASE 1 :
+-------------
+sample input  : When your reading values for Vehicle class OR Car class OR Bike class then make sure if any numeric value is <=0 then print "Error Invalid Input".
+                
+sample output : Error Invalid Input
+
+
+
+TEST CASE 2 :
+-------------
+sample input : Car car = new Car("Audi", "Q8", 2021, 4);
+               System.out.println("Car Details:");
+               car.displayDetails();
+
+               Bike bike = new Bike("Yamaha", "MT-07", 2020, "Sports");
+               System.out.println("\nBike Details:");
+               bike.displayDetails();
+
+
+sample output : 
+                Car Details:
+                Make: Audi
+                Model: Q8
+                Year: 2021
+                Number of Doors: 4
+
+                Bike Details:
+                Make: Yamaha
+                Model: MT-07
+                Year: 2020
+                Type: Sports
+
+package com.test2;
+
+ class Vehicle {
+	protected String make;
+	protected String model;
+	protected int year;
+	public Vehicle(String make, String model, int year) {
+		super();
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		if(year<=0) {
+			System.err.println("Error Invalid Input For Year");
+			System.exit(0);
+		}
+	}
+	
+	public void displayDetails()  {
+		System.out.println("Vehicle Make"+make);
+		System.out.println("Vehicle Model"+model);
+		System.out.println("Vehicle Year"+year);
+	}
+}
+
+
+package com.test2;
+
+ class Car extends Vehicle {
+	 protected int numberOfDoors;
+
+	public Car(String make, String model, int year, int numberOfDoors) {
+		super(make, model, year);
+		this.numberOfDoors = numberOfDoors;
+	}
+	 
+	public void displayDetails() {
+		System.out.println("Vehicle Make"+make);
+		System.out.println("Vehicle Model"+model);
+		System.out.println("Vehicle Year"+year);
+		System.out.println("Vehicle Number Of Doors"+numberOfDoors);
+	}
+	
+
+}
+
+
+package com.test2;
+
+ class Bike extends Vehicle {
+    protected String type;
+
+	public Bike(String make, String model, int year, String type) {
+		super(make, model, year);
+		this.type = type;
+	}
+    
+	public void displayDetails() {
+		System.out.println("Vehicle Make"+make);
+		System.out.println("Vehicle Model"+model);
+		System.out.println("Vehicle Year"+year);
+		System.out.println("Vehicle Type"+type);
+	}
+}
+
+
+package com.test2;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Car c1 = new Car("Honda","swift",2000,4);
+		c1.displayDetails();
+		System.out.println();
+		
+		Bike b1 = new Bike("Honda","Bullet",0,"Two Seater");
+		b1.displayDetails();
+		
+		
+
+	}
+
+}
+
+
+#######################################################################
+
+Que 2 : Calculate Student Percentage
+====================================
+
+Create a simple Java program using inheritance to manage student data. 
+We have a base class Student, and two subclasses: ScienceStudent and ArtsStudent. 
+Each subclass should calculate the percentage of marks based on its own set of subjects. 
+The percentage calculation will be done using an overridden method.
+
+Define the base class Student
+------------------------------
+Attributes: protected Sreing name and protected int rollNumber.
+
+Costructor:  A constructor to initialize these attributes
+
+Methods: 1) public void displayDetails() a method to display student details.
+         2) public double calculatePercentage() a method wich will calculate and return percentage.
+
+
+
+Define class SceinceStudent extends from Student class
+---------------------------------------------------------------
+Attributes: private int physicsMarks, private int chemistryMarks, private int mathMarks
+Costructor:  A constructor to initialize current class attributes and super class attributes.
+
+Methods: Override displayDetails() a method to display parent class details as well current class details.
+         Override calculatePercentage() a method wich will calculate and return percentage.
+
+
+
+
+Define class class ArtsStudent extends from Student class
+---------------------------------------------------------
+Attributes: private int historyMarks, private int geographyMarks, private int englishMarks
+
+Costructor:  A constructor to initialize current class attributes and super class attributes.
+
+Methods: Override displayDetails() a method to display parent class details as well current class details.
+         Override calculatePercentage() a method wich will calculate and return percentage.
+
+
+Create Test class
+-----------------
+-> create main method
+-> in main method create ScienceStudent object and  ArtsStudent object.
+-> print the details of both class by calling displayDetails() method.
+-> print the percentage of ScienceStudent & ArtsStudent by calling calculatePercentage() methods.
+
+
+Condition :
+-----------
+if any numeric value is zero or negative then print "Error Invalid Input".
+
+
+TEST CASE 1 :
+-------------
+sample input  : When your reading values for Student Class OR ScienceStudent class OR ArtsStudent class then make sure if any numeric value is <=0 then print "Error Invalid Input".
+                
+sample output : Error Invalid Input
+
+
+TEST CASE 2 :
+-------------
+sample input : ScienceStudent scienceStudent = new ScienceStudent("Anjali", 101, 85, 90, 80);
+               ArtsStudent artsStudent = new ArtsStudent("Aryan", 102, 75, 80, 85);
+
+sample output : 
+                Science Student Details:
+                Name: Anjali
+                Roll Number: 101
+                Physics Marks: 85
+                Chemistry Marks: 90
+                Math Marks: 80
+                Percentage: 85.0%
+                
+                Arts Student Details:
+                Name: Bob
+                Roll Number: 102
+                History Marks: 75
+                Geography Marks: 80
+                English Marks: 85
+                Percentage: 80.0%
+ans: 
+
+package com.test3;
+
+ class Student {
+	 protected String name;
+	 protected int rollNumber;
+	public Student(String name, int rollNumber) {
+		super();
+		this.name = name;
+		this.rollNumber = rollNumber;
+		if(rollNumber<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+	}
+	 
+	public void displayDetails() {
+		System.out.println("Student Name"+name);
+		System.out.println("Student Roll Number"+rollNumber);
+	}
+	
+	public double calculatePercentage() {
+		return 0.0;
+	}
+
+}
+
+
+package com.test3;
+
+ class SceinceStudent extends Student{
+	 private int physicsMarks;
+	 private int chemistryMarks;
+	 private int mathMarks;
+	public SceinceStudent(String name, int rollNumber, int physicsMarks, int chemistryMarks, int mathMarks) {
+		super(name, rollNumber);
+		this.physicsMarks = physicsMarks;
+		this.chemistryMarks = chemistryMarks;
+		this.mathMarks = mathMarks;
+		if(rollNumber<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+		else if(physicsMarks<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+		else if(chemistryMarks<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+		else if(mathMarks<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+	}
+	 
+    public void displayDetails() {
+    	System.out.println("Student Name"+name);
+		System.out.println("Student Roll Number"+rollNumber);
+		System.out.println("Student Physics Marks"+physicsMarks);
+		System.out.println("Student Chemistry Marks"+chemistryMarks);
+		System.out.println("Student Math Marks"+mathMarks);
+		
+    }
+    
+    public double calculatePercentage() {
+    	double percentage = (this.physicsMarks+this.chemistryMarks+this.mathMarks)/3; 
+    	return percentage;
+    }
+
+}
+
+
+package com.test3;
+
+ class ArtsStudent extends Student{
+	 private int historyMarks;
+	 private int geographyMarks;
+	 private int englishMarks;
+	public ArtsStudent(String name, int rollNumber, int historyMarks, int geographyMarks, int englishMarks) {
+		super(name, rollNumber);
+		this.historyMarks = historyMarks;
+		this.geographyMarks = geographyMarks;
+		this.englishMarks = englishMarks;
+		if(rollNumber<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+		else if(historyMarks<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+		else if(geographyMarks<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+		else if(englishMarks<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+	}
+	 
+	 public void displayDetails() {
+	    	System.out.println("Student Name"+name);
+			System.out.println("Student Roll Number"+rollNumber);
+			System.out.println("Student History Marks"+historyMarks);
+			System.out.println("Student Geography Marks"+geographyMarks);
+			System.out.println("Student English Marks"+englishMarks);
+			
+	    }
+	 
+	 public double calculatePercentage() {
+	    	double percentage = (this.historyMarks+this.geographyMarks+this.englishMarks)/3; 
+	    	return percentage;
+	    }
+
+}
+
+
+package com.test3;
+
+public class Test {
+
+	public static void main(String[] args) {
+      SceinceStudent s1 = new SceinceStudent("Ritik", 1, 90, 80, 85);
+      s1.displayDetails();
+      double calculatePercentage = s1.calculatePercentage();
+      System.out.println("The Percentage of Science Student"+calculatePercentage+"%");
+      
+      System.out.println();
+      
+      ArtsStudent a1 = new ArtsStudent("Aman", 2, 80, 40, 50);
+      a1.displayDetails();
+      double calculatePercentage2 = a1.calculatePercentage();
+      System.out.println("The Percentage Of Arts Student"+calculatePercentage2+"%");
+	}
+
+}
+
+#######################################################################
+
+Que 3 : Circle and Cylinder Shape Calculation Program
+======================================================
+
+You are tasked with developing a software application for a company that designs
+custom containers. 
+The company needs to calculate the surface area of circular bases and the volumes
+of cylindrical containers to estimate materials and costs. 
+To achieve this, you will create a Java program with the following requirements:
+
+
+Class Circle is given to you. 
+----------------------------
+
+Add below details to the class
+
+1. Instance variables:
+
+radius: double.
+
+2. Create a no constructor that assigns default values to instance variables.
+
+3. Create parameterized constructor that accepts radius.
+
+4. Create below methods,
+
+Method name: getArea
+
+Return type: double
+
+This method should return the area of the circle. Return -1 if radius is negative.
+
+Create a sub class of Circle with name Cylinder 
+-----------------------------------------------
+
+Add below details to the class
+
+1. Instance variables:
+
+height: double.
+
+2. Create a No constructor that assigns default values to instance variables.
+
+3. Create parameterized constructor that accepts radius, height.
+
+4. Create below methods,
+
+Method name: getVolume
+
+Return type: double
+
+This method should return the volume of the cylinder. Return -1 if height is negative.
+
+An ELC class ShapeTester is given to you with a main method. Use this class to test your
+
+
+
+Condition :
+-----------
+if any numeric value is zero or negative then print "Error Invalid Input".
+
+
+TEST CASE 1 :
+-------------
+sample input  : When your reading values for Circle Class OR Cylinder class then make sure if any numeric value is <=0 then print "Error Invalid Input".
+                
+sample output : Error Invalid Input
+
+
+TEST CASE 2 :
+-------------
+sample input  : Cylinder c = new Cylinder(5, 5);
+sample output : Volume = 392.5
+                Area = 78.5
+
+ans:
+package com.test4;
+
+public class Circle {
+	protected double radius;
+	{
+		this.radius=0.0;
+		
+	}
+	public Circle(double radius) {
+		super();
+		
+		if(radius<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+		this.radius = radius;
+	}
+	
+	public double getArea() {
+		final double Pi = 3.14;
+		if(this.radius>=0) {
+		double area = Pi*radius*radius;
+		return area;
+	}
+		else {
+			return -1;
+		}
+	}
+
+}
+
+
+package com.test4;
+
+ class Cylinder extends Circle {
+	 protected double height;
+	 {
+		 this.height=0.0;
+	 }
+	public Cylinder(double radius, double height) {
+		super(radius);
+		if(height<=0) {
+			System.err.println("Error Invalid Input");
+			System.exit(0);
+		}
+		this.height = height;
+	}
+	 
+	 public double getVolume() {
+		final double Pi = 3.14;
+		if(this.height>=0) {
+			double volume = Pi*radius*radius*height;
+			return volume;
+		}
+		else {
+			return -1;
+			
+		}
+	 }
+
+}
+
+
+package com.test4;
+
+public class ShapeTester {
+
+	public static void main(String[] args) {
+        Cylinder c1 = new Cylinder(1,4);
+        double area = c1.getArea();
+        System.out.println("The Area Of Circle: "+area);
+        double volume = c1.getVolume();
+        System.out.println("The Volume Of Cylinder: "+volume);
+        
+	}
+
+}
+
+
+#######################################################################

@@ -1,0 +1,1208 @@
+1. **What is Java?**  
+   Java is a high-level, object-oriented programming language known for its portability, platform independence, and simplicity. It follows the "Write Once, Run Anywhere" principle.
+
+2. **What is JDK?**  
+   JDK (Java Development Kit) is a software development kit used to develop Java applications. It includes the JRE (Java Runtime Environment), compiler, debugger, and other tools.
+
+3. **Draw the JDK Diagram?**  
+   Diagram: 
+   - JDK
+     - JRE
+       - JVM (Java Virtual Machine)
+       - Libraries
+     - Development Tools (compiler, debugger)
+
+4. **How many data types do we have?**  
+   There are 8 primitive data types: byte, short, int, long, float, double, char, and boolean.
+
+5. **Ascending order of numeric data types?**  
+   byte < short < int < long < float < double.
+
+6. **What is type casting?**  
+   Type casting is converting one data type into another, such as from `int` to `double`.
+
+7. **What is JVM architecture?**  
+   The JVM architecture consists of the Class Loader, Memory Areas (Method Area, Heap, Stack, PC Register), and the Execution Engine.
+
+8. **How many class loaders do we have?**  
+   Three main types: Bootstrap ClassLoader, Extension ClassLoader, and Application ClassLoader.
+
+9. **How many dot extensions are created after executing code?**  
+   Typically, a `.class` file is created after compiling a `.java` file.
+
+10. **Can I take multiple classes in a single Java file?**  
+    Yes, but only one public class per file, and its name must match the file name.
+
+11. **How many tokens do we have?**  
+    Tokens are the smallest elements in Java: keywords, identifiers, literals, operators, and separators.
+
+12. **What are the access modifiers we have?**  
+    `public`, `private`, `protected`, and default (no modifier).
+
+13. **How many access modifier tokens do we have?**  
+    Four: `public`, `private`, `protected`, and default.
+
+14. **Explain class structure? (State and behavior of PEN class)**  
+    State: Attributes (e.g., color, type, brand).  
+    Behavior: Methods (e.g., write, refill).
+
+15. **Description of main method**  
+    `public static void main(String[] args)` is the entry point for any Java application.
+
+16. **What is meant by "Write Once, Run Anywhere" in Java?**  
+    Java bytecode can run on any platform that has a JVM, making it platform-independent.
+
+17. **Explain how Java achieves platform independence.**  
+    Java code is compiled into platform-independent bytecode, which is executed by the JVM on different platforms.
+
+18. **Role of JVM in platform independence**  
+    The JVM interprets bytecode into machine-specific code, allowing the same bytecode to run on any machine with a JVM.
+
+19. **How do bytecode and Java compiler contribute to platform independence?**  
+    The Java compiler converts source code into bytecode, which the JVM can execute on any platform.
+
+20. **Process of executing Java program on different platforms?**  
+    Source code → Compile (bytecode) → Execute on JVM for any OS.
+
+21. **Difference between platform independence and platform-specific features in Java?**  
+    Platform independence allows Java to run anywhere with a JVM, while platform-specific features are OS-dependent APIs or libraries.
+
+22. **What is a literal in Java?**  
+    A literal is a fixed value, like `10`, `3.14`, or `"Hello"`.
+
+23. **How are integer literals represented in Java?**  
+    As decimal (e.g., `10`), binary (`0b1010`), octal (`012`), and hexadecimal (`0xA`).
+
+24. **Difference between decimal literal and octal literal in Java?**  
+    Decimal: base-10 (e.g., `10`). Octal: base-8, prefixed with `0` (e.g., `012`).
+
+25. **What is a floating-point literal?**  
+    A literal that represents decimal numbers, e.g., `3.14` or `5.0`.
+
+26. **What is an instance variable?**  
+    An instance variable is unique to each object of a class, differing from local variables that are defined within methods.
+
+27. **Concept of static variable**  
+    A static variable belongs to the class and is shared among all instances.
+
+28. **What is a parameter variable?**  
+    A variable passed to a method, used within that method.
+
+29. **Define local variable**  
+    A local variable is declared inside a method and is only accessible within that method.
+
+30. **Scope of variables**  
+    - Instance: Object-level.  
+    - Static: Class-level.  
+    - Parameter: Method-level.  
+    - Local: Block/method-level.
+
+31. **Initializing instance variables with user-defined value?**  
+    Use constructors or setter methods to assign values.
+
+32. **Constructors for setting user-defined values**  
+    Constructors are used to initialize instance variables when an object is created.
+
+33. **Role of setter methods**  
+    Setters allow controlled modification of instance variables.
+
+34. **Processing user input in Java**  
+    Use `Scanner` or `BufferedReader` to process input and set instance variables.
+
+35. **Purpose of `this` keyword**  
+    Refers to the current object.
+
+36. **Using `this` in instance method**  
+    To distinguish between instance variables and parameters with the same name.
+
+37. **Using `this` in a constructor**  
+    Used to call another constructor within the same class.
+
+38. **Method chaining with `this`**  
+    Allows invoking multiple methods on the same object in a single statement.
+
+39. **Data hiding in Java**  
+    Encapsulates data within classes to prevent unauthorized access.
+
+40. **Abstraction in Java**  
+    Hides implementation details, exposing only essential features.
+
+41. **Abstract class**  
+    A class that cannot be instantiated and may contain abstract methods.
+
+42. **Abstract methods**  
+    Methods without a body, meant to be implemented by subclasses.
+
+43. **Abstract class vs interface**  
+    Abstract classes can have methods with implementations, while interfaces cannot (prior to Java 8).
+
+44. **Achieving Abstraction:**
+   Abstraction can be achieved in Java using:
+   - **Abstract Classes**: These allow you to define abstract methods, forcing subclasses to provide the implementation.
+   - **Interfaces**: Define behaviors (method signatures) that implementing classes must fulfill.
+
+45. **How can you achieve abstraction in Java through abstract classes, interfaces, and abstract methods?**  
+    Example:
+    ```java
+    abstract class Animal {
+        abstract void sound();
+    }
+    
+    class Dog extends Animal {
+        void sound() {
+            System.out.println("Woof");
+        }
+    }
+    interface Vehicle {
+        void drive();
+    }
+    class Car implements Vehicle {
+        public void drive() {
+            System.out.println("Driving a car");
+        }
+    }
+    ```
+
+46. **What is encapsulation in Java?**  
+    Encapsulation is the bundling of data (fields) and methods (functions) that operate on the data into a single unit or class. It restricts direct access to some of the object's components.
+
+47. **Role of access modifiers in encapsulation?**  
+    Access modifiers (`private`, `public`, `protected`, default) control the visibility and accessibility of class members, helping to achieve data hiding.
+
+48. **How do getter and setter methods contribute to encapsulation?**  
+    Getters and setters allow controlled access to private fields of a class, providing a way to validate data or enforce rules:
+    ```java
+    class Person {
+        private String name;
+        
+        public String getName() {
+            return name;
+        }
+        
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+    ```
+
+49. **Benefits of encapsulation in Java**  
+    - Protects data from unintended access.
+    - Improves code maintainability and flexibility.
+    - Encourages modularity by keeping the implementation details private.
+
+50. **Real-world encapsulation examples**  
+    In Java frameworks like Spring, encapsulation is used to hide complex configurations and expose only essential functionalities to the user through interfaces and classes.
+
+51. **What is a constructor in Java?**  
+    A constructor is a special method used to initialize objects. It has the same name as the class and no return type.
+
+52. **Types of Constructors**  
+    - **Default Constructor**: Provided by the compiler if no constructor is defined.
+    - **Parameterized Constructor**: Allows the user to initialize fields with specific values.
+
+53. **What is a default constructor?**  
+    A default constructor is automatically provided by the compiler if no constructors are explicitly defined. It has no parameters and initializes objects with default values.
+
+54. **How do you define a parameterized constructor?**  
+    A constructor with parameters:
+    ```java
+    class Person {
+        String name;
+        int age;
+        
+        Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+    ```
+
+55. **What is constructor overloading?**  
+    Constructor overloading allows defining multiple constructors with different parameter lists. This provides flexibility in object creation:
+    ```java
+    class Person {
+        String name;
+        int age;
+        
+        Person() {
+            this.name = "Unknown";
+            this.age = 0;
+        }
+        
+        Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+    ```
+
+56. **Role of constructors in initializing objects**  
+    Constructors initialize instance variables when an object is created, ensuring proper object setup.
+
+57. **Compare `==`, `equals()`, and `hashCode()` when comparing objects**  
+    - `==` checks reference equality.
+    - `equals()` checks content equality.
+    - `hashCode()` returns a unique code representing the object, used in hash-based collections like `HashMap`.
+
+58. **Purpose of `equals(Object o)` method**  
+    `equals()` is overridden to provide meaningful equality between two objects based on their content rather than reference.
+
+59. **Role of `toString()` method**  
+    `toString()` provides a string representation of an object, mainly used for debugging or logging purposes.
+
+60. **Significance of `hashCode()` method**  
+    `hashCode()` provides a unique code for an object. Objects with the same content should have the same hash code. This is important in collections like `HashSet` and `HashMap`.
+
+61. **When would you use `toString()`?**  
+    Use `toString()` to represent object data in a human-readable format, especially for debugging or logging.
+
+62. **Difference between `==` and `equals(Object o)`**  
+    - `==` checks if two references point to the same memory location.
+    - `equals()` checks if two objects are logically equal based on their content. You override it for meaningful equality.
+
+63. **What is the IS-A relation in Java?**  
+    IS-A refers to inheritance, where a subclass inherits properties and behavior from a superclass. It defines a hierarchical relationship.
+
+64. **How does inheritance promote code reuse in Java?**  
+    Inheritance allows a subclass to inherit methods and fields from a parent class, reducing code duplication and improving maintainability.
+
+65. **What is inheritance in Java?**  
+    Inheritance is a mechanism where one class (subclass) acquires the properties and behaviors of another class (superclass).
+
+66. **Establishing IS-A relationship in Java**  
+    The IS-A relationship is established using the `extends` keyword for classes or `implements` for interfaces.
+
+67. **Types of inheritance in Java**  
+    - **Single Inheritance**: A class extends one parent class.
+    - **Multilevel Inheritance**: A class extends another class, forming a chain.
+    - **Hierarchical Inheritance**: Multiple classes inherit from the same parent class.
+    
+    (Note: Java doesn't support multiple inheritance directly due to ambiguity issues.)
+
+68. **Difference between single and multiple inheritance**  
+    - Single inheritance allows one class to extend only one parent class.
+    - Multiple inheritance (not supported in Java) allows a class to inherit from more than one class. In Java, this is managed through interfaces.
+
+69. **How are `this()` and `super()` used in Java constructors?**  
+    - `this()` is used to call another constructor within the same class.
+    - `super()` is used to call the parent class's constructor.
+
+70. **Significance of calling `this()` and `super()`**  
+    - `this()` can be used for constructor chaining in the same class.
+    - `super()` is used to ensure the parent class’s constructor is invoked during object creation, initializing the inherited properties.
+
+71. **Why doesn't Java support multiple inheritance?**  
+    Java avoids multiple inheritance to prevent ambiguity and complexity, such as the diamond problem, where a class inherits from multiple classes with conflicting methods.
+
+72. **Describe access modifiers in Java**  
+    Access modifiers define the visibility of a class and its members:
+    - **public**: Accessible from everywhere.
+    - **private**: Accessible only within the class.
+    - **protected**: Accessible within the package and subclasses.
+    - **default** (no modifier): Accessible within the package.
+
+73. **How do access modifiers contribute to encapsulation?**  
+    Access modifiers protect the internal data of a class, ensuring controlled access and modifying data only through methods.
+
+74. **What is the HAS-A relation in Java?**  
+    HAS-A refers to composition or association, where a class contains references to other classes, indicating ownership or a usage relationship.
+
+75. **Example of a HAS-A relationship**  
+    ```java
+    class Engine {}
+    class Car {
+        private Engine engine;  // Car HAS-A Engine
+        Car() {
+            engine = new Engine();
+        }
+    }
+    ```
+
+76. **Define superclass and subclass in the context of inheritance.**  
+    - **Superclass**: A class from which other classes inherit. Also known as the parent class.
+    - **Subclass**: A class that inherits from another class. Also known as the child class.
+
+77. **How is the superclass related to the subclass in terms of syntax structure?**  
+    The subclass is created by using the `extends` keyword to inherit from the superclass:
+    ```java
+    class Superclass {
+        // code
+    }
+
+    class Subclass extends Superclass {
+        // additional code
+    }
+    ```
+
+78. **Differentiate between method overriding and method overloading.**  
+    - **Method Overriding**: Happens when a subclass provides a specific implementation of a method that is already defined in its superclass.
+    - **Method Overloading**: Happens when two or more methods in the same class share the same name but have different parameter lists.
+
+79. **Examples of method overriding and overloading.**  
+    - **Overriding**:
+      ```java
+      class Animal {
+          void sound() {
+              System.out.println("Animal sound");
+          }
+      }
+
+      class Dog extends Animal {
+          @Override
+          void sound() {
+              System.out.println("Bark");
+          }
+      }
+      ```
+    - **Overloading**:
+      ```java
+      class Calculator {
+          int add(int a, int b) {
+              return a + b;
+          }
+          
+          int add(int a, int b, int c) {
+              return a + b + c;
+          }
+      }
+      ```
+
+80. **Explain how polymorphism is achieved through inheritance in Java.**  
+    Polymorphism is achieved when a superclass reference is used to refer to an object of a subclass. This allows a single method to behave differently based on the object it is acting upon (dynamic method dispatch).
+    ```java
+    Animal a = new Dog();
+    a.sound();  // Output: Bark (Dog's method)
+    ```
+
+81. **Advantages of polymorphism in object-oriented programming.**  
+    - Flexibility: One interface for many implementations.
+    - Reusability: Promotes code reuse.
+    - Extensibility: Makes it easier to introduce new functionality.
+
+82. **Difference between compile-time polymorphism and static polymorphism.**  
+    Compile-time polymorphism (also known as static polymorphism) occurs during method overloading, where the method to be invoked is resolved at compile time.
+
+83. **Difference between runtime polymorphism and dynamic polymorphism.**  
+    Runtime polymorphism (also known as dynamic polymorphism) happens during method overriding, where the actual method that gets invoked is determined at runtime.
+
+84. **Compare and contrast abstract classes and interfaces in Java.**  
+    - **Abstract Class**:
+        - Can have abstract and non-abstract methods.
+        - Supports constructors.
+        - Can contain instance variables.
+    - **Interface**:
+        - Can only have abstract methods (before Java 8; can have default/static methods after Java 8).
+        - No constructors.
+        - Only static final constants are allowed.
+    
+85. **When would you choose to use an abstract class over an interface, and vice versa?**  
+    - Use an **abstract class** when you want to share code (methods or fields) among closely related classes.
+    - Use an **interface** when you want to define a contract for unrelated classes to implement specific methods.
+
+86. **What is covariant?**  
+    Covariant return types allow the overridden method in the subclass to return a more specific type than the return type of the method in the superclass.
+    ```java
+    class Animal {
+        Animal getAnimal() {
+            return new Animal();
+        }
+    }
+
+    class Dog extends Animal {
+        @Override
+        Dog getAnimal() {
+            return new Dog();  // Covariant return type
+        }
+    }
+    ```
+
+87. **Explain the concept of method hiding in Java inheritance.**  
+    Method hiding occurs when a static method in a subclass has the same name and parameter list as a static method in the superclass. The method in the subclass hides the one in the superclass.
+    ```java
+    class Parent {
+        static void display() {
+            System.out.println("Parent display");
+        }
+    }
+
+    class Child extends Parent {
+        static void display() {
+            System.out.println("Child display");
+        }
+    }
+    ```
+
+88. **When does method hiding occur, and how is it different from method overriding?**  
+    - **Method Hiding**: Occurs with static methods. The subclass method hides the superclass method.
+    - **Method Overriding**: Occurs with instance methods. The subclass method overrides the superclass method.
+
+89. **Role of the `protected` access modifier in inheritance.**  
+    The `protected` modifier allows members of a class to be accessed within its own package and by subclasses, even if they are in different packages.
+
+90. **What is Autoboxing in Java?**  
+    Autoboxing is the automatic conversion of primitive types to their corresponding wrapper class objects.
+    ```java
+    int a = 10;
+    Integer b = a;  // Autoboxing
+    ```
+
+91. **Explain the concept of Unboxing in Java.**  
+    Unboxing is the automatic conversion of wrapper class objects to their corresponding primitive types.
+    ```java
+    Integer a = 10;
+    int b = a;  // Unboxing
+    ```
+
+92. **How does Autoboxing simplify code in Java?**  
+    Autoboxing eliminates the need for explicit conversion between primitive types and their wrapper classes, simplifying code when working with collections and generics.
+
+93. **Primitive data types involved in Autoboxing**  
+    - `byte` → `Byte`
+    - `short` → `Short`
+    - `int` → `Integer`
+    - `long` → `Long`
+    - `float` → `Float`
+    - `double` → `Double`
+    - `char` → `Character`
+    - `boolean` → `Boolean`
+
+94. **Example of Autoboxing in Java**  
+    ```java
+    int num = 5;
+    Integer wrappedNum = num;  // Autoboxing
+    ```
+
+95. **Example of Unboxing in Java**  
+    ```java
+    Integer wrappedNum = 10;
+    int num = wrappedNum;  // Unboxing
+    ```
+
+96. **Role of wrapper classes in Autoboxing and Unboxing**  
+    Wrapper classes (`Integer`, `Double`, etc.) encapsulate primitive types in an object and enable the process of autoboxing and unboxing.
+
+97. **Can Autoboxing lead to performance overhead?**  
+    Yes, autoboxing can cause performance overhead because it involves the creation of objects, which are more memory-intensive and slower than using primitive types directly.
+
+98. **How does Autoboxing help when working with collections?**  
+    Collections in Java (like `ArrayList`, `HashSet`) can only store objects, not primitive types. Autoboxing allows primitive values to be automatically converted into objects when added to collections.
+
+99. **Situations where Autoboxing and Unboxing might lead to NullPointerException**  
+    If a null reference is autounboxed, a `NullPointerException` will be thrown. For example:
+    ```java
+    Integer a = null;
+    int b = a;  // Throws NullPointerException
+    ```
+
+100. **What is the purpose of the `final` keyword in Java?**  
+    The `final` keyword is used to restrict the usage of variables, methods, and classes in Java. It can be applied in the following ways:
+    - **final variable**: Cannot be reassigned once initialized.
+    - **final method**: Cannot be overridden by subclasses.
+    - **final class**: Cannot be subclassed or extended.
+
+101. **How does declaring a variable as `final` affect its value?**  
+    Once a variable is declared as `final`, it can be assigned only once. After it is initialized, its value cannot be modified.
+
+102. **Explain the significance of a `final` method in Java.**  
+    A `final` method cannot be overridden by any subclass. It helps to preserve the behavior of the method in a class hierarchy, ensuring that subclasses do not modify its functionality.
+
+103. **Can a `final` variable be reassigned after its initial value is set?**  
+    No, a `final` variable cannot be reassigned once it has been initialized. Attempting to reassign it will result in a compilation error.
+
+104. **Describe the role of the `final` keyword in the context of classes.**  
+    A class declared as `final` cannot be extended or subclassed. This is useful when you want to prevent inheritance to ensure that the class’s implementation is not altered.
+
+105. **In Java, how does the `final` keyword relate to constants?**  
+    In Java, when a variable is declared `final`, it essentially becomes a constant. By convention, `final` constants are typically written in uppercase letters and initialized when they are declared:
+    ```java
+    final int MAX_SIZE = 100;
+    ```
+
+106. **Can a method be both `static` and `final` in Java? Explain.**  
+    Yes, a method can be both `static` and `final`. A `static` method belongs to the class itself, and marking it as `final` ensures that it cannot be overridden in subclasses.
+
+107. **What is the difference between a `final` variable and a `final` method?**  
+    - A **final variable** cannot be reassigned after its initial value is set.
+    - A **final method** cannot be overridden by subclasses.
+
+108. **How does the use of the `final` keyword contribute to code optimization?**  
+    The JVM can make optimizations for `final` methods, variables, and classes, knowing that their values or implementations cannot change. This can lead to faster performance since certain assumptions can be made about the immutability or fixed nature of final entities.
+
+109. **Explain the behavior of a `final` class in terms of inheritance.**  
+    A `final` class cannot be extended by any other class. This is useful when you want to prevent inheritance, ensuring that no subclass can modify or override its methods.
+
+110. **What is a nested inner class in Java, and how does it differ from a regular (non-nested) class? Provide an example.**  
+    A **nested inner class** is a class that is defined within another class. There are two types: 
+    - **Non-static inner classes**: Associated with an instance of the outer class.
+    - **Static nested classes**: Not associated with any instance of the outer class and behave like a regular class.
+    ```java
+    class OuterClass {
+        class InnerClass { // non-static inner class
+            void display() {
+                System.out.println("Inner class method");
+            }
+        }
+    }
+    ```
+
+111. **Explain the concept of a method-local inner class. In what scenarios might you use this type of inner class?**  
+    A **method-local inner class** is a class defined within a method. It is local to the method and can only be accessed within that method. You might use it when you need to define a class for a one-time use within a specific method.
+    ```java
+    class OuterClass {
+        void display() {
+            class MethodLocalInnerClass {
+                void print() {
+                    System.out.println("Inside method-local inner class");
+                }
+            }
+            MethodLocalInnerClass inner = new MethodLocalInnerClass();
+            inner.print();
+        }
+    }
+    ```
+
+112. **Define a static nested inner class in Java. How is it different from a non-static nested inner class?**  
+    A **static nested class** is a static class that is defined within another class. It is different from a non-static inner class in that it does not require an instance of the outer class to be created, and it can access static members of the outer class but not instance members.
+    ```java
+    class OuterClass {
+        static class StaticNestedClass {
+            void display() {
+                System.out.println("Static nested class");
+            }
+        }
+    }
+    ```
+
+113. **What is an anonymous inner class, and how is it used in Java? Provide a scenario where anonymous inner classes are particularly useful.**  
+    An **anonymous inner class** is a class that does not have a name and is declared and instantiated all in one expression. It is often used when you need to override methods of an interface or superclass for one-time use.
+    ```java
+    interface Greeting {
+        void greet();
+    }
+
+    class Test {
+        void display() {
+            Greeting g = new Greeting() {
+                public void greet() {
+                    System.out.println("Hello!");
+                }
+            };
+            g.greet();
+        }
+    }
+    ```
+
+114. **Discuss the relationships between all inner classes. How do they interact with their enclosing classes and each other?**  
+    Inner classes (non-static) have access to the members (both static and instance) of the outer class. A static nested class, however, only has access to the static members of the outer class. Anonymous and method-local inner classes can also access the variables of the enclosing method if they are declared `final` or effectively `final`. All inner classes exist within the scope of their enclosing class.
+
+115. **How do you declare an `enum` in Java, and what is the significance of using enums over other data types?**  
+    An `enum` is a special class that represents a fixed set of constants. Enums are type-safe and are often used to represent a predefined set of values (like days of the week, directions, etc.).
+    ```java
+    enum Day {
+        SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY;
+    }
+    ```
+
+116. **Explain the concept of enum constants. How are they defined within an enum, and what type of values can they represent?**  
+    Enum constants are the values defined within an enum. They are implicitly `public`, `static`, and `final`. They can represent any constant values, such as the days of the week, months, or states in a state machine.
+
+117. **Discuss the role of methods in enums. How can you add custom methods to an enum, and what purpose might they serve?**  
+    Enums in Java can have methods and fields, just like regular classes. This allows you to associate behavior with the enum values. You can define custom methods and constructors inside an enum to extend its functionality.
+    ```java
+    enum Day {
+        SUNDAY, MONDAY, TUESDAY;
+
+        public void display() {
+            System.out.println(this.name());
+        }
+    }
+    ```
+
+118. **Name and briefly explain the main components of the Java Virtual Machine (JVM) architecture.**  
+    - **ClassLoader**: Loads class files into memory.
+    - **Memory Area**: Consists of Heap, Stack, Method Area, and Runtime Constant Pool.
+    - **Execution Engine**: Executes the bytecode using a Just-In-Time (JIT) compiler or an interpreter.
+    - **Native Method Interface**: Connects the JVM to libraries written in other languages.
+    - **Garbage Collector**: Manages memory by cleaning up unused objects.
+
+119. **What is the role of the class loader in the JVM architecture? How does it contribute to the loading of Java classes?**  
+    The **ClassLoader** is responsible for dynamically loading classes into the JVM at runtime. It reads the bytecode from `.class` files and loads them into memory. There are different types of class loaders (Bootstrap, Extension, and Application class loaders), and each is responsible for loading classes in different phases.
+
+120. **Describe the purpose of the execution engine in the JVM. How does it execute Java bytecode?**  
+    The **Execution Engine** is responsible for executing the bytecode instructions. It converts the bytecode into machine code using the interpreter (for slower, step-by-step execution) or the Just-In-Time (JIT) compiler, which translates frequently executed bytecode into native machine code for better performance.
+
+**121. Identify and explain the different memory areas in the JVM architecture. How is memory management handled during the execution of a Java program?**  
+The JVM divides memory into several areas, each handling a different part of the program execution:
+- **Heap**: Stores all objects created by the application. It is managed by the garbage collector, which automatically deallocates memory for objects that are no longer used.
+- **Stack**: Holds local variables, method calls, and reference variables. Each thread has its own stack, and memory is automatically managed as methods are called and returned.
+- **Method Area**: Contains class-level data like class metadata, method data, and runtime constant pool. It’s shared among all threads.
+- **Program Counter (PC) Register**: Keeps track of the current instruction being executed for each thread.
+- **Native Method Stack**: Used for executing native (non-Java) methods. This interacts with the operating system and other native code.
+
+**122. What is a literal in Java?**  
+A literal in Java represents a fixed value that is assigned to a variable directly in the code. For example, `5`, `'A'`, and `"Hello"` are literals for an integer, a character, and a string, respectively.
+
+**123. How are integer literals represented in Java?**  
+Integer literals can be represented in several ways:
+- **Decimal**: Base 10, e.g., `100`.
+- **Binary**: Base 2, prefixed by `0b`, e.g., `0b1101`.
+- **Octal**: Base 8, prefixed by `0`, e.g., `013`.
+- **Hexadecimal**: Base 16, prefixed by `0x`, e.g., `0x1A`.
+
+**124. Explain the difference between a decimal literal and an octal literal in Java.**  
+- **Decimal literal**: A number in base 10 (normal number system), e.g., `10`.
+- **Octal literal**: A number in base 8, prefixed with `0`, e.g., `012`, which is equal to `10` in decimal.
+
+**125. What is a floating-point literal, and how is it written in Java?**  
+A floating-point literal is a number that contains a fractional part and is used for `float` or `double` data types. It can be written in decimal form or scientific notation. 
+Examples:
+- `3.14` (decimal).
+- `2.5e3` (scientific notation, equivalent to 2500.0).
+
+**126. What is an instance variable in Java, and how does it differ from a local variable?**  
+- **Instance variable**: Defined inside a class but outside any method, and belongs to the instance of the class. It can be accessed by all methods within the class.
+- **Local variable**: Declared inside a method or block and can only be accessed within that specific method or block. It exists only for the duration of the method execution.
+
+**127. Explain the concept of a static variable. How is it different from an instance variable?**  
+A **static variable** is shared among all instances of a class. It is declared using the `static` keyword and belongs to the class rather than any instance. In contrast, an **instance variable** is unique to each instance of the class.
+
+**128. What is a parameter variable in the context of methods in Java? How are parameter variables used?**  
+A **parameter variable** is a variable that is passed to a method when the method is called. It allows data to be passed into a method for processing. The parameter variable is defined in the method’s signature and is used within the method.
+
+**129. Define local variable in Java. How is the scope of a local variable determined, and what are its limitations?**  
+A **local variable** is declared inside a method, constructor, or block and can only be accessed within that scope. It is created when the method is called and destroyed when the method completes. Local variables cannot have a default value and must be initialized before use.
+
+**130. Discuss the scope of instance variables, static variables, parameter variables, and local variables. How does the scope of each type of variable affect its visibility in different parts of a Java program?**
+- **Instance variable**: Scope is the entire class, accessible by all instance methods.
+- **Static variable**: Scope is the entire class, accessible by all class methods, including static ones.
+- **Parameter variable**: Scope is within the method that defines it, accessible only during the method's execution.
+- **Local variable**: Scope is within the method or block it is declared in, destroyed after the method execution.
+
+**131. How can you initialize an instance variable in Java with a user-defined value during object creation?**  
+You can initialize instance variables using a **constructor** when the object is created:
+```java
+class Pen {
+    String color;
+    
+    Pen(String color) {
+        this.color = color; // Initialize instance variable
+    }
+}
+Pen pen = new Pen("Blue");
+```
+
+**132. Explain how constructors can be utilized to set user-defined values for instance variables in a Java class.**  
+Constructors allow you to initialize instance variables with user-defined values. When an object is created, the constructor is called, and the values passed to the constructor are used to set the instance variables:
+```java
+class Pen {
+    String color;
+    Pen(String color) {
+        this.color = color; // Constructor sets the instance variable
+    }
+}
+```
+
+**133. What is the role of setter methods, and how do they facilitate the assignment of user-defined values to instance variables?**  
+Setter methods are used to assign or modify values of instance variables after the object is created. They follow the naming convention `setVariableName` and provide controlled access to modify the instance variables:
+```java
+class Pen {
+    private String color;
+    
+    public void setColor(String color) {
+        this.color = color; // Setter method assigns value
+    }
+}
+```
+
+**134. How can user input be processed in Java, and how might this input be used to initialize or modify instance variables within an object?**  
+User input in Java can be processed using classes like `Scanner` or `BufferedReader`. This input can then be passed to setter methods or constructors to initialize or modify instance variables:
+```java
+Scanner sc = new Scanner(System.in);
+Pen pen = new Pen(sc.nextLine()); // Input used to initialize instance variable
+```
+
+**135. What is the purpose of the `this` keyword in Java, and how is it used?**  
+The `this` keyword refers to the current instance of the class. It is commonly used to differentiate between instance variables and parameters with the same name, as well as to call other constructors or methods from within the same class.
+
+**136. In the context of an instance method, explain how and why the `this` keyword is employed.**  
+In an instance method, the `this` keyword refers to the current object invoking the method. It’s used when a local variable or parameter name clashes with an instance variable, helping to avoid ambiguity:
+```java
+public void setColor(String color) {
+    this.color = color; // 'this' refers to the instance variable
+}
+```
+
+**137. How is the `this` keyword used within a constructor? Provide an example to illustrate its usage.**  
+In a constructor, `this` can be used to refer to the current object's instance variables or to call another constructor within the same class (constructor chaining):
+```java
+class Pen {
+    String color;
+    Pen(String color) {
+        this.color = color; // Refers to instance variable
+    }
+    
+    Pen() {
+        this("Blue"); // Calls another constructor
+    }
+}
+```
+
+**138. Discuss the concept of method chaining in Java and explain how the `this` keyword can be involved in this process.**  
+Method chaining is a technique in which multiple methods are called on the same object in a single statement. The `this` keyword can be returned from a method to allow chaining:
+```java
+class Pen {
+    private String color;
+    
+    public Pen setColor(String color) {
+        this.color = color;
+        return this; // Enables method chaining
+    }
+}
+Pen pen = new Pen().setColor("Red");
+```
+
+**139. Explain the concept of data hiding in Java and its significance in object-oriented programming.**  
+Data hiding is the principle of restricting access to certain fields of a class using access modifiers like `private`. It ensures that sensitive or important data is encapsulated and can only be modified through controlled methods (getters/setters). This promotes security and modularity.
+
+**140. Define abstraction in the context of Java programming. How does it contribute to the design of software?**  
+Abstraction in Java is the process of hiding the implementation details of a class and exposing only the necessary functionalities. It helps in simplifying the design of software by focusing on high-level interactions without worrying about the underlying complexities. Abstraction is achieved using abstract classes and interfaces.
+
+
+**141. What is an abstract class in Java? How does it differ from a regular (concrete) class?**  
+An abstract class in Java is a class that cannot be instantiated and may contain abstract methods (methods without a body) that must be implemented by its subclasses. A regular (concrete) class can be instantiated, and all its methods must have an implementation.
+
+**142. Explain the concept of abstract methods. How are they declared and implemented in Java?**  
+An abstract method is a method declared without a body in an abstract class. It is declared using the `abstract` keyword, and it must be implemented by any subclass that extends the abstract class:
+```java
+abstract class Shape {
+    abstract void draw(); // Abstract method
+}
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+```
+
+**143. Compare and contrast abstract classes and interfaces in Java. When would you prefer using one over the other?**  
+- **Abstract class**: Can contain a mix of implemented and abstract methods. It is best used when classes share common behavior but may also have distinct behaviors.
+- **Interface**: Contains only abstract methods (Java 8 allows default and static methods) and represents a contract that implementing classes must adhere to. Use interfaces when classes need to share a common API but can have very different implementations.
+  
+Use **abstract classes** when:
+- You want to provide default behavior.
+- You need shared state (fields) between subclasses.
+
+Use **interfaces** when:
+- You need to define common behavior that unrelated classes should implement.
+- You need to support multiple inheritance (since a class can implement multiple interfaces but extend only one abstract class).
+
+**144. Achieving Abstraction:**  
+Abstraction is achieved in Java using:
+- **Abstract classes**: Hide implementation details and allow subclasses to provide specific functionality.
+- **Interfaces**: Define a contract that classes must follow without providing any implementation.
+
+Example of abstraction using an interface:
+```java
+interface Animal {
+    void sound();
+}
+class Dog implements Animal {
+    public void sound() {
+        System.out.println("Barks");
+    }
+}
+```
+
+**145. How can you achieve abstraction in Java through the use of abstract classes, interfaces, and abstract methods? Provide examples to illustrate your answer.**  
+Abstraction can be achieved using:
+- **Abstract classes**: Define abstract methods that must be implemented by subclasses.
+- **Interfaces**: Define a set of methods that implementing classes must define.
+  
+Example of using an abstract class:
+```java
+abstract class Vehicle {
+    abstract void start();
+}
+class Car extends Vehicle {
+    void start() {
+        System.out.println("Car starts");
+    }
+}
+```
+
+Example of using an interface:
+```java
+interface Playable {
+    void play();
+}
+class Music implements Playable {
+    public void play() {
+        System.out.println("Playing music");
+    }
+}
+```
+
+**146. What is encapsulation in Java, and why is it considered a fundamental principle of object-oriented programming?**  
+Encapsulation is the process of bundling data (variables) and methods that operate on that data within a single unit (class). It restricts direct access to certain components and controls data access through methods, promoting modularity and security.
+
+**147. Explain the role of access modifiers (e.g., private, public, protected) in achieving encapsulation in Java.**  
+Access modifiers control the visibility of class members:
+- **private**: Accessible only within the same class.
+- **public**: Accessible from any other class.
+- **protected**: Accessible within the same package and subclasses.
+Encapsulation is achieved by making instance variables `private` and providing `public` getter and setter methods to control access.
+
+**148. How do getter and setter methods contribute to encapsulation? Provide an example to illustrate their usage.**  
+Getter and setter methods allow controlled access to private fields. They let you validate or modify data before it’s set or accessed, thus securing the internal state of an object:
+```java
+class Employee {
+    private int age;
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int age) {
+        if (age > 0) {
+            this.age = age;
+        } else {
+            System.out.println("Age cannot be negative");
+        }
+    }
+}
+```
+
+**149. Enumerate the benefits of encapsulation in Java, emphasizing the advantages it brings to code maintainability and security.**  
+- **Data hiding**: Prevents direct access to object fields, ensuring the internal state remains consistent.
+- **Modularity**: Changes to a class’s implementation do not affect external code.
+- **Control**: You can control how data is accessed and modified using getters and setters.
+- **Improved maintainability**: Easier to manage large codebases since only well-defined interfaces are exposed.
+
+**150. Discuss how encapsulation is applied in real-world scenarios, providing examples from Java libraries or frameworks that demonstrate the use of encapsulation principles.**  
+Encapsulation is widely used in Java libraries:
+- **JavaBeans**: Encapsulate private properties with getter and setter methods.
+- **Collections Framework**: Classes like `ArrayList` encapsulate the internal structure of the list, exposing only methods like `add()` or `remove()` without exposing the underlying array implementation.
+
+**151. What is a constructor in Java? How does it differ from a regular method?**  
+A **constructor** is a special method that is called when an object is instantiated. It differs from a regular method in several ways:
+- It has the same name as the class.
+- It does not return a value, not even `void`.
+- It is used to initialize objects.
+
+**152. What are the types of constructors?**  
+- **Default constructor**: Provided by the compiler if no constructors are defined. It takes no arguments.
+- **Parameterized constructor**: Defined by the programmer to accept arguments and initialize fields with specific values.
+
+**153. Explain the concept of a default constructor. When is it automatically provided by the compiler?**  
+A **default constructor** is automatically provided by the compiler if no other constructors are defined in a class. It initializes object fields with default values (e.g., `null` for objects, `0` for integers).
+
+**154. How do you define a parameterized constructor in Java? Provide an example.**  
+A parameterized constructor allows you to pass arguments during object creation to initialize the object with specific values:
+```java
+class Pen {
+    String color;
+    
+    Pen(String color) {
+        this.color = color;
+    }
+}
+Pen pen = new Pen("Blue");
+```
+
+**155. What is constructor overloading? Provide a scenario where constructor overloading would be useful.**  
+**Constructor overloading** occurs when a class has multiple constructors with different parameter lists. It allows objects to be created in different ways.  
+Example: A `Pen` class with overloaded constructors:
+```java
+class Pen {
+    String color;
+    Pen() {
+        this.color = "Black";
+    }
+    Pen(String color) {
+        this.color = color;
+    }
+}
+Pen pen1 = new Pen(); // Uses default color "Black"
+Pen pen2 = new Pen("Blue"); // Uses user-defined color
+```
+
+**156. Discuss the role of constructors in initializing objects. How are constructors invoked during object creation?**  
+Constructors are used to initialize objects. When an object is created using the `new` keyword, the constructor is automatically called to set up the object’s initial state. If a class has a parameterized constructor, arguments must be passed to it.
+
+**157. Compare and contrast the use of `==`, `equals()`, and `hashCode()` when comparing objects in Java. Under what circumstances would you override these methods in a class?**  
+- **`==`**: Compares reference equality (whether two references point to the same object in memory).
+- **`equals()`**: Compares the contents of two objects. It should be overridden in a class to provide meaningful content comparison.
+- **`hashCode()`**: Returns a hash value for an object. It must be overridden when `equals()` is overridden, as objects that are equal must have the same hash code.
+Override `equals()` and `hashCode()` when objects of the class will be stored in collections that rely on these methods (e.g., `HashMap`, `HashSet`).
+
+**158. What is the purpose of the `equals(Object o)` method? How can it be overridden to provide a meaningful comparison between objects of a class?**  
+The `equals(Object o)` method is used to compare the contents of two objects. To provide a meaningful comparison, you can override it in your class:
+```java
+@Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Pen pen = (Pen) o;
+    return color.equals(pen.color);
+}
+```
+
+**159. Discuss the role of the `toString()` method in Java. How does it contribute to the readability and debugging of code?**  
+The `toString()` method provides a string representation of an object. It is useful for logging and debugging, as it allows you to print object details in a readable format. By default, it returns the object’s class name and hash code, but it can be overridden to provide more meaningful output.
+
+**160. Explain the significance of the `hashCode()` method. How is it used in Java, and what considerations should be taken into account when implementing this method?**  
+The `hashCode()` method returns an integer hash value for an object. It is crucial for efficient lookup in hash-based collections (like `HashMap` or `HashSet
+
+`). When implementing `hashCode()`, ensure that:
+- If two objects are equal according to `equals()`, they must have the same hash code.
+- However, two objects with the same hash code might not necessarily be equal.
+
+=================================================================================================================
+
+**Programs**
+==========
+
+
+### **1. Find the output of this program?**
+
+```java
+public class InfiniteExample {
+    static int methodName( ) {
+        System.out.println("a value is :"+(a=a));
+        a = ++a + (a = ++a + --b + c * (--c + a++)); 
+        return a;
+    }
+
+    static int sub3values(int a, int b) {
+        return a = --a + (b = --b - (--a + b--) + --a - ++b * (++b + --b));
+    }
+
+    public static void main(String[] args) {
+        System.out.println(methodName(1, 2, 3)); // Syntax Error
+        System.out.println(sub3values(10, 5));
+    }
+}
+```
+Output : Syntax Error.
+
+**Explanation:**
+- The code as written has multiple errors:
+  - The `methodName(1, 2, 3)` call in `main` is incorrect, as the method definition `methodName()` does not accept arguments. 
+  - The `a`, `b`, `c` variables used in the `methodName()` are undefined.
+  
+To fix it, `a`, `b`, and `c` should be defined as class variables or passed as parameters. Additionally, `methodName()` should accept parameters if `methodName(1, 2, 3)` is called.
+
+---
+
+### **2. Write the code for reversing the string**
+
+```java
+public class ReverseStringExample {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        String reversedStr = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversedStr += str.charAt(i);
+        }
+        System.out.println("Reversed String: " + reversedStr);
+    }
+}
+```
+
+Alternatively, you can use the `StringBuilder` or `StringBuffer`:
+
+```java
+public class ReverseStringExample {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        String reversedStr = new StringBuilder(str).reverse().toString();
+        System.out.println("Reversed String: " + reversedStr);
+    }
+}
+```
+
+---
+
+### **3. Write the code to count the characters from given numbers**
+
+```java
+public class CountChars {
+    public static void main(String[] args) {
+        String str = "123456789";
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isDigit(str.charAt(i))) {
+                count++;
+            }
+        }
+        System.out.println("Total characters: " + count);
+    }
+}
+```
+
+---
+
+### **4. Write the code for counting 1’s and 0’s in a string**
+
+```java
+public class CountOnesZeros {
+    public static void main(String[] args) {
+        String binaryString = "1010010101";
+        int countOnes = 0, countZeros = 0;
+
+        for (char c : binaryString.toCharArray()) {
+            if (c == '1') countOnes++;
+            else if (c == '0') countZeros++;
+        }
+
+        System.out.println("Count of 1's: " + countOnes);
+        System.out.println("Count of 0's: " + countZeros);
+    }
+}
+```
+
+---
+
+### **5. Write the code for Fibonacci sequence**
+
+```java
+public class Fibonacci {
+    public static void main(String[] args) {
+        int n = 10; // Fibonacci up to 10 terms
+        int first = 0, second = 1;
+        
+        System.out.print("Fibonacci Series: " + first + ", " + second);
+        
+        for (int i = 2; i < n; i++) {
+            int next = first + second;
+            System.out.print(", " + next);
+            first = second;
+            second = next;
+        }
+    }
+}
+```
+
+---
+
+### **6. Write the code for some patterns**
+
+**Pattern 1:**
+
+```java
+public class PatternExample {
+    public static void main(String[] args) {
+        int n = 5;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+```
+
+**Output:**
+
+```
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+```
+
+---
+
+### **7. Find the Output**
+
+```java
+public class InfiniteExample {
+    char c = 'A';
+
+    public static void main(String[] args) {
+        InfiniteExample obj = new InfiniteExample();
+        char c = obj.c;
+
+        System.out.println(c + 1); // Output: 66 ('A' is 65, so 65+1 = 66)
+        System.out.println(c++);   // Output: 'A' (post-increment prints first, increments later)
+        System.out.println(++c);   // Output: 'C' (incremented to 'B' in the previous line, now incremented to 'C')
+    }
+}
+```
+
+---
+
+### **8. Write code for `==` and `equals()` and explain**
+
+```java
+public class EqualsExample {
+    public static void main(String[] args) {
+        String str1 = new String("Hello");
+        String str2 = new String("Hello");
+
+        // == compares references
+        System.out.println(str1 == str2); // Output: false (different memory locations)
+
+        // equals() compares values
+        System.out.println(str1.equals(str2)); // Output: true (content comparison)
+    }
+}
+```
+
+- `==` compares **memory addresses** (reference equality).
+- `equals()` compares **object content** (value equality).
+
+---
+
+### **9. Write code for constructor overloading**
+
+```java
+class Pen {
+    String color;
+    String brand;
+
+    // Default constructor
+    Pen() {
+        this.color = "Black";
+        this.brand = "Generic";
+    }
+
+    // Parameterized constructor
+    Pen(String color, String brand) {
+        this.color = color;
+        this.brand = brand;
+    }
+
+    void display() {
+        System.out.println("Pen color: " + color + ", brand: " + brand);
+    }
+
+    public static void main(String[] args) {
+        Pen pen1 = new Pen();
+        Pen pen2 = new Pen("Blue", "Parker");
+
+        pen1.display();
+        pen2.display();
+    }
+}
+```
+
+---
+
+### **10. Find which syntax is correct**
+
+- **`public static void methodName( ) {-----}`**  
+  Correct syntax for a static method.
+
+- **`static public void methodName( ) {-----}`**  
+  Also correct. The order of `public` and `static` does not matter.
+
+- **`static void public methodName( ) {-----}`**  
+  **Incorrect**. The placement of `public` after `void` is wrong.
+
+- **`void static public methodName( ) {-----}`**  
+  **Incorrect**. The `void` return type must come last, after the access modifiers.
+
+
