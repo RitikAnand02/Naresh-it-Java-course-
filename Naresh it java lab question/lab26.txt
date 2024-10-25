@@ -1,0 +1,385 @@
+Que 4 : A Hierarchical Model of Animals
+========================================
+
+Scenario Description:
+
+In a virtual zoo management system, you need to organize and categorize various types of animals to efficiently manage their characteristics and behaviors. 
+To achieve this, you decide to implement a class hierarchy using multilevel inheritance.
+
+1. Create the Animal Class
+Requirements:
+Define a private String attribute named name.
+Implement a parameterized constructor to initialize name.
+Implement getter and setter methods for name.
+Create a method to display the animal's details.
+
+2. Create the Mammal Class
+Requirements:
+Extend the Animal class.
+Add a private boolean attribute named hasFur.
+Implement a parameterized constructor to initialize name (from Animal) and hasFur.
+Implement getter and setter methods for hasFur.
+Override the displayDetails method to include information about fur.
+
+3. Create the Dog Class
+Requirements:
+Extend the Mammal class.
+Add a private String attribute named breed.
+Implement a parameterized constructor to initialize name, hasFur (from Mammal), and breed.
+Implement getter and setter methods for breed.
+Override the displayDetails method to include information about the breed.
+
+4. Create the Main Class
+Requirements:
+Create an instance of the Dog class.
+Display details of the Dog object to demonstrate inheritance.
+
+
+Condition :
+-----------
+if any numeric value is zero or negative then print "Error Invalid Input".
+
+
+TEST CASE 1 :
+-------------
+sample input  : When your reading numeric values for any above Classe then make sure if any numeric value is <=0 then print "Error Invalid Input".
+                
+sample output : Error Invalid Input
+
+
+
+TEST CASE 2 :
+-------------
+sample input : Dog myDog = new Dog("Buddy", true, "Golden Retriever");
+               
+sample output : 
+               Dog Details:
+               Animal Name: Buddy
+               Has Fur: Yes
+               Breed: Golden Retriever
+
+ans:
+package com.test5;
+
+ class Animal {
+	private String name;
+
+	public Animal(String name) {
+		super();
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void getDisplay() {
+		System.out.println("Animal Name: "+getName());
+	}
+}
+
+
+package com.test5;
+
+ class Mammal extends Animal {
+	 private boolean hasFur;
+
+	public Mammal(String name, boolean hasFur) {
+		super(name);
+		this.hasFur = hasFur;
+	}
+
+	public boolean isHasFur() {
+		return hasFur;
+	}
+
+	public void setHasFur(boolean hasFur) {
+		this.hasFur = hasFur;
+	}
+	 @Override
+	public void getDisplay() {
+		 super.getDisplay();
+		System.out.println("Animal Has Fur: "+isHasFur());
+	}
+
+}
+
+
+package com.test5;
+
+ class Dog extends Mammal {
+	 private String breed;
+
+	public Dog(String name, boolean hasFur, String breed) {
+		super(name, hasFur);
+		this.breed = breed;
+	}
+
+	public String getBreed() {
+		return breed;
+	}
+
+	public void setBreed(String breed) {
+		this.breed = breed;
+	}
+	 
+	 @Override
+		public void getDisplay() {
+			 super.getDisplay();
+			System.out.println("Animal Breed: "+getBreed());
+		}
+	 
+	 
+
+}
+
+
+package com.test5;
+
+public class Main {
+	
+
+	public static void main(String[] args) {
+		Dog d1 = new Dog("Golden Retriver", true ,"Cross Breed");
+		d1.getDisplay();
+		
+		
+	}
+
+}
+
+#######################################################################
+
+Que 5 : Ticket Management System with VIP and Student Tickets
+============================================================= 
+
+You have been hired by an event management company to develop a ticketing system that can manage different types of tickets for various events. 
+The system needs to handle regular tickets, VIP tickets with special access privileges, and student tickets that may have a discount. 
+Your task is to create a Java program with the following requirements: 
+
+Design a Ticket class with attributes like event name, seat number, and price.
+
+1.Create a class Ticket
+------------------------
+
+Instance variable:-
+
+String eventName,private
+
+int seatNumber,private
+
+double price,private
+
+Create a parameterized constructor for all Instance variable to initialize the variable.
+
+Generate Getters and setters for all Instance variable to get values and set values.
+
+
+2.Create another class VIPTicket and inherit Ticket class here.
+---------------------------------------------------------------
+
+Instance variable:-
+
+String specialAccess,private
+
+Create a parameterized constructor for Instance variable to initialize the variable.
+
+//Use super keyword to initialize Ticket class constructor attributes.
+
+Generate Getters and setters for Instance variable to get values and set values.
+
+
+3.Create another class StudentTicket and inherit Ticket class here.
+-------------------------------------------------------------------
+
+Instance variable:-
+
+boolean studentDiscount,private
+
+Create a parameterized constructor for Instance variable to initialize the variable.
+
+//Use super keyword to initialize Ticket class constructor attributes.
+
+Generate Getters and setters for Instance variable to get values and set values.
+
+Create a class MainTicket which contains main method to demonstrate the usage.
+
+//Creating a Ticket object using the parameterized constructor
+
+//Creating a VIPTicket object using the parameterized constructor
+
+//Creating a StudentTicket object using the parameterized constructor
+
+
+Condition :
+-----------
+if any numeric value is zero or negative then print "Error Invalid Input".
+
+
+TEST CASE 1 :
+-------------
+sample input  : When your reading values for Ticket class OR VIPTicket OR StudentTicket then make sure if any numeric value is <=0 then print "Error Invalid Input".
+                
+sample output : Error Invalid Input
+
+
+
+TEST CASE 2 :
+-------------
+sample input  : 
+                  Ticket regularTicket = new Ticket("Concert", 101, 50.0);
+                  VIPTicket vipTicket = new VIPTicket("VIP Concert", 201, 100.0, "Backstage Access");
+                  StudentTicket studentTicket = new StudentTicket("Student Event", 301, 30.0, true);
+
+sample output : 
+                Regular Ticket:
+                Event: Concert
+                Seat Number: 101
+                Price: $50.0
+                
+                VIP Ticket:
+                Event: VIP Concert
+                Seat Number: 201
+                Price: $100.0
+                Special Access: Backstage Access
+                
+                Student Ticket:
+                Event: Student Event
+                Seat Number: 301
+                Price: $30.0
+                Student Discount: true
+ans:
+
+package com.test6;
+
+ class Ticket {
+	private String eventName;
+	private int seatNumber;
+	private double price;
+	public Ticket(String eventName, int seatNumber, double price) {
+		super();
+		if(seatNumber<=0 || price<=0) {
+			System.err.println("Invaild Input Error");
+			System.exit(0);
+		}
+		else {
+			this.eventName = eventName;
+			this.seatNumber = seatNumber;
+			this.price = price;
+			
+		}
+		
+		
+	}
+	public String getEventName() {
+		return eventName;
+	}
+	public void setEventName(String eventName) {
+		this.eventName = eventName;
+	}
+	public int getSeatNumber() {
+		return seatNumber;
+	}
+	public void setSeatNumber(int seatNumber) {
+		this.seatNumber = seatNumber;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+}
+
+
+package com.test6;
+
+ class VIPTicket extends Ticket{
+	 
+	private String  specialAccess;
+
+	public VIPTicket(String eventName, int seatNumber, double price, String specialAccess) {
+		super(eventName, seatNumber, price);
+
+			this.specialAccess = specialAccess;
+
+	}
+
+	public String getSpecialAccess() {
+		return specialAccess;
+	}
+
+	public void setSpecialAccess(String specialAccess) {
+		this.specialAccess = specialAccess;
+	}
+	
+   
+}
+
+
+package com.test6;
+
+ class StudentTicket extends Ticket{
+	private boolean  studentDiscount;
+
+	public StudentTicket(String eventName, int seatNumber, double price, boolean studentDiscount) {
+		super(eventName, seatNumber, price);
+
+			this.studentDiscount = studentDiscount;
+
+	}
+
+	public boolean isStudentDiscount() {
+		return studentDiscount;
+	}
+
+	public void setStudentDiscount(boolean studentDiscount) {
+		this.studentDiscount = studentDiscount;
+	}
+}
+
+
+package com.test6;
+
+public class MainTicket {
+	public static void main(String[] args) {
+		Ticket t1 = new Ticket("concert",101,50.0);
+		String eventName = t1.getEventName();
+		System.out.println("Event Name: "+eventName);
+		double price = t1.getPrice();
+		System.out.println("Event Price: "+"$"+price);
+		int seatNumber = t1.getSeatNumber();
+		System.out.println("Event Seat Number: "+seatNumber);
+		System.out.println();
+		
+		VIPTicket v1 = new VIPTicket("concert", 7, 100, "Backstage Access");
+		String eventName1 = v1.getEventName();
+		System.out.println("Event Name: "+eventName1);
+		double price1 = v1.getPrice();
+		System.out.println("Event Price: "+"$"+price1);
+		int seatNumber1 = v1.getSeatNumber();
+		System.out.println("Event Seat Number: "+seatNumber1);
+		String specialAccess = v1.getSpecialAccess();
+		System.out.println("Secial Accesses: "+specialAccess);
+		System.out.println();
+		
+		StudentTicket s1 = new StudentTicket("Student Event", 301, 30, true);
+		String eventName11 = s1.getEventName();
+		System.out.println("Event Name: "+eventName11);
+		double price11 = s1.getPrice();
+		System.out.println("Event Price: "+"$"+price11);
+		int seatNumber11 = s1.getSeatNumber();
+		System.out.println("Event Seat Number: "+seatNumber11);
+		boolean studentDiscount = s1.isStudentDiscount();	
+		System.out.println("Student Discount: "+studentDiscount);
+	}
+
+}
+
+
+#######################################################################
