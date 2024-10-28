@@ -1,0 +1,445 @@
+Question: 1
+------------
+What is the output of the below program?
+class Employee{
+private String name;
+public Employee(String name) {
+this.name=name;
+}
+}
+public class Test16 {
+public static void main(String[] Java) {
+Employee e = new Employee(“JavaDeveloper”);
+System.out.println(“Emp Name : “+e.name);
+}
+}
+
+a)Emp Name : .JavaDeveloper
+b)Blank Screen
+c)Emp Name : .
+d)Compiler time Error
+e)Runtime Error
+
+ans:-d
+-------------------------------------------------------------------------------------------------
+Question: 2
+------------
+What is the output of the below program?
+
+class T
+{
+int pCode= 99;
+}
+public class Main
+{
+public static void main(String args[])
+{
+T t1 = new T();
+System.out.println(t1.pCode);
+}
+}
+
+
+a)99
+b)Runtime Error
+c)Compile time error
+d)Blank Screen
+
+ans:-a
+-------------------------------------------------------------------------------------------------
+Question: 3
+------------
+Choose correct option for the following code
+public class ConstructorTest {
+public int a = 10;
+public String ConstructorTest(int a) {
+this.a = a;
+}
+}
+
+a)Run time error
+b)No error
+c)Compile time error
+d)10
+
+ans:-b
+-------------------------------------------------------------------------------------------------
+Question: 4
+------------
+Can we declare constructor as private ?
+
+a)Yes
+b)No
+
+ans:-a
+-------------------------------------------------------------------------------------------------
+Question: 5
+------------
+Which of the following modifier is not applicable for constructors?
+A. private B. protected C. public D.
+
+a)private
+b)protected
+c)public
+d)final
+
+ans:-d
+-------------------------------------------------------------------------------------------------
+Question: 6
+------------
+//What is the output of the below program?
+class Product {
+public int num;
+public void call(Product ref) {
+ref.num++;
+}
+}
+public class Test13 {
+public static void main (String[] args) {
+Product p = new Product();
+p.num = 1;
+p.call(p);
+System.out.println(p.num);
+}
+}
+
+a)2
+b)1
+c)Compiler time Error
+d)0
+e)Runtime Error
+
+ans:-a
+-------------------------------------------------------------------------------------------------
+Question: 7
+------------
+What happens if we add return type to constructor ?
+
+a)Compile time error
+b)Run Time Error
+c)JVM treats that as method
+d)None of these
+
+ans:-c
+-------------------------------------------------------------------------------------------------
+Question: 8
+------------
+What is the output of the following code
+public class ConstructorTest {
+public int a = 100;
+public ConstructorTest() {
+System.out.println(a);
+}
+
+public static void main(String[] args) {
+    ConstructorTest test = new ConstructorTest();
+}
+}
+
+
+a)Runtime error
+b)Compile time error
+c)100
+d)No Output
+
+ans:-c
+-------------------------------------------------------------------------------------------------
+Question: 9
+------------
+What is the output of the below program?
+class Complex {
+private double re, im;
+public Complex(double re, double im) {
+this.re = re;
+this.im = im;
+}
+Complex(Complex c) {
+System.out.println(“Copy constructor called”);
+re = c.re;
+im = c.im;
+}
+public String toString() {
+return “(” + re + ” + ” + im + “)”;
+}
+}
+class Main {
+public static void main(String[] args) {
+Complex c1 = new Complex(10, 15);
+Complex c2 = new Complex(c1);
+Complex c3 = c1;
+System.out.println(c2);
+}
+}
+
+
+a)Copy constructor called
+  (0.0 + 0.0)
+
+
+b)Copy constructor called
+  (25.0)
+
+c)Copy constructor called
+  (10.0 + 15.0)
+
+d)Runtime Error
+
+e)Compiler time Error
+
+ans:-c
+-------------------------------------------------------------------------------------------------
+Question: 10
+-------------
+What is the output of the below program?
+class T {
+int x = 23;
+T() {
+x = 45;
+}
+}
+public class Main {
+public static void main(String args[]) {
+T t1 = new T();
+System.out.println(t1.x);
+}
+}
+
+a)23
+b)45
+c)Runtime Error
+d)Compiler Time Error
+
+ans:-b
+-------------------------------------------------------------------------------------------------
+Question: 11
+--------------
+What is the default accessibility modifier of a default constructor?
+
+a)private
+b)protected
+c)default
+d)same as class accessibility modifier
+
+ans:-d
+-------------------------------------------------------------------------------------------------
+Question: 12
+-------------
+What is the output of the below program?
+public class Test7 {
+private Test7 (int x) { //line 1
+System.out.print(x);
+}
+private static Test7() { //line 2
+System.out.print(25);
+}
+public static void main(String[] args){
+Test7 t = new Test7(35);
+}
+}
+
+a)35
+b)25
+c)Error at line no 1
+d)Runtime Error
+e)Error at line no 2
+
+ans:-e
+-------------------------------------------------------------------------------------------------
+Question: 13
+-------------
+The implicit return type of a constructor is ?
+
+a)void
+b)There is no return type
+c)a class object in which it is defined
+d)None of these
+
+ans:-b
+-------------------------------------------------------------------------------------------------
+Question: 14
+-------------
+What is the output of the below program?
+class Person{
+Person(){
+System.out.println(“Hello constructor!”);
+return;
+}
+}
+public class Test17 {
+public static void main(String[] var) {
+Person p = new Person();
+}
+}
+
+a)Hello constructor!
+b)Blank Screen
+c)Compiler time Error
+d)Runtime Error
+
+ans:-a
+-------------------------------------------------------------------------------------------------
+Question: 15
+-------------
+What is the output of the below program?
+class Product {
+int x;
+int y;
+public Product(int x,int y) {
+this.x = x;
+this.y = y;
+}
+public void call() {
+System.out.println(“call method called”);
+}
+}
+public class Test14 {
+public static void main (String[] args) {
+Product p = new Product();
+p.call();
+}
+}
+
+a)call method called
+b)Blank screen
+c)Compiler time Error
+d)Runtime Error
+
+ans:-c
+-------------------------------------------------------------------------------------------------
+Question: 16
+-------------
+Choose correct option for the following code
+public class ConstructorTest {
+public int a = 10;
+public ConstructorTest() {
+}
+public ConstructorTest(int a) {
+this.a = a;
+System.out.println(a);
+}
+
+public static void main(String[] args) {
+    ConstructorTest test = new ConstructorTest();
+}
+}
+
+a)Run time error
+b)Run successfully
+c)Compile time error
+d)10
+
+ans:-b
+-------------------------------------------------------------------------------------------------
+Question: 17
+-------------
+Can we define method with same name of class name?
+
+a)Yes
+b)No
+
+ans:-a
+-------------------------------------------------------------------------------------------------
+Question: 18
+-------------
+public class Test
+{ }
+What is the prototype of the default constructor ?
+
+a)public Test(void)
+b)Test()
+c)Test(void)
+d)public Test()
+
+ans:-d
+-------------------------------------------------------------------------------------------------
+Question: 19
+-------------
+Choose correct option for the following code
+public class ConstructorTest {
+int a;
+public ConstructorTest(int a) {
+this.a =a;
+}
+
+public static void main(String[] args) {
+    ConstructorTest nit = new ConstructorTest(10);
+    nit.a;
+}
+}
+
+a)Runtime error
+b)Compile time error
+c)No Output
+d)10
+
+ans:-b
+-------------------------------------------------------------------------------------------------
+Question: 20
+-------------
+What is the output of the below program?
+public class Test9 {
+private Test9 (int x) { //line 1
+System.out.print(x);
+}
+private final Test7() { //line 2
+System.out.print(25);
+}
+public static void main(String[] args){
+Test7 t = new Test7(35);
+}
+}
+
+a)25
+b)35
+c)Error at line 1
+d)Runtime Error
+e)Error at line 2
+
+ans:-e
+-------------------------------------------------------------------------------------------------
+Question: 21
+-------------
+Can we define a constructor using all four access modifiers:
+public, protected, default and private?
+
+a)Yes
+b)No
+
+ans:-a
+-------------------------------------------------------------------------------------------------
+Question: 22
+--------------
+public class Test
+{ }
+What is the prototype of the default constructor ?
+
+a)public Test(void)
+b)Test()
+c)Test(void)
+d)public Test()
+
+ans:-d
+-------------------------------------------------------------------------------------------------
+Question: 23
+-------------
+What is the output of the below program?
+public class Test9 {
+private Test9 (int x) { //line 1
+System.out.print(x);
+}
+private final Test7() { //line 2
+System.out.print(25);
+}
+public static void main(String[] args){
+Test7 t = new Test7(35);
+}
+}
+
+a)25
+b)35
+c)Error at line 1
+d)Runtime Error
+e)Error at line 2
+
+ans:-e
+-------------------------------------------------------------------------------------------------
