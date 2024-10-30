@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Static_Blocks</name>
+	<name>Has_A_Relation</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1730193900321</id>
+			<id>1730280307578</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

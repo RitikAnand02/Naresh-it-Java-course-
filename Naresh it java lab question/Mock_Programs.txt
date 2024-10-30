@@ -1,0 +1,698 @@
+**Programs**
+==========
+
+
+### **1. Find the output of this program?**
+
+```java
+public class InfiniteExample {
+    static int methodName( ) {
+        System.out.println("a value is :"+(a=a));
+        a = ++a + (a = ++a + --b + c * (--c + a++)); 
+        return a;
+    }
+
+    static int sub3values(int a, int b) {
+        return a = --a + (b = --b - (--a + b--) + --a - ++b * (++b + --b));
+    }
+
+    public static void main(String[] args) {
+        System.out.println(methodName(1, 2, 3)); // Syntax Error
+        System.out.println(sub3values(10, 5));
+    }
+}
+```
+Output : Syntax Error.
+
+**Explanation:**
+- The code as written has multiple errors:
+  - The `methodName(1, 2, 3)` call in `main` is incorrect, as the method definition `methodName()` does not accept arguments. 
+  - The `a`, `b`, `c` variables used in the `methodName()` are undefined.
+  
+To fix it, `a`, `b`, and `c` should be defined as class variables or passed as parameters. Additionally, `methodName()` should accept parameters if `methodName(1, 2, 3)` is called.
+
+---
+
+### **2. Write the code for reversing the string**
+
+```java
+public class ReverseStringExample {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        String reversedStr = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversedStr += str.charAt(i);
+        }
+        System.out.println("Reversed String: " + reversedStr);
+    }
+}
+```
+
+Alternatively, you can use the `StringBuilder` or `StringBuffer`:
+
+```java
+public class ReverseStringExample {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        String reversedStr = new StringBuilder(str).reverse().toString();
+        System.out.println("Reversed String: " + reversedStr);
+    }
+}
+```
+
+---
+
+### **3. Write the code to count the characters from given numbers**
+
+```java
+public class CountChars {
+    public static void main(String[] args) {
+        String str = "123456789";
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isDigit(str.charAt(i))) {
+                count++;
+            }
+        }
+        System.out.println("Total characters: " + count);
+    }
+}
+```
+
+---
+
+### **4. Write the code for counting 1’s and 0’s in a string**
+
+```java
+public class CountOnesZeros {
+    public static void main(String[] args) {
+        String binaryString = "1010010101";
+        int countOnes = 0, countZeros = 0;
+
+        for (char c : binaryString.toCharArray()) {
+            if (c == '1') countOnes++;
+            else if (c == '0') countZeros++;
+        }
+
+        System.out.println("Count of 1's: " + countOnes);
+        System.out.println("Count of 0's: " + countZeros);
+    }
+}
+```
+
+---
+
+### **5. Write the code for Fibonacci sequence**
+
+```java
+public class Fibonacci {
+    public static void main(String[] args) {
+        int n = 10; // Fibonacci up to 10 terms
+        int first = 0, second = 1;
+        
+        System.out.print("Fibonacci Series: " + first + ", " + second);
+        
+        for (int i = 2; i < n; i++) {
+            int next = first + second;
+            System.out.print(", " + next);
+            first = second;
+            second = next;
+        }
+    }
+}
+```
+
+---
+
+### **6. Write the code for some patterns**
+
+**Pattern 1:**
+
+```java
+public class PatternExample {
+    public static void main(String[] args) {
+        int n = 5;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+```
+
+**Output:**
+
+```
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+```
+
+---
+
+### **7. Find the Output**
+
+```java
+public class InfiniteExample {
+    char c = 'A';
+
+    public static void main(String[] args) {
+        InfiniteExample obj = new InfiniteExample();
+        char c = obj.c;
+
+        System.out.println(c + 1); // Output: 66 ('A' is 65, so 65+1 = 66)
+        System.out.println(c++);   // Output: 'A' (post-increment prints first, increments later)
+        System.out.println(++c);   // Output: 'C' (incremented to 'B' in the previous line, now incremented to 'C')
+    }
+}
+```
+
+---
+
+### **8. Write code for `==` and `equals()` and explain**
+
+```java
+public class EqualsExample {
+    public static void main(String[] args) {
+        String str1 = new String("Hello");
+        String str2 = new String("Hello");
+
+        // == compares references
+        System.out.println(str1 == str2); // Output: false (different memory locations)
+
+        // equals() compares values
+        System.out.println(str1.equals(str2)); // Output: true (content comparison)
+    }
+}
+```
+
+- `==` compares **memory addresses** (reference equality).
+- `equals()` compares **object content** (value equality).
+
+---
+
+### **9. Write code for constructor overloading**
+
+```java
+class Pen {
+    String color;
+    String brand;
+
+    // Default constructor
+    Pen() {
+        this.color = "Black";
+        this.brand = "Generic";
+    }
+
+    // Parameterized constructor
+    Pen(String color, String brand) {
+        this.color = color;
+        this.brand = brand;
+    }
+
+    void display() {
+        System.out.println("Pen color: " + color + ", brand: " + brand);
+    }
+
+    public static void main(String[] args) {
+        Pen pen1 = new Pen();
+        Pen pen2 = new Pen("Blue", "Parker");
+
+        pen1.display();
+        pen2.display();
+    }
+}
+```
+
+---
+
+### **10. Find which syntax is correct**
+
+- **`public static void methodName( ) {-----}`**  
+  Correct syntax for a static method.
+
+- **`static public void methodName( ) {-----}`**  
+  Also correct. The order of `public` and `static` does not matter.
+
+- **`static void public methodName( ) {-----}`**  
+  **Incorrect**. The placement of `public` after `void` is wrong.
+
+- **`void static public methodName( ) {-----}`**  
+  **Incorrect**. The `void` return type must come last, after the access modifiers.
+
+11). Reverse String
+
+ans: 
+public class StringReversal {
+    public static void main(String[] args) {
+        String original = "Hello, World!";
+        String reversed = reverseString(original);
+        System.out.println("Original String: " + original);
+        System.out.println("Reversed String: " + reversed);
+    }
+
+    public static String reverseString(String str) {
+        if (str == null || str.isEmpty()) {
+            return str;
+        }
+        StringBuilder reversed = new StringBuilder(str);
+        return reversed.reverse().toString();
+    }
+}
+
+12). Find LCM  
+ans: 
+ import java.util.Scanner;
+
+public class FindLcm {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+
+        int num1 = sc.nextInt();
+        int num2 = sc.nextInt();
+
+        int i = num1 > num2 ? num1 : num2;
+
+        while(true) {
+            if(i % num1 == 0 && i % num2 == 0) {
+                System.out.println(i);
+                break;
+            }
+            i++;
+        }
+    }
+}
+
+13.) WAJP to print factorial of given  number  
+ans: 
+ import java.util.*;
+
+public class Factorial {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int number = sc.nextInt();
+        int result = 1;
+
+        for(int i=2; i<=number; i++) {
+            result = result * i;
+        }
+
+        System.out.println(result);
+    }
+}
+
+14.) WAJP to Check Whether the number is SPY or NOT.
+ans: 
+ import java.util.*;
+
+public class NumberSpyOrNot {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt(); 
+        // num = 123 = 6
+        // 1 * 2 * 3 = 6
+        //  if both result is same then we can say this is the Spy number.
+
+        int sum = 0;
+        int mul = 1;
+
+        while(num != 0) {
+            int rem = num % 10;
+            sum = sum + rem;
+            mul = mul * rem;
+            num = num / 10;
+        }
+
+        System.out.println(sum);
+        System.out.println(mul);
+
+        if(mul == sum) {
+            System.out.println("The given number is spy number ");
+        }
+        else {
+              System.out.println("The given number is not a spy number ");
+        }
+
+
+
+    }
+}
+
+15.) Find Smallest Number from given number 
+ans: 
+ import java.util.Scanner;
+
+class CheckSmallestNumber {
+    public static void main(String[] args) {
+
+    //  7. WAJP to print he smallest digit of a number
+
+        Scanner sc= new Scanner(System.in);
+
+        int num =sc.nextInt();
+
+        // int digit = Integer.MAX_VALUE;
+        int digit = 9;
+
+
+        while(num > 0) {
+
+            int rem = num % 10;
+            
+           if(digit>rem) {
+
+              digit = rem;
+
+           }
+           num = num / 10;
+
+        }
+
+        System.out.println(digit);
+           
+
+    }
+}
+
+16.) WAJP to check whether a number is strong number or not.
+ans: 
+ /* import java.util.Scanner;
+
+class CheckStrongNum {
+    public static void main(String[] args) {
+        // WAJP to check whether a number is a strong number or not.
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int num = sc.nextInt();
+
+        int temp = num;
+        int rem;
+        int sum = 0;
+
+        while (temp != 0) {
+            rem = temp % 10;
+            sum += factorial(rem);
+            temp = temp / 10;
+        }
+
+        if (sum == num) {
+            System.out.println(num + " is a Strong number.");
+        } else {
+            System.out.println(num + " is not a Strong number.");
+        }
+    }
+
+    public static int factorial(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+}
+   */
+
+import java.util.Scanner;
+
+class CheckStrongNum {
+    public static void main(String[] args) {
+        //  8. WAJP to check whether a number is strong number or not.
+
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt();
+
+        int temp = num;
+        int rem = 0;
+        int sum = 0;
+
+        while(num != 0) {
+            rem = num % 10;
+            int fact = 1;
+
+            while(rem>=1) {
+                fact *= rem;
+                rem--;
+            }
+            sum+=fact;
+            num = num / 10;
+        }
+
+        System.out.println("sum = "+sum);
+
+        if(temp == sum) {
+            System.out.println(temp + " is a Strong number.");
+        }
+        else {
+
+            System.out.println(temp + " is not a Strong number.");
+
+        }
+    }
+}
+
+17.)  WAJP to check whether the number is prime number or not.
+ans:
+import java.util.Scanner;
+
+class checkPrimeNumber
+{
+    public static void main(String[] args) {
+
+        // 3. WAJP to check whether the number is prime number or not
+
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt();
+        int count = 0;
+
+        for(int i=2; i<num; i++ ) {
+
+            if(num%i==0) {
+                count++;
+            }
+        }
+        if(count==0) {
+            System.out.println("Prime Number");
+        }
+        else {
+            System.out.println("Not a Prime Number");
+        }
+
+    }
+}
+
+18.) WAJP to check whether the number is composite number or not.
+ans:
+import java.util.Scanner;
+class checkCompositeNum {
+    // 5. WAJP to check whether the number is composite number or not
+    public static void main(String[] args) {
+          
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt();
+        int count = 0;
+
+        for(int i=2; i<num; i++ ) {
+
+            if(num%i==0) {
+                count++;
+            }
+        }
+        if(count>0) {
+            System.out.println("Composite Number");
+        }
+        else {
+            System.out.println("Not a Composite Number");
+        }
+
+    }
+}
+
+19.) WAJP to print the perfect  number between the range.
+ans:
+import java.util.Scanner;
+
+class checkPerfectNum {
+public static void main(String[] args) {
+
+    // 2. WAJP to print the perfect  number between the range
+
+    Scanner sc = new Scanner(System.in);
+
+    int num1 = sc.nextInt();
+    int num2 = sc.nextInt();
+
+
+    for(int j= num1; j<=num2; j++) {
+        
+        int sum=0;
+        int num = j;
+        for(int i=1; i<num; i++) {
+            if(num % i == 0) {
+                sum = sum + i;
+            }
+        }
+
+        if(sum==num) {
+            System.out.println("Perfect Number: "+j);
+        }
+    }
+
+
+}
+}
+
+20.) WAJP to check whether the number is neon number or not.
+ans: 
+import java.util.Scanner;
+
+class checkNeonOrNot {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        
+        // 2. WAJP to check whether the number is neon number or not
+        //  Square = 9 = 81 = 8+1 = 9 is calles neon number
+
+        int num = sc.nextInt();
+        int square = num * num;
+        int sum = 0;
+
+        while(square != 0) {
+            sum = sum + square%10;
+            square = square / 10;
+        }
+
+        if(sum == num ) {
+            System.out.println("Neon Number");
+        }
+        else {
+            System.out.println("Not a Neon Number");
+        }
+    }
+}
+
+21.) WAJP to check whether the number is amstrong number or not.
+ans:
+import java.util.Scanner;
+
+class checkAmstrongOrNot {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 3. WAJP to check whether the number is amstrong number or not
+        //  153 = 1 , 5, 3 qube = 1 + 125 + 27 = 153 then its amstrong
+
+        int num = sc.nextInt();
+        int temp = num;
+        int count = 0;
+        int sum = 0;
+
+        while(temp != 0) {
+            temp = temp / 10;
+            count++;
+        }
+        int temp2 = num;
+        int rem=0;
+        while(temp2!=0) {
+            rem = temp2 % 10;
+            int product = 1;
+            for(int i = 1; i<= count; i++) {
+                product = product * rem;
+            }
+            sum = sum + product;
+            temp2 = temp2 / 10;
+        }
+
+        if(sum == num ) {
+            System.out.println("Its Amstrong number");
+        }
+        else {
+            System.out.println("Not a Amstrong number");
+        }
+
+    }
+}
+
+22.) WAJP to check whether the number is magic number or not.
+ans:
+import java.util.Scanner;
+
+class CheckMagicOrNot {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+
+        int num = sc.nextInt();
+
+        //  3. WAJP to check whether the number is magic number or not
+        // 1252 = Add 1 + 2 + 5 + 2 = 10 = 1 + 0 = 1 if result 1 then its a magic number
+
+        int rem = 0;
+        while(num>=10) {
+            int sum = 0;
+            while(num != 0) {
+                rem = num % 10;
+                sum = sum + rem;
+                num = num / 10;
+            }
+            num = sum;
+        }
+        if(num == 1) {
+            System.out.println("It's a Magic Number");
+        }
+        else {
+            System.out.println("It's Not a Magic Number");
+        }
+
+    }
+}
+
+23.) 
+ class pattern8 {
+    public static void main(String[] args) {
+        int num = 8; 
+
+
+/*            *               
+            * * *             
+          * * * * *           
+        * * * * * * *         
+      * * * * * * * * *       
+    * * * * * * * * * * *     
+  * * * * * * * * * * * * *   
+* * * * * * * * * * * * * * * 
+  * * * * * * * * * * * * *   
+    * * * * * * * * * * *     
+      * * * * * * * * *       
+        * * * * * * *         
+          * * * * *           
+            * * *             
+              *                  
+*/        
+        for (int i = 1; i <num*2; i++) {
+
+            for (int j = 1; j <num*2; j++) {
+                if (i+j>num && i-j<num && j-i<num && i+j<num*3) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
