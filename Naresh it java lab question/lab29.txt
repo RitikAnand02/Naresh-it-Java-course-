@@ -62,6 +62,72 @@ sample input  :
                 System.out.println(car);
 
 sample output : Car Make: Hyundai, Model: Camry, Engine Model: V6 Hybrid
+ans:
+package com.test1;
+
+	public class Engine 
+	{
+		private String model;
+		
+		public Engine(String model) {
+			super();
+			this.model = model;
+		}
+
+		public String getModel() {
+			return model;
+		}
+
+		public void setModel(String model) {
+			this.model = model;
+		}
+
+		@Override
+		public String toString() {
+			return "Engine [model=" + model + "]";
+		}
+
+	}
+
+
+package com.test1;
+
+public class Car 
+{ 
+
+    private String make; 
+    private String model;
+    private Engine engine;
+	public Car(String make, String model, Engine engine) {
+		super();
+		
+		this.make = make;
+		this.model = model;
+		this.engine = engine;
+		
+	}
+	@Override
+	public String toString() {
+		return "Car [make=" + make + ", model=" + model + ", engine=" + engine + "]";
+	}
+
+}
+
+
+package com.test1;
+
+public class Test {
+
+	public static void main(String[] args) 
+	{
+		   Engine engine = new Engine("V6 Hybrid");
+           Car car = new Car("Hyundai", "Camry", engine);
+           System.out.println(car);
+
+	}
+
+}
+
 
 
 ##########################################################################################
