@@ -5,7 +5,7 @@ public class Order {
 	private String productName;
 	public Order(String orderId, String productName) {
 		super();
-		if(orderId.length()==0) {
+		if(Integer.parseInt(orderId)<=0) {
 				System.err.println("Invalid Input");
 				System.exit(0);
 			}

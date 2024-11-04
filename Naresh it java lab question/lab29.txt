@@ -199,6 +199,67 @@ sample input  :
                 System.out.println(customer);
 
 sample output : Customer Name: James, Email: James@example.com, Order ID: 123456, Product Name: Laptop
+ans: 
+package com.test2;
+
+public class Order {
+	private String orderId;
+	private String productName;
+	public Order(String orderId, String productName) {
+		super();
+		if(Integer.parseInt(orderId)<=0) {
+				System.err.println("Invalid Input");
+				System.exit(0);
+			}
+			else {
+		this.orderId = orderId;
+		this.productName = productName;
+		}
+	}
+	public String getOrderId() {
+		return orderId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", productName=" + productName + "]";
+	}
+}
+
+
+package com.test2;
+
+public class Customer {
+	private String name;
+	private String email;
+	private Order order;
+	public Customer(String name, String email, Order order) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.order = order;
+	}
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", email=" + email + ", order=" + order + "]";
+	}
+	
+	
+
+}
+
+package com.test2;
+
+public class Shoping {
+    public static void main(String[] args) {
+    	  Order order = new Order("100", "Laptop");
+          Customer customer = new Customer("James", "James@example.com", order);
+          System.out.println(customer);
+	}
+}
+
 
 
 ##########################################################################################
@@ -247,4 +308,58 @@ sample input  :
                 System.out.println(person);
        
 sample output : Name: John Doe, Address: 123 Elm Street, Springfield
+ans:
+package com.test3;
+
+public class Address {
+     private String street;
+     private String city;
+	public Address(String street, String city) {
+		super();
+		this.street = street;
+		this.city = city;
+	}
+	public String getStreet() {
+		return street;
+	}
+	public String getCity() {
+		return city;
+	}
+	@Override
+	public String toString() {
+		return "Address [street=" + street + ", city=" + city + "]";
+	}
+
+}
+
+
+package com.test3;
+
+public class Person {
+	private String name;
+	private Address address;
+	public Person(String name, Address address) {
+		super();
+		this.name = name;
+		this.address = address;
+	}
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", address=" + address + "]";
+	}
+}
+
+
+package com.test3;
+
+public class Test {
+    public static void main(String[] args) {
+        Address address = new Address("123 Elm Street", "Springfield");
+        Person person = new Person("John Doe", address);
+        System.out.println(person);
+	
+    }
+}
+
+
 

@@ -7,7 +7,8 @@ public class Address {
 		super();
 		this.street = street;
 		this.city = city;
-	}
+		}
+	
 	public String getStreet() {
 		return street;
 	}
@@ -18,7 +19,5 @@ public class Address {
 	public String toString() {
 		return "Address [street=" + street + ", city=" + city + "]";
 	}
-     
-     
-     
+
 }

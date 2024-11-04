@@ -6,7 +6,8 @@ package com.test1;
 		
 		public Engine(String model) {
 			super();
-			this.model = model;
+
+	        this.model = model;
 		}
 
 		public String getModel() {
