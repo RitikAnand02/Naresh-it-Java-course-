@@ -1,0 +1,537 @@
+Question - 1
+--------------
+Write a Java program that defines a MathOperations class with method overloading to perform arithmetic operations. Implement the following methods:
+
+Take a class Calculator(BLC Class)
+
+take 4 public Method :
+add(int num1, int num2): Returns the sum of two integers.
+
+add(double num1, double num2): Returns the sum of two doubles.
+
+multiply(int num1, int num2): Returns the product of two integers.
+
+multiply(double num1, double num2): Returns the product of two doubles.
+
+Take an (ELC Class)In the main method, create an instance of MathOperations and demonstrate the use of each method by performing calculations with different types of arguments (integers and doubles).
+
+Test Cases-1 :    Add two doubles
+------------------
+Sample Input: 10.5, 20.3
+
+Expected Output:
+
+Sum of 10.5 and 20.3 (double): 30.8
+
+
+Test Cases -2 :
+------------------
+Multiply two integers
+
+Sample Input: 10, 20
+
+Expected Output:
+Product of 10 and 20 (int): 200
+
+Test Case-3 :
+----------------
+Add with negative integers
+
+Sample Input: -10, 20
+
+Expected Output:
+
+Sum of -10 and 20 (int): 10
+ans:
+package com.test1;
+
+public class Calculator {
+	public void add(int num1, int num2) {
+		System.out.println("Sum of Two Integers: "+(num1+num2));
+	}
+	
+	public void add(double num1, double num2) {
+		System.out.println("Sum of Two Doubles: "+(num1+num2));
+	}
+   
+	public void multiply(int num1, int num2) {
+		System.out.println("Product of Two Integers: "+(num1*num2));
+	}
+	
+	public void multiply(double num1, double num2) {
+		System.out.println("Product of Two Doubles: "+(num1*num2));
+	}
+}
+
+
+package com.test1;
+
+public class Main {
+
+	public static void main(String[] args) {
+        Calculator c1 = new Calculator();
+        c1.add(-10, 20);
+        c1.add(10.5, 20.3);
+        c1.multiply(10, 20);
+        c1.multiply(10, 20);
+	}
+
+}
+
+
+---------------
+Question - 2: 
+---------------
+
+Write a Java program that defines a ShapeCalculator class with method overloading to calculate the area of geometric shapes. Implement the following methods:
+
+
+ShapeCalculator - Method overloading
+
+
+take 4 public Method :
+
+calculateArea(int sideLength): Returns the area of a square (side * side).
+
+calculateArea(int length, int width): Returns the area of a rectangle (length * width).
+
+calculateArea(double radius): Returns the area of a circle (π * radius^2).
+
+Take an Elc class Main  it having main method and execute the methods.
+
+Test Cases -1 :
+-------------------
+Valid Case: Calculate area of a circle
+
+Sample Input: radius = 7.0
+
+Expected Output:
+
+Area of circle with radius 7.0: 153.93804
+
+
+Test Cases -2 :
+-------------------
+
+Invalid Case: Negative side length for square
+
+Sample Input: sideLength = -5
+Expected Output:
+
+Error: Side length must be non-negative.
+
+
+Test Cases -3 :
+-------------------
+Invalid Case: Negative length or width for rectangle
+
+Sample Input: length = -5, width = 10
+
+Expected Output:
+
+Error: Length and width must be non-negative.
+ans:
+package com.test2;
+
+public class ShapeCalculator {
+      public int calculateArea(int sideLength) {
+    	  if(sideLength<0) {
+    		  System.err.println(" Side length must be non-negative.");
+    		  System.exit(0);
+    	  }
+    	  else {
+    	  int result = sideLength * sideLength;
+    	  return result;
+    	  }
+    	  return 0;
+
+      }
+      
+      public int calculateArea(int length, int width) {
+    	  if(length<0 || width<0) {
+    		  System.err.println(" Side length must be non-negative.");
+    		  System.exit(0);
+    	  }
+    	  else {
+    	  int result = length * width;
+    	  return result;
+    	  }
+    	  return 0;
+      }
+      
+      public double calculateArea(double radius) {
+    	  if(radius<0) {
+    		  System.err.println(" Radius must be non-negative.");
+    		  System.exit(0);
+    	  }
+    	  else {
+    	   final double pi = 3.14;
+    	  double result = pi*radius*radius;
+    	  return result;
+    	  }
+    	  return 0;
+      }
+}
+
+
+package com.test2;
+
+public class Main {
+
+	public static void main(String[] args) {
+        ShapeCalculator s1 = new ShapeCalculator();
+        double calculateArea = s1.calculateArea(7.0);
+        System.out.println("Area of circle with radius: "+calculateArea);
+        System.out.println();
+        
+        int calculateArea2 = s1.calculateArea(5);
+        System.out.println("Area of a square: "+calculateArea2);
+        System.out.println();
+        
+        int calculateArea3 = s1.calculateArea(5, 10);
+        System.out.println("Area of a rectangle: "+calculateArea3);
+	}
+
+}
+
+
+Question -3
+-------------
+
+Create a class Employee (BLC Class)
+
+Attributes:
+
+names           		datatype
+--------    	     		-----------
+hoursWorked        :double
+hourlyRate            :double
+annualSalary	      :double
+salesAmount         :double
+ commissionRate :double
+
+Acess modifier :private for all varriables
+
+Implement three constructors:
+
+One for an hourly employee that accepts hoursWorked and hourlyRate.
+
+One for a salaried employee that accepts annualSalary.
+
+One for a commission employee that accepts salesAmount and commissionRate.
+
+Methods :
+------------
+method name 	:calculateSalary()
+Return type 	        :double
+Acess Modifier	:public
+
+ ->for calculating the salary of an hourly employee.
+
+method name 	:calculateSalary(double annualSalary)
+Return type 	        :double
+Acess Modifier	:public
+
+-> for calculating the salary of a salaried employee.
+
+method name 	:calculateSalary(double salesAmount, double commissionRate)
+Return type 	        :double
+Acess Modifier	:public
+
+->for calculating the commission of a commission-based employee.
+
+Create a Tester Class(ELC Class) Create instances of each type of employee.
+Calculate and display the salary for each employee type using the appropriate method.
+
+
+Test Cases :
+--------------
+Case 1:
+--------
+Hourly Employee
+
+Input: hoursWorked = 160, hourlyRate = 15
+
+Expected Output: Monthly salary of hourly employee: 2400.0
+
+ Case 2:
+----------
+ Salaried Employee
+Input : annualSalary = 60000
+
+Expected Output : Monthly salary of salaried employee: 5000.0
+
+ Case 3:
+---------
+ Commission Employee
+Input: salesAmount = 50000, commissionRate = 0.10
+Expected Output: Commission of employee: 5000.0
+ans:
+package com.test3;
+
+public class Employee {
+	private double hoursWorked;        
+	private double hourlyRate;            
+	private double annualSalary;	      
+	private double salesAmount;
+	private float commissionRate;
+	public Employee(double hoursWorked,double hourlyRate) {
+		super();
+		this.hoursWorked = hoursWorked;
+		this.hourlyRate = hourlyRate;
+	}
+	
+	public Employee(double annualSalary) {
+		super();
+		this.annualSalary = annualSalary;
+	}
+
+
+	public Employee(double salesAmount, float commissionRate) {
+		super();
+		this.salesAmount = salesAmount;
+		this.commissionRate = commissionRate;
+	}
+
+	public double calculateSalary() {
+	     double result = this.hoursWorked * this.hourlyRate;
+	     return result;
+	}
+	
+	public double calculateSalary(double annualSalary) {
+		double result = this.annualSalary /12.0;
+		return result;
+	}
+	
+	public double calculateSalary(double salesAmount, float commissionRate) {
+		double result = this.salesAmount*this.commissionRate;
+		return result;
+	}
+
+}
+
+
+package com.test3;
+
+public class Tester {
+	public static void main(String[] args) {
+		Employee e1 = new Employee(160d,15d);
+		double calculateSalary = e1.calculateSalary();
+		System.out.println("Monthly salary of hourly employee: "+calculateSalary);
+		System.out.println();
+		
+		Employee e2 = new Employee(60000d);
+		double calculateSalary2 = e2.calculateSalary(60000d);
+		System.out.println("Monthly salary of salaried employee: "+calculateSalary2);
+		System.out.println();
+		
+		Employee e3 = new Employee(50000d, 0.10f);
+		double calculateSalary3 = e3.calculateSalary(50000d, 0.10f);
+		System.out.println("Commission of employee: "+calculateSalary3);
+	}
+
+}
+
+
+
+Question - 4
+---------------
+Design a librart borrowing system
+
+Take a BookBorrowing class :
+
+Attributes:
+
+bookTitle           (String) -private         
+borrowerName (String) -private
+
+Constructor:
+A parameterized constructor to initialize bookTitle and borrowerName
+
+Methods :
+Devlop the getter method for both the attributes.
+
+
+Take a DVDBorrowing Class
+
+Attributes : 
+
+ dvdTitle             (String) - private 
+ borrowerName (String)	 - private	
+
+Take a parameterize constructor to initialize the properties
+
+Methods :
+Devlop the getter method for both the attributes.
+
+
+Take one more class MagazineBorrowing Class:
+
+Attributes: 
+magazineTitle (String)
+borrowerName (String)
+
+Constructor: 
+Initialize both attributes
+
+Methods: 
+getMagazineTitle(), getBorrowerName()
+											
+Take a another class LibraryManager (ELC Class)
+
+Methods :
+
+static Method :borrowItem(BookBorrowing borrowing)
+Non-static Method :
+
+Non-Static Method: borrowItem(DVDBorrowing borrowing) 
+ borrowItem(MagazineBorrowing borrowing)
+
+Each method should print a message indicating the borrower and the item borrowed.
+
+
+Main Class:
+
+Create instances of LibraryManager, BookBorrowing, DVDBorrowing, and MagazineBorrowing.
+
+Use the LibraryManager instance to handle the borrowing of each item.
+
+
+Taste Cases :
+----------------
+
+Case-1
+--------
+Sample Input:
+Book Title: ""
+Borrower Name: "Alice"
+
+Expected Output:
+"Error: Book title cannot be empty."
+
+case-2
+--------
+Sample Input:
+Magazine Title: "Time"
+Borrower Name: "Charlie"
+
+Expected Output:
+"Charlie borrowed the magazine: Time"
+ans:
+package com.test4;
+
+public class BookBorrowing {
+	private String bookTitle;        
+	private String borrowerName;
+	public BookBorrowing(String bookTitle, String borrowerName) {
+		super();
+		this.bookTitle = bookTitle;
+		this.borrowerName = borrowerName;
+	}
+	public String getBookTitle() {
+		return bookTitle;
+	}
+	public String getBorrowerName() {
+		return borrowerName;
+	} 
+	
+	
+}
+
+
+package com.test4;
+
+public class DVDBorrowing {
+	private String dvdTitle;
+	private String borrowerName;
+	public DVDBorrowing(String dvdTitle, String borrowerName) {
+		super();
+		this.dvdTitle = dvdTitle;
+		this.borrowerName = borrowerName;
+	}
+	public String getDvdTitle() {
+		return dvdTitle;
+	}
+	public String getBorrowerName() {
+		return borrowerName;
+	}
+
+}
+
+
+package com.test4;
+
+public class MagazineBorrowing {
+	private String magazineTitle;
+	private String borrowerName;
+	public MagazineBorrowing(String magazineTitle, String borrowerName) {
+		super();
+		this.magazineTitle = magazineTitle;
+		this.borrowerName = borrowerName;
+	}
+	public String getMagazineTitle() {
+		return magazineTitle;
+	}
+	public String getBorrowerName() {
+		return borrowerName;
+	}
+}
+
+
+package com.test4;
+
+public class LibraryManager {
+	public static void borrowItem(BookBorrowing borrowing) {
+		System.err.println("Error: Book title cannot be empty.");
+		
+	}
+	
+	public void borrowItem(DVDBorrowing borrowing) {
+		System.err.println("Error: DVD title cannot be empty.");
+	}
+	
+	public void  borrowItem(MagazineBorrowing borrowing) {
+		System.out.println("Charlie borrowed the magazine: Time");
+		
+	}
+}
+
+
+package com.test4;
+
+public class Main {
+
+	public static void main(String[] args) {
+        BookBorrowing b1 = new BookBorrowing("", "Alice");
+        DVDBorrowing d1 = new DVDBorrowing("", "Alice");
+        MagazineBorrowing m1 = new MagazineBorrowing("Time", "Charlie");
+        LibraryManager l1 = new LibraryManager();
+        
+        String bookTitle = b1.getBookTitle();
+        System.out.println("Book Title: "+bookTitle);
+        
+        String borrowerName = b1.getBorrowerName();
+        System.out.println("Borrower Name: "+borrowerName);
+        System.out.println();
+        
+        String dvdTitle = d1.getDvdTitle();
+        System.out.println("DVD Title: "+dvdTitle);
+        
+        String borrowerName1 = d1.getBorrowerName();
+        System.out.println("Borrower Name: "+borrowerName1);
+        System.out.println();
+        
+        String magazineTitle = m1.getMagazineTitle();
+        System.out.println("Magazine Title: "+magazineTitle);
+        
+        
+        String borrowerName2 = m1.getBorrowerName();
+        System.out.println("Borrower Name: "+borrowerName2);
+        System.out.println();
+        l1.borrowItem(m1);
+        l1.borrowItem(b1);
+        l1.borrowItem(d1);
+
+	}
+
+}
