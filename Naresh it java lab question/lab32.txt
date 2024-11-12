@@ -1,0 +1,539 @@
+calculateFuelEfficiency
+
+Vehicle Class:
+
+Implement a Vehicle class with a method calculateFuelEfficiency that calculates fuel efficiency based on distance and fuel consumed. Overload this method to handle different units of distance (kilometers and miles).
+
+
+
+// Parent class Vehicle
+
+Instance variable:-
+
+double totalDistance,private
+
+double totalFuelConsumed,private
+
+
+
+// Constructor parameterise
+
+
+
+
+
+// Method to calculate fuel efficiency in kilometers per liter
+
+Method Name:-
+
+calculateFuelEfficiency()
+
+Access Modifier:-
+
+public
+
+Return Type:-
+
+double
+
+
+
+
+
+// Method to calculate fuel efficiency with miles and gallons as input
+
+Method Name:-
+
+calculateFuelEfficiency()
+
+Access Modifier:-
+
+public
+
+Return Type:-
+
+double
+
+
+
+// Subclass Car inheriting from Vehicle
+
+// Constructor parameterise with super class 
+
+// Override the calculateFuelEfficiency method to provide a specific implementation for Car
+
+calculateFuelEfficiency()
+
+Access Modifier:-
+
+public
+
+Return Type:-
+
+double
+
+
+
+// Assuming totalDistance and totalFuelConsumed are in kilometers and liters respectively
+
+// Convert efficiency from km/l to miles/gallon
+
+// 1 km/l = 2.35215 miles/gallon
+
+
+
+Create a class Main which contains main method to test your code.
+
+ // Creating a Vehicle object
+
+ // Calculating fuel efficiency in km/l using the first method
+
+// Calculating fuel efficiency in miles/gallon using the overloaded method
+
+// Creating a Car object
+
+// Calculating fuel efficiency in miles/gallon using the overridden method in Car class
+
+
+
+
+
+Output:-
+
+Fuel Efficiency (km/l): 10.0
+
+Fuel Efficiency (miles/gallon): 23.51743298568725
+
+Car Fuel Efficiency (miles/gallon): 23.51743298568725
+
+ans: 
+package com.test1;
+
+public class Vehicle {
+	private double totalDistance;
+	private double totalFuelConsumed;
+	public Vehicle(double totalDistance, double totalFuelConsumed) {
+		super();
+		this.totalDistance = totalDistance;
+		this.totalFuelConsumed = totalFuelConsumed;
+	}
+	
+	public double calculateFuelEfficiency(int totalDistance, int totalFuelConsumed) {
+		double result = this.totalDistance * this.totalFuelConsumed ;
+		return result;
+	}
+	
+	public double calculateFuelEfficiency() {
+		double result1 = this.totalDistance * this.totalFuelConsumed * 2.35215;
+		return result1;
+	}
+
+}
+
+
+package com.test1;
+
+ class Car extends Vehicle{
+
+	public Car(double totalDistance, double totalFuelConsumed) {
+		super(totalDistance, totalFuelConsumed);
+	}
+	
+	 @Override
+	public double calculateFuelEfficiency() {
+		return super.calculateFuelEfficiency();
+	}
+
+}
+
+
+package com.test1;
+
+public class Main {
+
+	public static void main(String[] args) {
+       Vehicle v1 = new Vehicle(10.0, 1.0);
+       double calculateFuelEfficiency = v1.calculateFuelEfficiency(1, 1);
+       System.out.println("Fuel Efficiency (km/l): "+calculateFuelEfficiency);
+       double calculateFuelEfficiency2 = v1.calculateFuelEfficiency();
+       System.out.println("Fuel Efficiency (miles/gallon): "+calculateFuelEfficiency2);
+       System.out.println();
+       
+       Car c1 = new Car(10.0, 1.0);
+       double calculateFuelEfficiency3 = c1.calculateFuelEfficiency();
+       System.out.println("Car Fuel Efficiency (miles/gallon): "+calculateFuelEfficiency3);
+	}
+
+}
+
+===============================================================================================================================================================================
+Q6)
+volume of a cube, cylinder, and sphere.
+
+Implement methods to calculate the volume of a cube, cylinder, and sphere. Overload these methods to handle different combinations of parameters like radius, height, and side length.
+
+1.// Parent class Shape
+
+// Method to calculate volume of a cube
+
+Method Name calculateVolume parameter (double sideLength)
+
+Access Modifier:-
+
+public 
+
+Return type:-
+
+double
+
+
+
+// Method to calculate volume of a cylinder
+
+Method Name calculateVolume parameter (double radius,double height)
+
+Access Modifier:-
+
+public 
+
+Return type:-
+
+double
+
+
+
+// Method to calculate volume of a sphere
+
+Method Name calculateVolume parameter (double radius)
+
+Access Modifier:-
+
+public 
+
+Return type:-
+
+double
+
+
+
+2.// Subclass Cube inheriting from Shape
+
+// Method overriding to provide specific implementation for cubes
+
+// Reusing the parent class method for cubes
+
+
+
+3.// Subclass Cylinder inheriting from Shape
+
+// Method overriding to provide specific implementation for cylinders
+
+// Reusing the parent class method for cylinders
+
+
+
+4.// Subclass Sphere inheriting from Shape
+
+// Method overriding to provide specific implementation for spheres
+
+// Reusing the parent class method for spheres
+
+
+
+5.Create a class MainShape which contains main method to test your code.
+
+// Creating objects of different shapes
+
+// Calculating volumes using different methods based on shape
+
+// Call the methods.
+
+
+
+Formula:-
+
+Cube:- n*n*n
+
+Cylender:- pi*r*r*h
+
+Sphere:-4/3*pi*r*r
+
+
+
+Volume of the Cube: 27.0
+
+Volume of the Cylinder: 25.132741228718345
+
+Volume of the Sphere: 14.137166941154069
+
+ans:
+
+package com.test2;
+
+public class Shape {
+	
+	public double calculateVolumeparameter (double sideLength) {
+		double result1 = sideLength * sideLength * sideLength;
+		return result1;
+		
+	}
+	public double calculateVolumeparameter (double radius,double height) {
+		final double pi = 3.14;
+		double result2 = pi * radius *radius * height;
+		return result2;
+		
+	}
+	public double calculateVolumeparameter (float radius) {
+		final double pi = 3.14;
+		double result3 = 4/3*(pi*radius*radius);
+		return result3;
+		
+	}
+
+}
+
+
+package com.test2;
+
+ class Cube extends Shape{
+	 @Override
+		public double calculateVolumeparameter (double sideLength) {
+			return super.calculateVolumeparameter(sideLength);
+			
+		}
+
+}
+
+
+package com.test2;
+
+ class Cylinder extends Shape{
+	 @Override
+		public double calculateVolumeparameter (double radius,double height) {
+		   return super.calculateVolumeparameter(radius, height);
+		}
+
+}
+
+
+package com.test2;
+
+ class Sphere extends Shape{
+	 @Override
+		public double calculateVolumeparameter (float radius) {
+			return super.calculateVolumeparameter(radius);
+			
+		}
+
+}
+
+
+package com.test2;
+
+public class MainShape {
+
+	public static void main(String[] args) {
+		Cube c1 = new Cube();
+		double calculateVolumeparameter = c1.calculateVolumeparameter(3.0);
+		System.out.println("Volume of the Cube: " +calculateVolumeparameter );
+		System.out.println();
+		
+		Cylinder c2 = new Cylinder();
+		double calculateVolumeparameter2 = c2.calculateVolumeparameter(3.0, 3.0);
+		System.out.println("Volume of the Cylinder: "+calculateVolumeparameter2);
+		System.out.println();
+		
+		Sphere s1 = new Sphere();
+		double calculateVolumeparameter3 = s1.calculateVolumeparameter(3);
+		System.out.println("Volume of the Sphere: "+calculateVolumeparameter3);
+
+	}
+
+}
+
+
+===============================================================================================================================================================================
+Q7)
+FuelTank [ Polymorphism with has-a-relation ]
+
+Create a class Vehicle that has a FuelTank object. FuelTank has methods to get fuel level and refill fuel. Implement polymorphism with different types of vehicles sharing the same fuel tank logic.
+
+
+
+1.Create a class FuelTank
+
+Instance variable:-
+
+double fuelLevel,private
+
+final double maxCapacity,private
+
+
+
+Create parametrise constructor to initialise the maxCapacity and fuelLevel is initialise with default value.
+
+
+
+Generate getter method for fuelLevel.
+
+
+
+Create an Instance method refillFuel() with parameter amount type double
+
+//If fuelLevel and amount is lesser then maxCapacity then add fuelLevel with amount
+
+//print "Fuel refilled. Current fuel level: " + fuelLevel + " liters"
+
+//Otherwise print "Cannot refill. Tank capacity exceeded."
+
+
+
+2. Create another class Vehicle
+
+Instance Variable:-
+
+Fueltank fuelTank,private //Has-a-realtion
+
+
+
+Create parameterise constructor.
+
+
+
+Create an instance method displayFuelLevel() to print "Current fuel level: " + fuelTank.getFuelLevel() + " liters"
+
+
+
+Create an instance method refillFuel() with parameter amount type double.
+
+//to refill the tank
+
+
+
+
+
+3. Create a class Car inherite Vehicle class here
+
+
+
+Create a peremeterise constructor using Fueltank fuelTank pass the reference to parent class.
+
+
+
+4. Create a class Motorcycle inherite Vehicle class here
+
+
+
+Create a peremeterise constructor using Fueltank fuelTank pass the reference to parent class.
+
+
+
+5. Create a class Main which contains main method to test your code
+
+//Create an object for class FuelTank,Car and Motorcycle.
+
+//call the methods of the above class
+
+
+
+Output:-
+
+Fuel refilled. Current fuel level: 30.0 liters
+
+Cannot refill. Tank capacity exceeded.
+
+Current fuel level: 30.0 liters
+
+Current fuel level: 0.0 liters
+
+ans:
+
+package com.test3;
+
+public class FuelTank {
+	private double fuelLevel;
+	private final double maxCapacity;
+	
+	public FuelTank(double fuelLevel, double maxCapacity) {
+		super();
+		this.fuelLevel = fuelLevel;
+		this.maxCapacity = maxCapacity;
+	}
+
+	public double getFuelLevel() {
+		return fuelLevel;
+	}
+	
+	public void refillFuel(double amount) {
+		if(this.fuelLevel < this.maxCapacity && amount < this.maxCapacity) {
+			this.fuelLevel += amount;
+			System.out.println("Fuel refilled. Current fuel level: " + fuelLevel + " liters");
+		}
+		else {
+			System.err.println("Cannot refill. Tank capacity exceeded.");
+		}
+	}
+}
+
+
+package com.test3;
+
+public class Vehicle {
+	private FuelTank fueltank;
+
+	public Vehicle(FuelTank fueltank) {
+		super();
+		this.fueltank = fueltank;
+	} 
+	
+	public void displayFuelLevel() {
+		System.out.println( "Current fuel level: " + fueltank.getFuelLevel() + " liters");
+	}
+
+}
+
+
+package com.test3;
+
+ class Car extends Vehicle{
+
+	public Car(FuelTank fueltank) {
+		super(fueltank);
+	}
+	 
+
+}
+
+
+package com.test3;
+
+ class Motorcycle extends Vehicle {
+
+	public Motorcycle(FuelTank fueltank) {
+		super(fueltank);
+	}
+	 
+
+}
+
+
+package com.test3;
+
+public class Main {
+
+	public static void main(String[] args) {
+      FuelTank f1 = new FuelTank(10.0, 15.0);
+      f1.refillFuel(10);
+      System.out.println();
+      
+      Car c1 = new Car(f1);
+      c1.displayFuelLevel();
+      System.out.println();
+      
+      Motorcycle m1 = new Motorcycle(f1);
+      m1.displayFuelLevel();
+      
+      
+	}
+
+}

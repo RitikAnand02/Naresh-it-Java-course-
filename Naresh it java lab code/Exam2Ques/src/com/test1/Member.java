@@ -17,7 +17,4 @@ public class Member {
 		return "Member [memberId=" + memberId + ", memberName=" + memberName + ", membershipType=" + membershipType
 				+ ", book=" + book + "]";
 	}
-	
-	
-
 }
