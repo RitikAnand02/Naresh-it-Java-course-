@@ -9,7 +9,7 @@ public class MainShape {
 		System.out.println();
 		
 		Cylinder c2 = new Cylinder();
-		double calculateVolumeparameter2 = c2.calculateVolumeparameter(3.0, 3.0);
+		double calculateVolumeparameter2 = c2.calculateVolumeparameter(2.0, 2.0);
 		System.out.println("Volume of the Cylinder: "+calculateVolumeparameter2);
 		System.out.println();
 		

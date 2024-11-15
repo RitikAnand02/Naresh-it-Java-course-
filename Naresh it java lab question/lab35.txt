@@ -1,0 +1,503 @@
+
+Question -1
+--------------
+volume of a cube, cylinder, and sphere.
+
+Implement methods to calculate the volume of a cube, cylinder, and sphere. Overload these methods to handle different combinations of parameters like radius, height, and side length.
+
+ Parent class Shape
+
+ Method to calculate volume of a cube
+
+Method Name calculateVolume parameter (double sideLength)
+
+Access Modifier:-
+
+public 
+
+Return type:-
+
+double
+
+
+Take another class Cylinder
+
+ Method to calculate volume of a cylinder
+
+Method Name calculateVolume parameter (double radius,double height)
+
+Access Modifier:-
+
+public 
+
+Return type:-
+
+double
+
+
+Method to calculate volume of a sphere
+
+Method Name calculateVolume parameter (double radius)
+
+Access Modifier:-
+
+public 
+
+Return type:-
+
+double
+
+
+
+ Subclass Cube inheriting from Shape
+
+ Method overriding to provide specific implementation for cubes
+
+ Reusing the parent class method for cubes
+
+
+
+   Subclass Cylinder inheriting from Shape
+
+ Method overriding to provide specific implementation for cylinders
+
+ Reusing the parent class method for cylinders
+
+
+ Subclass Sphere inheriting from Shape
+
+ Method overriding to provide specific implementation for spheres
+ Reusing the parent class method for spheres
+
+ Create a class MainShape which contains main method to test your code.
+ Creating objects of different shapes, Calculating volumes using different methods based on shape
+ Call the methods.
+
+
+Formula:-
+
+Cube:- n*n*n
+
+Cylender:- pi*r*r*h
+
+Sphere:-4/3*pi*r*r
+
+
+
+Volume of the Cube: 27.0
+
+Volume of the Cylinder: 25.132741228718345
+
+Volume of the Sphere: 14.137166941154069
+
+
+
+Test Case 1: 
+---------------
+Negative Side Length for Cube
+
+Input:
+Cube side length: -3.0
+
+Expected Output:
+"Error: Side length cannot be negative."
+
+Test Case 2: Valid Input for Cube
+Input:
+Cube side length: 3.0
+Expected Output:
+Volume of the Cube: 27.0
+
+Test Case 3: Valid Input for Cylinder
+Input:
+Cylinder radius: 2.0, height: 2.0
+Expected Output:
+Volume of the Cylinder: 25.132741228718345
+
+ans:
+package com.test2;
+
+public class Shape {
+	
+	public double calculateVolumeparameter (double sideLength) {
+		if(sideLength<0) {
+			System.err.println("Error: Side length cannot be negative.");
+			System.exit(0);
+		}
+		else {
+		double result1 = sideLength * sideLength * sideLength;
+		return result1;
+		}
+        return 0.0;
+		
+	}
+	public double calculateVolumeparameter (double radius,double height) {
+		if(radius<0||height<0)
+		{
+			System.err.println("Error: Values cannot be negative");
+			System.exit(0);
+		}
+	else {
+		final double pi = 3.14;
+		double result2 = pi * radius *radius * height;
+		return result2;
+		}
+		return 0.0;
+		
+	}
+	public double calculateVolumeparameter (float radius) {
+		if(radius<0)
+		{
+			System.err.println("Error: Side length cannot be negative.");
+			System.exit(0);
+		}
+		else {
+		final double pi = 3.14;
+		double result3 = 4/3*(pi*radius*radius);
+		return result3;
+		}
+		return 0.0;
+		
+	}
+
+}
+
+
+package com.test2;
+
+ class Cube extends Shape{
+	 @Override
+		public double calculateVolumeparameter (double sideLength) {
+			return super.calculateVolumeparameter(sideLength);
+			
+		}
+
+}
+
+
+package com.test2;
+
+ class Cylinder extends Shape{
+	 @Override
+		public double calculateVolumeparameter (double radius,double height) {
+		   return super.calculateVolumeparameter(radius, height);
+		}
+
+}
+
+
+package com.test2;
+
+ class Sphere extends Shape{
+	 @Override
+		public double calculateVolumeparameter (float radius) {
+			return super.calculateVolumeparameter(radius);
+			
+		}
+
+}
+
+
+package com.test2;
+
+public class MainShape {
+
+	public static void main(String[] args) {
+		Cube c1 = new Cube();
+		double calculateVolumeparameter = c1.calculateVolumeparameter(3.0);
+		System.out.println("Volume of the Cube: " +calculateVolumeparameter );
+		System.out.println();
+		
+		Cylinder c2 = new Cylinder();
+		double calculateVolumeparameter2 = c2.calculateVolumeparameter(2.0, 2.0);
+		System.out.println("Volume of the Cylinder: "+calculateVolumeparameter2);
+		System.out.println();
+		
+		Sphere s1 = new Sphere();
+		double calculateVolumeparameter3 = s1.calculateVolumeparameter(3);
+		System.out.println("Volume of the Sphere: "+calculateVolumeparameter3);
+
+	}
+
+}
+
+=================================================================================================================
+
+Question-2
+--------------
+
+Create a superclass called Animal
+
+Impliment a method  makeSound() that prints a generic sound. 
+
+Method Name: makeSound
+Access Modifier: public
+Return Type: void
+
+
+
+Then, create subclasses Dog  
+
+Cat that override the makeSound() method to make specific 
+
+Method Name: makeSound
+Access Modifier: public
+Return Type: void
+
+sounds like (e.g bark..bark), respectively.
+
+Main Class:(ELC Class)
+
+Create instances of Animal, Dog, and Cat.
+Use polymorphism to call the makeSound method on each instance.
+Demonstrate the overridden behavior.
+
+
+Test Case 1:
+---------------
+ Calling makeSound on Animal instance
+
+Input:
+Create an instance of Animal.
+Call the makeSound method.
+
+Expected Output:
+"Some generic animal sound"
+
+Test Case 2: 
+---------------
+Calling makeSound on Dog instance
+
+Input:
+Create an instance of Dog.
+Call the makeSound method.
+
+Expected Output:
+"Bark! Bark!"
+
+ans: 
+package com.test6;
+
+public class Animal {
+	public void makeSound() {
+		System.out.println("Some generic animal sound");
+	}
+
+}
+
+
+package com.test6;
+
+ class Dog extends Animal {
+	 @Override
+	public void makeSound() {
+		System.out.println("bark!! bark!!");
+	}
+
+}
+
+
+package com.test6;
+
+ class Cat extends Animal{
+	 @Override
+	 public void makeSound() {
+			System.out.println("Meow... Meow...");
+		}
+
+}
+
+
+package com.test6;
+
+public class Main {
+
+	public static void main(String[] args) {
+      Animal a1 = new Animal();
+      Dog d1 = new  Dog();
+      Cat c1 = new Cat();
+      
+      a1.makeSound();
+      d1.makeSound();
+      c1.makeSound();
+	}
+
+}
+
+
+
+Question-3
+--------------
+
+calculateFuelEfficiency
+
+Vehicle Class:
+
+Implement a Vehicle class with a method calculateFuelEfficiency that calculates fuel efficiency based on distance and fuel consumed. Overload this method to handle different units of distance (kilometers and miles).
+
+
+// Parent class Vehicle
+
+Instance variable:-
+
+double totalDistance,private
+
+double totalFuelConsumed,private
+
+
+// Constructor parameterise
+
+
+// Method to calculate fuel efficiency in kilometers per liter
+
+Method Name:-
+
+calculateFuelEfficiency()
+
+Access Modifier:-
+
+public
+
+Return Type:-
+
+double
+
+
+
+// Method to calculate fuel efficiency with miles and gallons as input
+
+Method Name:-
+
+calculateFuelEfficiency()
+
+Access Modifier:-
+
+public
+
+Return Type:-
+
+double
+
+
+// Subclass Car inheriting from Vehicle
+
+// Constructor parameterise with super class 
+
+// Override the calculateFuelEfficiency method to provide a specific implementation for Car
+
+calculateFuelEfficiency()
+
+Access Modifier:-
+
+public
+
+Return Type:-
+
+double
+
+
+// Assuming totalDistance and totalFuelConsumed are in kilometers and liters respectively
+
+// Convert efficiency from km/l to miles/gallon
+
+// 1 km/l = 2.35215 miles/gallon
+
+
+
+Create a class Main which contains main method to test your code.
+
+ Creating a Vehicle object
+ Calculating fuel efficiency in km/l using the first method
+ Calculating fuel efficiency in miles/gallon using the overloaded method
+
+ Creating a Car object
+
+ Calculating fuel efficiency in miles/gallon using the overridden method in Car class
+
+Taste Case -1:
+---------------
+Sample Input: 
+totalDistance = 500
+totalFuelConsumed = 50
+Expected Output:
+
+Fuel Efficiency (km/l): 10.0
+Fuel Efficiency (miles/gallon): 23.51743298568725
+Car Fuel Efficiency (miles/gallon): 23.51743298568725
+
+Taste Case-2 :
+---------------
+Sample Input: totalDistance = 500 
+totalFuelConsumed = 0
+
+Expected Output:
+
+Error: Fuel consumed cannot be zero.
+
+ans: 
+package com.test1;
+
+public class Vehicle {
+	private double totalDistance;
+	private double totalFuelConsumed;
+	public Vehicle(double totalDistance, double totalFuelConsumed) {
+		super();
+		if(totalDistance<=0 || totalFuelConsumed<=0)
+		{
+			System.err.println("Error: Fuel consumed cannot be zero.");
+			System.exit(0);
+		}
+		else 
+		{
+		this.totalDistance = totalDistance;
+		this.totalFuelConsumed = totalFuelConsumed;
+		}
+	}
+	
+	public double calculateFuelEfficiency(int totalDistance, int totalFuelConsumed) {
+		double result = this.totalDistance /this.totalFuelConsumed ;
+		return result;
+	}
+	
+	public double calculateFuelEfficiency() {
+		double result1 = this.totalDistance / this.totalFuelConsumed * 2.35215;
+		return result1;
+	}
+
+}
+
+
+package com.test1;
+
+ class Car extends Vehicle{
+
+	public Car(double totalDistance, double totalFuelConsumed) {
+		super(totalDistance, totalFuelConsumed);
+	}
+	
+	 @Override
+	public double calculateFuelEfficiency() {
+		return super.calculateFuelEfficiency();
+	}
+
+}
+
+
+package com.test1;
+
+public class Main {
+
+	public static void main(String[] args) {
+       Vehicle v1 = new Vehicle(500, 50);
+       double calculateFuelEfficiency = v1.calculateFuelEfficiency(500, 50);
+       System.out.println("Fuel Efficiency (km/l): "+calculateFuelEfficiency);
+       double calculateFuelEfficiency2 = v1.calculateFuelEfficiency();
+       System.out.println("Fuel Efficiency (miles/gallon): "+calculateFuelEfficiency2);
+       System.out.println();
+       
+       Car c1 = new Car(10.0, 1.0);
+       double calculateFuelEfficiency3 = c1.calculateFuelEfficiency();
+       System.out.println("Car Fuel Efficiency (miles/gallon): "+calculateFuelEfficiency3);
+	}
+
+}
