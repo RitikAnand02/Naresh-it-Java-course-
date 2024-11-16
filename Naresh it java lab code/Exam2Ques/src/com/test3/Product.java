@@ -30,14 +30,21 @@ public class Product {
         System.out.print("Enter Product Price: ");
         double price = scanner.nextDouble();
 
-
         return new Product(id, name, price);
     }
 
-     @Override
-    public String toString() {
-        return "Product ID: " + productId + ", Product Name: " + productName + ", Product Price: $" + productPrice;
-    }
+
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
+				+ "]";
+	}
+    
+    
+
+
+
+
 }
 
 
