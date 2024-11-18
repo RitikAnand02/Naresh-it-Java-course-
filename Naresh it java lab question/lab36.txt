@@ -1,0 +1,616 @@
+Question-1
+--------------
+Create a BLC class Named as Shape and it have three sub classes named as Circle, Triangle and Squar
+e for each class have two methods called as draw() and erase()
+
+For Shape class
+
+Methods:
+public static Shape randshape()
+No Argument constructor
+randshape(): Using switch ((int) (Math.random()*3))
+case 0: create an object for Circle Object using return
+case 1: create an object for Square Object using return
+case 2: create an object for Triangle Object using return
+default: Print as default message
+finally return an object for Shape class
+Use this class to test your solution's class and methods in main method
+
+For Shape class
+Methods: In draw():void and erase():void and No argument constructor
+draw(): print "shape draw"
+erase(): print "Shape erase"
+For Circle class sub class of Shape class
+Methods: In draw():void and erase():void and No argument constructor
+Override:
+draw() method print "Circle draw" and erase() method print "Circle erase"
+
+For Triangle class sub class of Shape class
+
+Take No argument constructor
+
+Methods: 
+
+In draw():void 
+ erase():void 
+Override:
+draw() method print "Triangle draw" and erase() method print "Triangle erase"
+
+
+For Square class sub class of Shape class
+
+Take No argument constructor
+
+Methods: 
+ draw():void 
+ erase():void 
+ 
+Override:
+draw() method print "Square draw" and erase() method print "Square erase"
+
+
+
+Create Main class(ELC Class) named as ShapeDemo and havinf main method and call the method and execute it.
+
+Test Cases -1 :
+-------------------
+Valid Case: Random Shape Generation
+
+Sample Input: [No input needed]
+Expected Output (example run, actual output will vary due to randomness):
+
+Triangle draw
+Triangle erase
+
+Square draw
+Square erase
+
+Circle draw
+Circle erase
+
+Circle draw
+Circle erase
+ans: 
+package com.test1;
+
+public class Shape {
+	
+	public Shape() {
+		super();
+	}
+
+	public static Shape randshape(){
+		int randomnum =(int)(Math.random()*3);
+		
+		switch(randomnum) {
+		case 0 : return new Circle();
+		        
+		
+		case 1: return new Triangle();
+	
+		
+		case 2: return new Square();
+		
+		
+		default: System.err.println("Invalid Input");
+		}
+		return null;
+		
+	
+	}
+	public void draw(){
+		System.out.println("shape draw");
+	}
+	
+	public void erase(){
+		System.out.println("Shape erase");
+	}
+}
+
+package com.test1;
+
+ class Circle extends Shape{
+	 
+	    public Circle() {
+		super();
+	}
+
+		@Override
+		public void draw(){
+			System.out.println("Circle  draw");
+		}
+		
+	    @Override
+		public void erase(){
+			System.out.println("Circle  erase");
+		}
+}
+
+package com.test1;
+
+ class Triangle extends Shape {
+
+	public Triangle() {
+		super();
+	}
+	@Override
+	public void draw(){
+		System.out.println("Triangle draw");
+	}
+	
+    @Override
+	public void erase(){
+		System.out.println("Triangle erase");
+	}
+
+}
+
+
+package com.test1;
+
+ class Square extends Shape {
+
+	public Square() {
+		super();
+	}
+	@Override
+	public void draw(){
+		System.out.println("Square draw");
+	}
+	
+    @Override
+	public void erase(){
+		System.out.println("Square erase");
+	}
+}
+
+
+package com.test1;
+
+public class ShapeDemo {
+public static void main(String[] args) {
+  Shape s1 = Shape.randshape();
+  s1.draw();
+  s1.erase();
+	
+}
+}
+=================================================================================================================
+
+---------------
+Question-2
+---------------
+ Design a  Java program that models a Hospital Management System using inheritance:
+
+Create class HospitalStaff with following attributes
+
+declare variable:
+
+private String name;
+private int age;
+private String role;
+
+create one parameterized Constructor and initialize values
+
+method Name:- Work()
+Access specifier :-public
+return type:-void
+
+this method will print the role and there name with "is working massage"
+
+*create second class Doctor which will inherited with HospitalStaff
+
+declare variable:
+private String specialization;
+
+ take one parameterized Constructor and initialize values
+
+// Overriding work() method for doctors
+it will print Roll and Name with this massage" with specialization in " + specialization + " is treating patients."
+
+* Create Nurse class which will inherite HospitalStaff
+
+Variables :-
+private int yearsOfExperience;
+
+take  one parameterized Constructor and initialize values
+
+// Overriding work() method for nurses
+it will print massage in this format
+Role + " " + NAME + " with " + yearsOfExperience + " years of experience is taking care of patients."
+
+create class HospitalManagementSystem inside this take main method where use this class for testing
+create object for every class and check
+ans:
+package com.test2;
+
+public class HospitalStaff {
+	private String name;
+	private int age;
+	private String role;
+	public HospitalStaff(String name, int age, String role) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.role = role;
+	}
+	
+	
+	
+	public String getName() {
+		return name;
+	}
+
+
+
+	public int getAge() {
+		return age;
+	}
+
+
+
+	public String getRole() {
+		return role;
+	}
+
+
+
+	public void Work(){
+		System.out.println(this.role+" "+this.name+" is working massage");
+	}
+
+}
+
+
+package com.test2;
+
+ class Doctor extends HospitalStaff{
+	private String specialization;
+
+	public Doctor(String name, int age, String role, String specialization) {
+		super(name, age, role);
+		this.specialization = specialization;
+	}
+	@Override
+	public void Work(){
+     System.out.println(getRole()+" And "+getName()+" with specialization in " + specialization + " is treating patients.");
+		
+	}
+
+}
+
+
+package com.test2;
+
+ class Nurse  extends HospitalStaff{
+	 
+	 private int yearsOfExperience;
+
+	public Nurse(String name, int age, String role, int yearsOfExperience) {
+		super(name, age, role);
+		this.yearsOfExperience = yearsOfExperience;
+	}
+	 
+	@Override
+	public void Work(){
+     System.out.println(getRole()+" "+getName()+" with "+this.yearsOfExperience+ " years of experience is taking care of patients.");
+		
+	}
+
+}
+
+
+package com.test2;
+
+public class HospitalManagementSystem {
+
+	public static void main(String[] args) {
+		HospitalStaff h1 = new HospitalStaff("Ritik", 30, "Compounder");
+		h1.Work();
+		System.out.println();
+		
+		Doctor d1 = new Doctor("Jatin", 50, "Genric", "Vetnary");
+		d1.Work();
+		System.out.println();
+		
+		Nurse n1 = new Nurse("Mia",30,"Junior Nurse",2);
+		n1.Work();
+	}
+
+}
+
+
+================================================================================================================
+
+Question - 3
+--------------
+Superclass Payment:
+
+Method to process a payment:
+
+Method Name: processPayment
+Access Modifier: public
+Return Type: void
+
+Task: Print a generic payment processing message (e.g., "Processing payment").
+
+
+Subclass CreditCardPayment:
+
+Override processPayment method to print a credit card-specific message:
+
+Method Name: processPayment
+Access Modifier: public
+Return Type: void
+
+Task: Print a message for credit card payment (e.g., "Processing credit card payment").
+
+Subclass PayPalPayment:
+
+Override processPayment method to print a PayPal-specific message:
+
+Method Name: processPayment
+Access Modifier: public
+Return Type: void
+ 
+Task: Print a message for PayPal payment (e.g., "Processing PayPal payment").
+
+
+Subclass BankTransferPayment:
+
+Override processPayment method to print a bank transfer-specific message:
+
+Method Name: processPayment
+Access Modifier: public
+Return Type: void
+
+Task: Print a message for bank transfer payment (e.g., "Processing bank transfer payment").
+
+
+Create a Main Class in which take main method and take one static method
+
+Method :
+
+Method to process multiple payments in a single transaction:
+
+Method Name: processMultiplePayments
+Access Modifier: public
+Return Type: void
+Arguments: Payment... payments
+
+Task: Loop through each payment and call the processPayment method.
+
+Create instances of Payment, CreditCardPayment, PayPalPayment, and BankTransferPayment.
+Use polymorphism to call the processPayment method on each instance.
+Test Case 1: 
+--------------
+Generic Payment
+Sample Input:
+if you are calling processPayment() of generic Payment
+
+Expected Output :
+Processing payment
+
+
+Test Case 2: Credit Card Payment
+---------------
+Sample Input:
+if you are calling processPayment() of Credit Card Payment
+
+Expected Output :
+Credit Card  payment done.
+ans: 
+
+package com.test3;
+
+public class Payment {
+   public void  processPayment() {
+	   System.out.println("Processing payment");
+   }
+}
+
+package com.test3;
+
+ class CreditCardPayment extends Payment{
+	
+	   @Override
+	   public void  processPayment() {
+		   System.out.println("Processing credit card payment");
+	   }
+}
+
+package com.test3;
+
+ class PayPalPayment extends Payment{
+	
+	   @Override
+	   public void  processPayment() {
+		   System.out.println("Processing PayPal payment");
+	   }
+}
+
+package com.test3;
+
+ class BankTransferPayment extends Payment {
+	 
+	 @Override
+	   public void  processPayment() {
+		   System.out.println("Processing bank transfer payment");
+	   }
+
+}
+
+package com.test3;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		processMultiplePayments(new Payment(),new CreditCardPayment(), new PayPalPayment(), new BankTransferPayment());
+	}
+		public static void processMultiplePayments(Payment... payments) {
+			
+			for(Payment X:payments)
+			{
+				X.processPayment();
+			}
+			
+		}
+}
+
+=====================================================================================================================
+
+Question-4
+-------------
+
+Develop a booking and maintenance system for a Hostel
+Create a class named as Room 
+
+Attributes :
+roomType :String (private)
+
+Contains an instance initializer block that sets default values for room properties. and with some relevant message.
+
+impliment three method 
+
+name :bookRoom()
+return type :void
+
+overload the bookRoom methods 
+
+name :bookRoom
+return Type :void
+Arguments :String 
+Access Modifier :public
+
+Take one more overridden method
+
+name :cleanRoom
+return Type :void
+Access Modifier :public
+
+Take another class HostelRoom which is subclass of Room
+
+Attributes :
+bedType(String) private
+
+Contains an instance initializer block that sets default values for room properties. and with some relevant message.
+
+impliment three method 
+
+name :bookRoom()
+return type :void
+
+overload the bookRoom methods 
+
+name :bookRoom()
+return Type :void
+Arguments :String ,String
+Access Modifier :public
+this method is giving information about roomtype and bedtype
+
+Take one more overridden method
+
+name :cleanRoom
+return Type :void
+Access Modifier :public
+
+//for achieving the runtime polymerphism this method print the specific message.
+
+Take a main class which is having main method and instantiate the object and calling the methods.
+
+Test cases :
+-------------
+case-1
+--------
+Booking a HostelRoom with an empty bed type:
+
+Sample Input: hostelRoom.bookRoom("Deluxe Hostel Room", "")
+Expected Output: Error: Bed type cannot be null or empty.
+
+case-2
+--------
+Booking a HostelRoom with valid room type and bed type:
+
+Sample Input: hostelRoom.bookRoom("Deluxe Hostel Room", "Double Bed")
+
+Expected Output: Deluxe Hostel Room with Double Bed booked
+
+ans:
+
+package com.test4;
+
+public class Room {
+	private String roomType;
+	
+	{
+		 roomType = null;
+	}
+
+	
+	public void bookRoom() {
+		
+	}
+	
+	public void bookRoom(String roomtype) {
+		if (roomtype.isEmpty()) {
+			System.err.println("Error: Room type cannot be null or empty.");
+			System.exit(0);
+		}
+		else {
+			this.roomType=roomtype;
+		}
+	}
+
+    public void cleanRoom() {
+		
+	}
+}
+
+
+package com.test4;
+
+ class HostelRoom extends Room{
+	 private String bedType;
+	 
+	 
+	 {
+		 bedType = null;
+	 }
+
+		public void bookRoom() {
+			
+		}
+		
+		public void bookRoom(String roomtype,String bedType) {
+			super.bookRoom(roomtype);
+			if (bedType.isEmpty()) {
+				System.err.println("Error: Bed type cannot be null or empty.");
+				System.exit(0);
+			}
+			else {
+				this.bedType=bedType;
+			}
+			
+			System.out.println(roomtype+ " with "+bedType);
+			
+		}
+		
+		public void cleanRoom() {
+				
+		}
+}
+
+package com.test4;
+
+public class Main {
+
+	public static void main(String[] args) {
+		HostelRoom h1 = new HostelRoom();
+		h1.bookRoom("Deluxe Hostel Room", "Double Bed");
+		
+	}
+
+}
+
+

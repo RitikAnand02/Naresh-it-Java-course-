@@ -1,0 +1,780 @@
+1)
+SuperheroModelSystemTester
+Superhero Model System
+Superhero Class (BLC Class)
+Attributes:
+
+heroId - int: Stores the unique ID of the superhero.
+heroName - String: Stores the name of the superhero.
+superPower - String: Stores the primary superpower of the superhero (e.g., "Flight", "Strength", "Invisibility").
+strengthLevel - int: Stores the superhero’s strength level (e.g., 1 to 10).
+isActive - boolean: Indicates whether the superhero is currently active in the fight against crime.
+All variables should be private.
+
+Constructor Requirements:
+
+Parameterized Constructor: Initializes all fields (heroId, heroName, superPower, strengthLevel, isActive) using values provided by the user.
+Methods:
+
+Static Method: getSuperheroObject()
+
+Parameters: None
+Return Type: Superhero
+Access Modifier: public
+Functionality: This method prompts the user to input heroId, heroName, superPower, strengthLevel, and isActive. It then initializes a Superhero object with these values and returns the object.
+Instance Method: changePower(String newPower)
+
+Parameters: String newPower
+Return Type: void
+Functionality: Updates the superPower to the specified newPower if it’s a valid superpower (e.g., "Flight", "Strength", "Invisibility"). If the new power is invalid, it displays an error message.
+Instance Method: increaseStrength(int increment)
+
+Parameters: int increment
+Return Type: void
+Functionality: Increases the strengthLevel by the specified increment, provided the new strength level is within a valid range (1 to 10). If the increment exceeds the range, it displays an error message.
+Instance Method: activateHero()
+
+Parameters: None
+Return Type: void
+Functionality: Sets the isActive attribute to true, indicating the superhero is ready for action.
+Instance Method: deactivateHero()
+
+Parameters: None
+Return Type: void
+Functionality: Sets the isActive attribute to false, indicating the superhero is taking a break or no longer active.
+Override toString():
+
+Return Type: String
+Functionality: Returns a string representation of the Superhero object’s properties (heroId, heroName, superPower, strengthLevel, and isActive).
+Main Class:
+Create a main class (e.g., SuperheroManagementMain) with the main method to perform the following tasks:
+
+Add Superheroes:
+
+Use a loop to accept 3 Superhero objects from the keyboard by calling the getSuperheroObject() method.
+Change Power:
+
+Prompt the user to change the power of one of the superheroes by entering the heroId and the new superpower. Use the changePower() method to update the power.
+Increase Strength:
+
+Prompt the user to increase the strength of one of the superheroes by entering the heroId and the strength increment. Use the increaseStrength() method to update the strength.
+Activate or Deactivate Hero:
+
+Allow the user to activate or deactivate any superhero by entering their heroId. Use the activateHero() or deactivateHero() method accordingly.
+Print Details:
+
+Print the details of each Superhero object using the overridden toString() method.
+
+2)----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AreaTester
+Area of a Circle, Rectangle and Triangle
+
+Create a base class Shape with methods to calculate the area. Create subclasses Circle, Rectangle, and Triangle. Implement method overriding in these subclasses for calculating area based on the number and type of parameters.
+
+
+
+Create a class MainArea which contains main method to test your code.
+
+
+
+Formula:-
+
+Area of Circle: 
+
+pi*r*r
+
+Area of Rectangle: 
+
+length×width
+
+Area of Triangle: 
+
+1/2*base*height
+
+3)-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+EmployeeManagerSystemTester
+
+Employee and Manager System (Has-A Relationship & Method Overriding)
+
+Employee Class (Base Class)
+
+Attributes:
+
+employeeId - int: Stores the unique ID of the employee.
+employeeName - String: Stores the name of the employee.
+employeeSalary - double: Stores the salary of the employee.
+Constructor Requirements:
+
+Parameterized Constructor: Initializes all fields (employeeId, employeeName, employeeSalary) using values provided by the user.
+Methods:
+
+Instance Method: calculateBonus()
+
+Return Type: double
+Functionality: Calculates the bonus for the employee as 10% of their salary.
+Override toString():
+
+Return Type: String
+Functionality: Returns a string representation of the Employee object’s properties (employeeId, employeeName, employeeSalary).
+Manager Class (Derived Class)
+Attributes:
+
+departmentName - String: Stores the department the manager is in charge of.
+Constructor Requirements:
+
+Parameterized Constructor: Initializes employeeId, employeeName, and employeeSalary from the base Employee class using super(). Initializes departmentName.
+Methods:
+
+Override calculateBonus()
+
+Return Type: double
+Functionality: Overrides the calculateBonus() method to provide a custom bonus calculation. For managers, the bonus is 20% of their salary.
+
+Override toString():
+
+Return Type: String
+Functionality: Overrides the toString() method to add the departmentName property to the string representation of the Manager object.
+Main Class:
+Create an EmployeeManagerSystem class with the main method to perform the following tasks:
+
+Create Employee and Manager objects:
+
+Accept input for both the Employee and Manager classes and store them in objects.
+Calculate Bonus:
+
+Call the calculateBonus() method for both Employee and Manager objects to demonstrate the use of method overriding.
+Print Details:
+
+Print the details of both the Employee and Manager objects using the toString() method.
+
+4)-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PrimeCheckerSumTester
+PrimeCheckerSum Class:
+
+Attributes: Stores the number to be checked.
+int num(private)
+
+Methods :
+------------
+isPrime(): Checks if the number attribute is prime.[Return type boolean]
+printResult(): Prints whether the number is prime.[Return type void]
+
+sumPrimesUpTo(): A static method that finds and sums all prime numbers up to the given limit.[Return type int]
+
+Main Method:
+
+Asks the user for a number to check if it's prime and displays the result.
+Prompts the user to enter a limit and calculates the sum of all prime numbers up to that limit.
+
+5)----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+StudentCourseManagementSystemTester
+Student Course Management System
+Objective: Create a multilevel inheritance system where students enroll in courses and receive grades.
+Class Structure
+Person (Base Class)
+
+Attributes:
+name - String: Stores the name of the person.
+age - int: Stores the age of the person.
+Constructor: Initializes name and age.
+Methods: displayInfo() to show basic info about the person.
+Student (Intermediate Class - Inherits from Person)
+
+Attributes:
+studentId - int: Unique ID for the student.
+Constructor: Initializes name, age, and studentId using super().
+Methods: getStudentDetails() - Returns the student’s details.
+CourseEnrollment (Derived Class - Inherits from Student)
+
+Attributes:
+courseName - String: Name of the course enrolled.
+grade - String: The grade received in the course.
+Constructor: Initializes studentId, name, age, courseName, and grade.
+Methods:
+enrollInCourse():
+Parameter: A Student object.
+Return Type: CourseEnrollment
+Functionality: Takes a Student object, prompts for course name and grade, enrolls the student in the course, and returns a new CourseEnrollment object with all details.
+Main Class - StudentCourseManagement
+Create a Student Object: Takes input for name, age, and studentId.
+Enroll the Student in a Course:
+Calls enrollInCourse() method with the Student object.
+Returns a CourseEnrollment object with course name and grade.
+Display Student and Course Details:
+Calls displayInfo() from Person and getStudentDetails() from Student to show the student’s information.
+Shows the enrolled course and grade from CourseEnrollment.
+
+6)---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DigitSumTester
+DigitSum Class:
+
+Attributes:
+Stores the number provided by the user.
+int num (private)
+
+Methods:
+getNthDigitFromRight(int position): This method extracts and returns the digit at the specified position from the right. For instance, if position is 1, it returns the last digit. [Return type int]
+
+addFirstAndNthDigit(int position): This method adds the first digit and the digit at the specified position from the right and returns the result. [Return type int]
+
+Main Method:
+Asks the user to input a number and a position (n).
+Creates an instance of DigitSumNth with the provided number.
+Calls the addFirstAndNthDigit() method with the provided position and displays the result.
+
+7)--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+E-Commerce Order System :
+
+User (Base Class)
+
+Attributes:
+userId - int: Unique ID for the user.
+userName - String: Name of the user.
+Constructor: Initializes userId and userName.
+Methods: displayUserInfo() - Shows user details.
+Customer (Intermediate Class - Inherits from User)
+
+Attributes:
+address - String: The address of the customer.
+Constructor: Initializes userId, userName, and address using super().
+Methods: getCustomerDetails() - Returns customer’s address.
+Order (Derived Class - Inherits from Customer)
+
+Attributes:
+productId - int: ID of the product ordered.
+quantity - int: Quantity of the product.
+totalPrice - double: Total price of the order.
+Constructor: Initializes all attributes including those inherited from Customer.
+Methods:
+placeOrder():
+Parameter: A Customer object.
+Return Type: Order
+Functionality: Takes a Customer object, prompts for productId, quantity, and price, calculates totalPrice, and returns an Order object with all order details.
+Main Class - ECommerceOrderSystem
+Create a Customer Object: Takes input for user ID, name, and address.
+Place an Order:
+Calls placeOrder() method with the Customer object.
+Returns an Order object with details like productId, quantity, and total price.
+Display User, Customer, and Order Details:
+Calls displayUserInfo() from User, getCustomerDetails() from Customer, and shows order details using Order.
+
+8)-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+BankAccountManagementSystemTester
+
+Bank Account Management System (Has-A Relationship, Method Overriding & Switch Case)
+Account Class (Base Class)
+Attributes (Instance Variables):
+
+accountId - int: Stores the unique ID of the bank account.
+accountHolderName - String: Stores the name of the account holder.
+balance - double: Stores the current balance in the account.
+Constructor Requirements:
+
+Parameterized Constructor: Initializes all fields (accountId, accountHolderName, balance) using values provided by the user.
+Methods:
+
+Instance Method: deposit(double amount)
+
+Parameters: double amount
+Return Type: void
+Functionality: Increases the balance by amount, provided the amount is positive.
+Instance Method: withdraw(double amount)
+
+Parameters: double amount
+Return Type: void
+Functionality: Decreases the balance by amount if there are sufficient funds. If not, it displays an "Insufficient Funds" message.
+Instance Method: calculateInterest()
+
+Return Type: double
+Functionality: Calculates a basic interest on the balance as 2% of the current balance.
+Override toString()
+
+Return Type: String
+Functionality: Returns a string representation of the Account object’s properties (accountId, accountHolderName, balance).
+SavingsAccount Class (Derived Class)
+Attributes:
+
+interestRate - double: The specific interest rate for the savings account.
+Constructor Requirements:
+
+Parameterized Constructor: Initializes accountId, accountHolderName, and balance from the base Account class using super(). Initializes interestRate.
+Methods:
+
+Override calculateInterest()
+
+Return Type: double
+Functionality: Overrides the calculateInterest() method to calculate the interest based on interestRate rather than the base interest rate.
+Override toString()
+
+Return Type: String
+Functionality: Adds the interestRate information to the Account details, providing a string representation for SavingsAccount objects.
+CheckingAccount Class (Derived Class)
+Attributes:
+
+overdraftLimit - double: The overdraft limit for the checking account.
+Constructor Requirements:
+
+Parameterized Constructor: Initializes accountId, accountHolderName, and balance from the base Account class using super(). Initializes overdraftLimit.
+Methods:
+
+Override withdraw(double amount)
+
+Return Type: void
+Functionality: Overrides the withdraw() method to allow withdrawals up to the overdraftLimit (i.e., balance can go negative up to the limit).
+Override toString()
+
+Return Type: String
+Functionality: Adds the overdraftLimit information to the Account details, providing a string representation for CheckingAccount objects.
+Main Class with Switch Case Operations (BankAccountManagementMain)
+Create a BankAccountManagementMain class with the main method to perform the following tasks:
+
+Create Account Objects:
+
+Ask the user if they want to create a SavingsAccount or CheckingAccount.
+Based on the choice, use the appropriate constructor and input values to initialize an account object (either SavingsAccount or CheckingAccount).
+Display Menu for Account Operations:
+
+Use a switch statement to offer multiple operations to the user:
+1. Deposit: Ask for an amount and call the deposit() method.
+2. Withdraw: Ask for an amount and call the withdraw() method, demonstrating method overriding (withdrawal logic differs between SavingsAccount and CheckingAccount).
+3. Calculate Interest: Call the calculateInterest() method to display the interest for the account, demonstrating method overriding.
+4. Display Account Details: Call the toString() method to display details of the account.
+5. Exit: Exit the application.
+Loop Operations:
+
+Allow the user to perform multiple operations by repeating the switch-case menu until they choose to exit.
+
+9)-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Air Conditioner (AC) Model System
+
+AC Class (BLC Class)
+
+Attributes:
+
+acId - int: Stores the unique ID of the air conditioner.
+acBrand - String: Stores the brand of the air conditioner.
+currentTemperature - int: Stores the current temperature setting of the AC.
+acMode - String: Stores the mode of the AC (e.g., "Cool", "Heat", "Fan").
+energyConsumption - double: Tracks the energy consumption based on usage and settings.
+All variables should be private.
+
+Constructor Requirements:
+
+Parameterized Constructor: Initializes all fields (acId, acBrand, currentTemperature, acMode, and energyConsumption) using values provided by the user.
+
+Methods:
+
+Static Method: getAcObject()
+Parameters: None
+Return Type: AC
+Access Modifier: public
+Functionality: This method prompts the user to input acId, acBrand, currentTemperature, acMode, and energyConsumption. It then initializes an AC object with these values and returns the object.
+Instance Method: adjustTemperature(int newTemperature)
+
+Parameters: int newTemperature
+Return Type: void
+Functionality: Adjusts the currentTemperature to the specified newTemperature, provided it falls within a safe range (e.g., 16-30 degrees Celsius). Displays a warning if the temperature is out of range.
+Instance Method: setMode(String newMode)
+
+Parameters: String newMode
+Return Type: void
+Functionality: Updates the acMode to the specified newMode if it’s a valid option ("Cool", "Heat", "Fan", "Dry"). If the mode is invalid, it displays an error message.
+Instance Method: calculateEnergyConsumption(int hours)
+
+Parameters: int hours
+Return Type: double
+Functionality: Calculates the estimated energy consumption based on the currentTemperature, acMode, and hours of operation. This method increases the energyConsumption attribute based on the mode and usage hours. Returns the calculated energy consumption.
+Override toString():
+
+Return Type: String
+Functionality: Returns a string representation of the AC object’s properties (acId, acBrand, currentTemperature, acMode, and energyConsumption).
+Main Class:
+Create a main class (e.g., ACManagementMain) with the main method to perform the following tasks:
+
+Add AC Units:
+
+Use a loop to accept 3 AC objects from the keyboard by calling the getAcObject() method.
+Adjust Temperature:
+
+Prompt the user to adjust the temperature of one of the AC units by entering the acId and a new temperature. Use the adjustTemperature() method to update the temperature.
+Set Mode:
+
+Prompt the user to set a mode for one of the AC units by entering the acId and the desired mode. Use the setMode() method to update the mode.
+Calculate Energy Consumption:
+
+Prompt the user to calculate the energy consumption for each AC unit based on the number of hours the AC has been used. Display the calculated consumption for each unit using calculateEnergyConsumption().
+Print Details:
+
+Print the details of each AC object using the overridden toString() method.
+
+10)----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+BeverageQualityCheckSystem
+ Beverage Quality Check System
+Base Class: Beverage
+Attributes:
+
+price - double: The price of the beverage.
+size - String: The size of the beverage ("Small", "Medium", "Large").
+Constructor Requirements:
+
+Parameterized Constructor: Initializes price and size.
+Methods:
+
+Boolean Method: isPremiumQuality()
+
+Return Type: boolean
+Functionality: Returns true if the beverage is large and costs more than $5; otherwise, returns false.
+This method will be overridden in subclasses to define different premium quality criteria.
+Public Method: displayInfo()
+
+Return Type: void
+Functionality: Prints the details of the beverage. Calls a private method getPreparationTime() to display preparation time based on size.
+Private Method: getPreparationTime()
+
+Return Type: String
+Functionality: Returns a preparation time message based on the size attribute.
+Derived Class: Tea
+Overrides isPremiumQuality(): A tea is considered premium if it is a "Large" size and costs more than $4.
+Adds additional functionality specific to tea, such as tea type (e.g., "Green Tea", "Black Tea").
+Derived Class: Coffee
+Overrides isPremiumQuality(): A coffee is premium if it’s "Medium" or "Large" and costs more than $6.
+Adds additional attributes specific to coffee, like caffeineLevel.
+Main Class for Beverage System
+Creates objects of Tea and Coffee.
+Calls isPremiumQuality() to check if they are premium.
+Calls displayInfo() to print details, which also calls getPreparationTime().
+
+11)---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FuelTankTeser
+FuelTank [ Polymorphism with has-a-relation ]
+
+Create a class Vehicle that has a FuelTank object. FuelTank has methods to get fuel level and refill fuel. Implement polymorphism with different types of vehicles sharing the same fuel tank logic.
+
+
+
+1.Create a class FuelTank
+
+Instance variable:-
+
+double fuelLevel,private
+
+final double maxCapacity,private
+
+
+
+Create parametrise constructor to initialise the maxCapacity and fuelLevel is initialise with default value.
+
+
+
+Generate getter method for fuelLevel.
+
+
+
+Create an Instance method refillFuel() with parameter amount type double
+
+//If fuelLevel and amount is lesser then maxCapacity then add fuelLevel with amount
+
+//print "Fuel refilled. Current fuel level: " + fuelLevel + " liters"
+
+//Otherwise print "Cannot refill. Tank capacity exceeded."
+
+
+
+2. Create another class Vehicle
+
+Instance Variable:-
+
+Fueltank fuelTank,private //Has-a-realtion
+
+
+
+Create parameterise constructor.
+
+
+
+Create an instance method displayFuelLevel() to print "Current fuel level: " + fuelTank.getFuelLevel() + " liters"
+
+
+
+Create an instance method refillFuel() with parameter amount type double.
+
+//to refill the tank
+
+
+
+
+
+3. Create a class Car inherite Vehicle class here
+
+
+
+Create a peremeterise constructor using Fueltank fuelTank pass the reference to parent class.
+
+
+
+4. Create a class Motorcycle inherite Vehicle class here
+
+
+
+Create a peremeterise constructor using Fueltank fuelTank pass the reference to parent class.
+
+
+
+5. Create a class Main which contains main method to test your code
+
+//Create an object for class FuelTank,Car and Motorcycle.
+
+//call the methods of the above class
+
+
+
+Output:-
+
+Fuel refilled. Current fuel level: 30.0 liters
+
+Cannot refill. Tank capacity exceeded.
+
+Current fuel level: 30.0 liters
+
+Current fuel level: 0.0 liters
+
+12)--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CalculatorTester
+Create a class Calculator :
+
+Methods:
+add(int a, int b): Returns the sum of a and b.
+subtract(int a, int b): Returns the difference between a and b.
+multiply(int a, int b): Returns the product of a and b.
+divide(int a, int b): Returns the quotient of a and b, handling division by zero.
+modulus(int a, int b): Returns the remainder of dividing a by b.
+
+Take an ELC class Tester which is having main method 
+Devlop a switch case and invoke methods as per the user choice .
+Takes two numbers from the user.
+
+Takes an operation choice and performs the corresponding calculation.
+
+Displays the result for each operation, formatted with the chosen operation symbol.
+
+13)-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CafeItemPreparationStatusSystemTester
+Café Item Preparation Status System
+Base Class: Item
+Attributes:
+
+name - String: The name of the item (e.g., "Espresso", "Green Tea").
+preparationTime - int: Time taken to prepare the item in minutes.
+Constructor Requirements:
+
+Parameterized Constructor: Initializes name and preparationTime.
+Methods:
+
+Boolean Method: isQuickServe()
+
+Return Type: boolean
+Functionality: Returns true if preparationTime is less than or equal to 5 minutes, otherwise false.
+This method is overridden to define what qualifies as "quick serve" for each item.
+Public Method: printDetails()
+
+Return Type: void
+Functionality: Calls a private method getCategory() to print the category of the item (e.g., "Hot Beverage" for coffee and tea, "Snack" for biscuits).
+Private Method: getCategory()
+
+Return Type: String
+Functionality: Returns the category based on the item type.
+Derived Class: Tea, Coffee, Biscuit
+Tea and Coffee override isQuickServe(): Define their own criteria for quick service (e.g., tea with less than 3 minutes preparation is "quick serve").
+Biscuit does not override isQuickServe(), as biscuits are typically ready to serve.
+Main Class for Café System
+Creates objects of Tea, Coffee, and Biscuit.
+Calls isQuickServe() to check preparation speed.
+Calls printDetails() to display item details, which calls getCategory().
+
+14)----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ProductModelSystemTester
+
+Product Model System
+Product Class (BLC Class)
+Attributes:
+
+productId - int: Stores the ID of the product.
+productName - String: Stores the name of the product.
+productPrice - double: Stores the price of the product.
+productQuantity - int: Stores the quantity available in stock.
+All variables should be private.
+
+Constructor Requirements:
+
+Parameterized constructor that initializes all fields using values provided by the user.
+Methods:
+
+Static Method: getProductObject()
+
+Parameters: None
+Return Type: Product
+Functionality: Prompts the user to input productId, productName, productPrice, and productQuantity, initializes a Product object, and returns it.
+Instance Method: applyDiscount(double percentage)
+
+Parameters: double percentage
+Return Type: void
+Functionality: Reduces the productPrice by the given percentage if the percentage is valid (0-100). Displays an error for invalid percentages.
+Override toString():
+
+Returns a string representation of Product properties (productId, productName, productPrice, and productQuantity).
+Main Class:
+Use a loop to accept 5 Product objects from the keyboard by calling getProductObject().
+Apply a discount to each product using the applyDiscount() method.
+Print details of each Product object using toString().
+ans: 
+
+package com.test3;
+
+import java.util.Scanner;
+
+public class Product {
+    private int productId;
+    private String productName;
+    private double productPrice;
+    private int productQuantity;
+
+  
+    public Product(int productId, String productName, double productPrice, int productQuantity) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productQuantity = productQuantity;
+    }
+
+    public static Product getProductObject() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Product ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        System.out.print("Enter Product Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter Product Price: ");
+        double price = scanner.nextDouble();
+
+        System.out.print("Enter Product Quantity: ");
+        int qty = scanner.nextInt();
+
+        return new Product(id, name, price, qty);
+    }
+
+   
+    public void applyDiscount(double percentage) {
+        if (percentage <= 0 || percentage >= 100) {
+            System.err.println("Invalid discount percentage. Please provide a value between 0 and 100.");
+            return; 
+        }
+
+        double discountAmount = (this.productPrice * percentage) / 100;
+        double discountedPrice = this.productPrice - discountAmount;
+
+        System.out.println("Original Price: $" + this.productPrice);
+        System.out.println("Discount Percentage: " + percentage + "%");
+        System.out.println("Discounted Price: $" + discountedPrice);
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Product [productId=" + productId + 
+               ", productName=" + productName + 
+               ", productPrice=" + productPrice + 
+               ", productQuantity=" + productQuantity + "]";
+    }
+}
+
+
+package com.test3;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Enter the number of products you want to add: ");
+        int numOfProducts = scanner.nextInt();
+
+     
+        Product[] products = new Product[numOfProducts];
+
+        for (int i = 0; i < numOfProducts; i++) {
+            System.out.println("\nEnter details for Product " + (i + 1) + ":");
+            products[i] = Product.getProductObject();
+        }
+
+      
+        System.out.println("\nProduct Details:");
+        for (Product product : products) {
+            System.out.println(product);
+        }
+
+  
+        System.out.print("\nEnter a discount percentage to apply to all products: ");
+        double discountPercentage = scanner.nextDouble();
+
+        System.out.println("\nApplying discount of " + discountPercentage + "% to all products:");
+        for (Product product : products) {
+            product.applyDiscount(discountPercentage);
+        }
+
+       
+        scanner.close();
+    }
+}
+=======================================================================================================================
+15)---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SnackAvailabilityandQualityCheck
+Snack Availability and Quality Check
+Base Class: Snack
+Attributes:
+
+name - String: The name of the snack.
+availability - boolean: True if available, otherwise false.
+Constructor Requirements:
+
+Parameterized Constructor: Initializes name and availability.
+Methods:
+
+Boolean Method: isAvailable()
+
+Return Type: boolean
+Functionality: Returns true if availability is true, otherwise returns false.
+This method will be overridden to add additional checks for availability.
+Public Method: checkQuality()
+
+Return Type: String
+Functionality: Calls a private method getShelfLife() that returns the shelf life for each snack type and prints quality info.
+Private Method: getShelfLife()
+
+Return Type: String
+Functionality: Returns a string indicating the recommended shelf life of the snack.
+Derived Class: Biscuit
+Overrides isAvailable(): Checks if the biscuit is available and ensures it hasn’t exceeded its shelf life.
+Adds additional attributes specific to biscuits, like flavor (e.g., "Chocolate", "Butter").
+Main Class for Snack Availability
+Creates objects of Snack and Biscuit.
+Calls isAvailable() to determine availability.
+Calls checkQuality() to get quality information along with shelf life.
+
+
+

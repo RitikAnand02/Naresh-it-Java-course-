@@ -18,6 +18,54 @@ In the main method:
 Create a PrimeChecker object with a specific number.
 Call the printResult() method to display whether the number is prime.
 
+ans: 
+package com.test6;
+
+public class PrimeChecker {
+    
+    private int number;
+    
+    public PrimeChecker(int number) {
+        this.number = number;
+    }
+
+    public boolean isPrime() {
+        if (number <= 1) {
+            return false; 
+        }
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false; 
+            }
+        }
+        return true; 
+    }
+
+    public void printResult() {
+        System.out.println("Is " + number + " a prime number?");
+        if (isPrime()) {
+            System.out.println("Yes, it is a prime number.");
+        } else {
+            System.out.println("No, it is not a prime number.");
+        }
+    }
+
+
+}
+
+
+package com.test6;
+
+public class Main {
+    public static void main(String[] args) {
+        PrimeChecker primeChecker = new PrimeChecker(4);
+
+        primeChecker.printResult();
+    }
+}
+===============================================================================================================
+
 Q-2)
 ------
 
@@ -250,6 +298,62 @@ In the main method:
 Create a PalindromeChecker object with a specific text.
 Call the printResult() method to display whether the text is a palindrome.
 
+ans: 
+package com.test5;
+
+public class PalindromeChecker {
+ 
+    private String text;
+
+    public PalindromeChecker(String text) {
+        this.text = text;
+    }
+
+   
+    public boolean isPalindrome() {
+        
+        String cleanedText = text.replaceAll("\\s+", "").toLowerCase();
+     
+        int left = 0;
+        int right = cleanedText.length() - 1;
+
+        while (left < right) {
+            if (cleanedText.charAt(left) != cleanedText.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+
+
+    public void printResult() {
+        System.out.println("Is '" + text + "' a palindrome?");
+        if (isPalindrome()) {
+            System.out.println("Yes, it is a palindrome.");
+        } else {
+            System.out.println("No, it is not a palindrome.");
+        }
+    }
+
+
+}
+
+
+
+package com.test5;
+
+public class Main{
+public static void main(String[] args) {
+    PalindromeChecker checker = new PalindromeChecker("ritik");
+
+    checker.printResult();
+}
+}
+
+=================================================================================================================
 Q-2)
 ------
 
