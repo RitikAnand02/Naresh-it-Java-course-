@@ -1,0 +1,225 @@
+Question -1
+-------------
+Design a Course Content Management System
+
+=>Create a super Class CourseContent with a common attribute.
+
+Attribute :
+title :String (private)
+
+take a parameterize constructor to initialize the varriables
+
+generate the getter methods for accessing varriables.
+
+
+=>Create a subclass Video which is extending from CourseContent
+
+Attributes :
+duration   : int (private)
+
+take a parameterize constructor to initialize the varriables
+
+generate the getter methods for accessing varriables.
+
+=>Take another class Article  which is subclass of CourseContent
+
+Attributes :
+
+author  : String  (private)
+
+take a parameterize constructor to initialize the varriables
+
+generate the getter methods for accessing varriables.
+
+
+=>Take another class Quiz  which is subclass of CourseContent
+
+Attributes :
+
+numberOfQuestions  : int  (private)
+
+take a parameterize constructor to initialize the varriables
+
+generate the getter methods for accessing varriables.
+
+
+Then now take one class CourseManager
+
+in this class it is having two  method
+
+Methods:
+----------
+method name :processContent
+Return Type 	 :void
+Arguments	 :CourseContent 
+Acess modifier :public
+
+this method is to identify and process the type of content  using the "instanceOf" operator.
+
+
+Take another method 
+method name :processMultipleContents
+Return Type 	 :void
+Arguments	 :CourseContent[varargs type]
+Acess modifier :public
+
+this method is to process multiple contents using varargs.
+
+Devlop a ELC Class named as MainCourse
+which is having main method   inside this  create instances of Video, Article, and Quiz.
+Use CourseManager to process individual and multiple contents.
+
+
+Example :-
+
+Test Case -1:
+Invalid Duration for Video
+Input:
+duration= -45;
+
+Expected Output :
+error message :invalid duration for video
+
+Test Case-2 :
+
+Input:
+duration :45
+
+Expected Output :
+
+ans:
+
+package com.test5;
+
+public class CourseContent {
+	private String title;
+
+	public CourseContent(String title) {
+		super();
+		this.title = title;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+}
+
+
+package com.test5;
+
+ class Video extends CourseContent {
+	 private int duration;
+
+	public Video(String title, int duration) {
+		super(title);
+		if(duration<0 ) {
+			System.err.println("Invalid duration for video");
+			System.exit(0);
+		}
+		else {
+			this.duration = duration;
+		}
+		
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+}
+
+
+
+package com.test5;
+
+ class Article extends CourseContent {
+	 private String author;
+
+	public Article(String title, String author) {
+		super(title);
+		this.author = author;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+}
+
+
+package com.test5;
+
+ class Quiz extends CourseContent{
+	 private int numberOfQuestions;
+
+	public Quiz(String title, int numberOfQuestions) {
+		super(title);
+		if(numberOfQuestions<0 ) {
+			System.err.println("Invalid Number Of Questions");
+			System.exit(0);
+		}
+		else {
+		this.numberOfQuestions = numberOfQuestions;
+		}
+	}
+
+	public int getNumberOfQuestions() {
+		return numberOfQuestions;
+	}
+	 
+}
+
+
+package com.test5;
+
+public class CourseManager {
+	public void processContent( CourseContent content) {
+		 if (content instanceof Video) {
+	            Video video = (Video) content;
+	            System.out.println("Processing Video: " + video.getTitle() + " with duration: " + video.getDuration() + " minutes");
+	        } else if (content instanceof Article) {
+	            Article article = (Article) content;
+	            System.out.println("Processing Article: " + article.getTitle() + " by author: " + article.getAuthor());
+	        } else if (content instanceof Quiz) {
+	            Quiz quiz = (Quiz) content;
+	            System.out.println("Processing Quiz: " + quiz.getTitle() + " with number of questions: " + quiz.getNumberOfQuestions());
+	        } else {
+	            System.out.println("Unknown content type");
+	        }
+		
+	}
+   
+	
+    public void processMultipleContents( CourseContent... contents) {
+    	 for (CourseContent content : contents) {
+             processContent(content);
+         }
+		
+	}
+}
+
+
+package com.test5;
+
+public class MainCourse {
+
+	public static void main(String[] args) {
+		  Video video = new Video("Java Tutorial", 45);
+	        Article article = new Article("OOP Concepts", "John Doe");
+	        Quiz quiz = new Quiz("Java Basics Quiz", 10);
+
+	        CourseManager manager = new CourseManager();
+
+	   
+	        manager.processContent(video);
+	        System.out.println();
+	        manager.processContent(article);
+	        System.out.println();
+	        manager.processContent(quiz);
+	        System.out.println();
+
+	      
+	        manager.processMultipleContents(video, article, quiz);
+	}
+
+}
+
+
