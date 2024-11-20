@@ -1,0 +1,230 @@
+Program: 1 
+Create an abstract class Student with the following attributes.
+Instance Variables: 
+studentName: protected String
+studentClass: protected String
+totalNoOfStudents : protected static int
+Instance Methods:
+abstract public : getPercentage( ) with return type int 
+static Method :
+public static int getTotalNoStudents( )
+Constructors:
+No Argument constructor is a MUST.
+Parameter constructor must initialize name and class and it also increase totalNoOfStudents.
+
+Create a class ScienceStudent that inherits from Student. 
+Add the following attributes
+Instance variables:
+physicsMarks: private int
+chemistryMarks: private int
+mathsMarks: private int
+Methods:
+Override, getPercentage() method to compute and return the percentage of marks(Max marks for a subject :100)
+
+Create a class HistoryStudent that inherits from Student. 
+Add the following attributes.
+Instance variables: 
+historyMarks: private int
+civicsMarks: private int (Max Marks for a subject : 100)
+Method:
+Override getPercentage() method to computed and return the percentage of marks(Max marks for a subject :100)
+
+
+
+Create an ELC class StudentTester with main method, use this class to test your code.
+Test all the three classes and the abstract method implementation with different inputs.
+
+ans:
+
+package com.test1;
+
+public abstract class Student {
+	protected String studentName;
+	protected String studentClass;
+	protected static int totalNoOfStudents;
+	
+	abstract public int getPercentage();
+	public static int getTotalNoStudents() {
+		return totalNoOfStudents;
+	}
+	public Student() {
+		super();
+	}
+	public Student(String studentName, String studentClass) {
+		super();
+		if(totalNoOfStudents<0) {
+			System.err.println("Total No Of Students Cannot Be Negative ");
+			System.exit(0);
+		}
+		else {
+		this.studentName = studentName;
+		this.studentClass = studentClass;
+		 totalNoOfStudents++;
+		}
+	}
+
+}
+
+
+package com.test1;
+
+ class ScienceStudent extends Student{
+	 private int physicsMarks;
+	 private int chemistryMarks;
+	 private int mathsMarks;
+	 
+	public ScienceStudent(String studentName, String studentClass, int physicsMarks, int chemistryMarks,
+			int mathsMarks) {
+		super(studentName, studentClass);
+		if(physicsMarks<0) {
+			System.err.println("Physics Marks Cannot Be Negative ");
+			System.exit(0);
+		}
+		else if(chemistryMarks<0) {
+			System.err.println("Chemistry Marks  Cannot Be Negative ");
+			System.exit(0);
+		}
+		else if(mathsMarks<0) {
+			System.err.println("Maths Marks  Cannot Be Negative ");
+			System.exit(0);
+		}
+		else {
+		this.physicsMarks = physicsMarks;
+		this.chemistryMarks = chemistryMarks;
+		this.mathsMarks = mathsMarks;
+		}
+	}
+
+	@Override
+	public int getPercentage() {
+		 int totalMarks = physicsMarks + chemistryMarks + mathsMarks;
+	        return totalMarks / 3;
+	}
+	 
+}
+
+
+package com.test1;
+
+ class HistoryStudent extends Student {
+	 private int historyMarks;
+	 private int civicsMarks;
+	 
+	public HistoryStudent(String studentName, String studentClass, int historyMarks, int civicsMarks) {
+		super(studentName, studentClass);
+		if(historyMarks<0) {
+			System.err.println("History Marks Cannot Be Negative ");
+			System.exit(0);
+		}
+		else if(civicsMarks<0) {
+			System.err.println("Civics Marks  Cannot Be Negative ");
+			System.exit(0);
+		}
+		else {
+		this.historyMarks = historyMarks;
+		this.civicsMarks = civicsMarks;
+		}
+	}
+
+	@Override
+	public int getPercentage() {
+		 int totalMarks = historyMarks + civicsMarks;
+	        return totalMarks / 2;
+	}
+
+}
+
+
+package com.test1;
+
+public class StudentTester {
+
+	public static void main(String[] args) {
+		    ScienceStudent scienceStudent = new ScienceStudent("Ritik", "12A", 85, 90, 80);
+	        System.out.println("Science Student Details:");
+	        System.out.println("Name: " + scienceStudent.studentName);
+	        System.out.println("Class: " + scienceStudent.studentClass);
+	        System.out.println("Percentage: " + scienceStudent.getPercentage() + "%");
+
+	       
+	        HistoryStudent historyStudent = new HistoryStudent("Aman", "11B", 78, 82);
+	        System.out.println("\nHistory Student Details:");
+	        System.out.println("Name: " + historyStudent.studentName);
+	        System.out.println("Class: " + historyStudent.studentClass);
+	        System.out.println("Percentage: " + historyStudent.getPercentage() + "%");
+
+	   
+	        System.out.println("\nTotal Number of Students: " + Student.getTotalNoStudents());
+	    }
+
+	}
+
+
+
+=====================================================================================================================
+
+Program: 2
+Create an abstract class Book class with following specifications:-
+Instance Variables: 
+title : String
+Methods: 
+setTitle(String): void : abstract , 
+getTitle() :String
+	
+Create a sub classes of  Book called MyBook class with following specifications 
+Methods: 
+override setTitle from parent class.
+        This method takes the book title as parameter and assigns it into the instance variable of parent class.
+override getTitle from parent class.
+ This method returns the name of the book in the format mentioned below in Sample Output.
+Sample Input
+A tale of two cities
+Sample Output
+The title of my book is: A tale of two cities
+A class Testing is given to you with a main method. Use this class to test your solution's classes and methods.
+
+ans:
+
+package com.test2;
+
+public abstract class Book {
+	 String title;
+
+	abstract public void setTitle(String title);
+
+	public String getTitle() {
+		return title;
+	}
+	
+}
+
+package com.test2;
+
+ class MyBook extends Book{
+
+	@Override
+	public void setTitle(String title) {
+		System.out.println("The title of my book is: "+title);
+		
+	}
+	
+	@Override
+	public String getTitle() {
+		return title;
+	}
+
+}
+
+
+package com.test2;
+
+public class Main {
+
+	public static void main(String[] args) {
+        MyBook b1 = new MyBook();
+        b1.setTitle("A tale of two cities");
+	}
+
+}
+
+
