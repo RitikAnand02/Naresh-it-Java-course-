@@ -3,45 +3,56 @@ package com.test5;
 import java.util.Scanner;
 
 public class Testing {
-
 	public static void main(String[] args) {
-		   Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter Food Item And Food Method: ");
-	        int n = Integer.parseInt(scanner.nextLine()); 
+		Scanner sc = new Scanner(System.in);
 
-	        for (int i = 0; i < n; i++) {
-	            String foodName = scanner.nextLine(); 
-	            Food food;
+		System.out.print("Enter number of food items : ");
+		int n = sc.nextInt();
 
-	           
-	            if (foodName.equalsIgnoreCase("Egg")) {
-	                food = new Egg(6.0, 5.0, 0.5); 
-	            } else if (foodName.equalsIgnoreCase("Bread")) {
-	                food = new Bread(4.0, 1.1, 13.8); 
-	            } else {
-	                System.out.println("Unknown food item.");
-	                continue;
-	            }
+		for (int i = 0; i < n; i++) {
+			System.out.println("\n***** We have 2 food items *****");
+			System.out.println("1: Egg");
+			System.out.println("2: Bread");
+			System.out.print("Enter your number : ");
+			int foodName = sc.nextInt();
 
-	            
-	            String method1 = scanner.nextLine();
-	            if (method1.equalsIgnoreCase("getType")) {
-	                System.out.println(foodName + " is " + food.getType());
-	            }
+			// Food object initialization
+			Food food;
+			if (foodName == 1) {
+				food = new Egg(6.0, 5.0, 0.5); // Example macros for Egg
+			} else if (foodName == 2) {
+				food = new Bread(4.0, 1.1, 13.8); // Example macros for Bread
+			} else {
+				System.out.println("Invalid food item");
+				continue;
+			}
 
-	            String method2 = scanner.nextLine();
-	            if (method2.equalsIgnoreCase("getMacros")) {
-	                food.getMacroNutrients();
-	            }
+			// Process method calls
+			for (int j = 0; j < 3; j++) {
+				System.out.println("\n***** We have 3 method for call *****");
+				System.out.println("1 : getType");
+				System.out.println("2 : getMacros");
+				System.out.println("3 : getTaste");
+				System.out.print("Enter your number : ");
+				int choice = sc.nextInt();
 
-	            String method3 = scanner.nextLine();
-	            if (method3.equalsIgnoreCase("getTaste")) {
-	                System.out.println("Taste: " + food.getTaste());
-	            }
-	        }
+				switch (choice) {
+				case 1:
+					System.out.println(food.getType());
+					break;
+				case 2:
+					food.getMacroNutrients();
+					break;
+				case 3:
+					System.out.println("Taste: " + food.getTaste());
+					break;
+				default:
+					System.out.println("Invalid input");
+				}
 
-	        scanner.close();
+				System.out.println();
+			}
+		}
 
-	}
-
-}
+		sc.close();
+	}}
