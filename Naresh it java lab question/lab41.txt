@@ -1,0 +1,544 @@
+Question-1
+-------------
+Design a Software System for a Media Player
+---------------------------------------------------
+Define an interface named as MediaPlayer 
+ in this interface declare two abstract method
+
+Methods :
+
+name 			: play()
+Return Type  		:void
+Access Modifier 	:public
+
+
+Methods :
+
+name 			: stop()
+Return Type  		:void
+Access Modifier 	:public
+
+Define another interface AdvancedmediaPlayer that extends MediaPlayer
+and in this interface add one more abstract method i.e :
+ 
+name 			: pause()
+Return Type  		:void
+Access Modifier 	:public
+
+
+Create a class MusicPlayer that implements AdvancedMediaPlayer and provides implementations for the methods, and write some standard printing message.
+
+Create a class VideoPlayer that implements AdvancedMediaPlayer and provides implementations for the methods. and write some standard printing message.
+
+Take  a Test class to demonstrate the functionality of the media player system.
+
+
+Test Case-1 :
+--------------
+
+Sample Input:
+
+Song Title: " Life"
+
+Expected Output :
+
+MusicPlayer [Song Title: Life]
+Playing music	: Life
+Pausing music	: Life
+Stopping music	: Life
+
+
+Test Case-2 :
+---------------
+Sample Input :" "
+
+Expected Output :
+error message :Title is not be empty string.
+
+ans:
+package com.test4;
+
+public interface MediaPlayer {
+	void play();
+	void stop();
+
+}
+
+
+package com.test4;
+
+public interface AdvancedmediaPlayer extends MediaPlayer {
+	void pause();
+
+}
+
+
+package com.test4;
+
+
+public class MusicPlayer implements AdvancedmediaPlayer {
+	    private String songTitle;
+
+	   
+	    public MusicPlayer(String songTitle) {
+	    	if(songTitle.isEmpty()) {
+	    		System.err.println("Title is not be empty string.");
+	    		System.exit(0);
+	    	}
+	    	else {
+	        this.songTitle = songTitle;
+	    	}
+	    }
+
+	@Override
+	public void play() {
+		System.out.println("Music Player is Playing: "+songTitle);
+		
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("Music Player is Stoping: "+songTitle);
+		
+	}
+
+	@Override
+	public void pause() {
+		System.out.println("Music Player is Pausing: "+songTitle);
+		
+	}
+
+
+}
+
+
+package com.test4;
+
+public class VideoPlayer implements AdvancedmediaPlayer {
+	private String videoTitle;
+
+    public VideoPlayer(String videoTitle) {
+    	if(videoTitle.isEmpty()) {
+    		System.err.println("Title is not be empty string.");
+    		System.exit(0);
+    	}
+    	else {
+        this.videoTitle = videoTitle;
+    	}
+    }
+
+	@Override
+	public void play() {
+		System.out.println("Video Player is Playing: "+videoTitle);
+
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("Video Player is Stoping: "+videoTitle);
+	}
+
+	@Override
+	public void pause() {
+		System.out.println("Video Player is Pausing: "+videoTitle);
+	}
+
+}
+
+
+package com.test4;
+
+public class Test {
+
+	public static void main(String[] args) {
+		MusicPlayer m1 = new MusicPlayer("Life");
+		m1.play();
+		m1.pause();
+		m1.stop();
+		System.out.println();
+		
+		VideoPlayer v1 = new VideoPlayer("Nature");
+		v1.play();
+		v1.pause();
+		v1.stop();
+		
+
+	}
+
+}
+
+======================================================================================================================
+
+
+Question-2
+-------------
+
+Design a Caluculator Program
+
+Define an interface Calculator :
+ create one abstract method 
+
+Methods :
+
+name 			: calculateSum ()
+Return Type  		:void
+Arguments Type       :varargs type
+Access Modifier 	:public
+
+Take one normal class SimpleCalculator which implements Calculator interface
+
+in this class just implement the overriden method calculateSum and write the specific logic in this method.
+
+Create a Main class named as CalculatorTest nad instantiate the object and call the method for execution.
+
+
+Test Case-1:
+
+Sum of 1, 2, 3:
+Sample Input :1,2,3
+
+Expected Output: "Sum of the numbers: 6"
+
+Test Case-2:
+Sum of 10, 20, 30, 40:
+Sample Input :(10, 20, 30, 40)
+Expected Output: "Sum of the numbers: 100"
+
+Test Case-3:
+Sum of 5:
+Sample Input :5
+Expected Output: "Sum of the numbers: 5"
+
+Test Case-4:
+
+Sample Input :
+Expected Output: "Sum of the numbers: 0"
+
+ans:
+package com.test5;
+
+public interface Calculator {
+	void calculateSum(int... numbers);
+
+}
+
+
+package com.test5;
+
+public class SimpleCalculator implements Calculator {
+
+	@Override
+	public void calculateSum(int... numbers) {
+		  int sum = 0;
+	        for (int num : numbers) {
+	            sum += num;
+	        }
+	        System.out.println("Sum of the numbers: " + sum);
+	}
+
+}
+
+
+package com.test5;
+
+public class CalculatorTest {
+	public static void main(String[] args) {
+		SimpleCalculator s1 = new SimpleCalculator();
+		s1.calculateSum();
+	}
+
+}
+
+=======================================================================================================================
+
+
+Question -3
+--------------
+
+Design a Media Chat process :
+
+ Define an interface  Messanger 
+inside this having an abstract method 
+
+Method Name  		:sendMessage
+Return Type    		:void
+Arguments Type 	:User[Class Type]
+Acess Modifier		:public
+
+Create a base class named as User
+
+Attributes :
+name     :String (private)
+
+
+create an parameterize constructor for initializing the properties.
+
+in this class declare one method :
+
+Method Name 		: displayMessage
+Return Type   		: void 
+Arguments Type 	: String
+Acess Modifier		:public
+
+in this method print all the information.
+
+
+class InstagramUser :
+
+Take another subclass InstagramUser whose super class is User
+
+in this class for initializing super class properties we can take constructor.
+
+take one concrete method 
+
+ 
+Method Name 		: sendDirectMessage
+Return Type   		: void 
+Arguments Type 	: String
+Acess Modifier		:public
+
+Take another class InstagramChat which is extend from the Messenger class
+
+and in this class just override the sendMessage method of the interface.
+
+this method is implementing the functionality which only allow the InstagramUser class not allowing to other class give error message.[User is not an Instagram user.]
+
+Take the main class named as InstagramChatTest which is having main method 
+and inthis just demonstarte the functionality and invoke the method based on requirement.
+
+ans:
+package com.test6;
+
+public interface Messanger {
+	void sendMessage(User user);
+
+}
+
+
+package com.test6;
+
+public class User  {
+	private String name;
+
+	public User(String name) {
+		super();
+		this.name = name;
+	}
+	
+	public String getName() {
+	        return name;
+   }
+	
+	public void displayMessage(String message) {
+		System.out.println("Message from " + name + ": " + message);
+		
+	}
+
+
+}
+
+
+package com.test6;
+
+public class InstagramUser extends User{
+
+	public InstagramUser(String name) {
+		super(name);
+	}
+	
+	public void sendDirectMessage(String message) {
+        System.out.println("Instagram direct message from " + getName() + ": " + message);
+	}
+
+}
+
+
+package com.test6;
+
+public class InstagramChat implements Messanger {
+
+	@Override
+	public void sendMessage(User user) {
+	     if (user instanceof InstagramUser) {
+	            user.displayMessage("Hello! This is an Instagram chat.");
+	        } else {
+	            System.err.println("Error: User is not an Instagram user.");
+	        }
+		
+	}
+
+}
+
+
+package com.test6;
+
+public class InstagramChatTest {
+
+	public static void main(String[] args) {
+        User u1 = new User("Alice");
+        InstagramUser i1 = new InstagramUser("Ritik");
+        InstagramChat c1 = new InstagramChat();
+    
+        c1.sendMessage(i1); 
+        System.out.println();
+
+        c1.sendMessage(u1); 
+
+	}
+
+}
+
+========================================================================================================================
+
+Question-4
+--------------
+Define an interface named as Notifier :
+
+it's having one abstract method  :
+
+Method Name 		: notifyUsers
+Return type              : void
+Argument Type         :Varargs type
+Access Modifier		:public
+
+Create a base class User :
+
+Attributes :
+
+name  : String (private)
+email  : String (private)
+
+
+Take a parameterize constructor to initialize all the varriables
+
+Take one implemented class named as  EmailNotifier which is implements Notifier
+
+EmailNotifier :
+-----------------
+
+in this class override the notifyUsers method and give the standard implementation according to logic.
+
+in this class take one concrete method as private type :
+
+Method Name 		: sendEmail
+Return type              : void
+Argument Type         :User
+Access Modifier		:private
+
+
+Take one Main class named as NotifierTest Demonstrates the functionality of the EmailNotifier class by creating instances of User and calling the notifyUsers method with multiple users.
+
+
+Test Case-1 :
+----------------
+
+Sample Input:
+User1: Name = "Alice", Email = "alice@example.com"
+User2: Name = "Bob", Email = "bob@example.com"
+
+Expected Output :
+
+Sending email to Alice at alice@example.com
+Sending email to Bob at bob@example.com
+
+
+Test Case-2 :
+--------------
+
+Sample Input :
+
+User: Name = "Charlie", Email = "charlie@example.com"
+
+Expected Output :
+Sending email to Charlie at charlie@example.com
+
+Test Case-3 :
+--------------
+
+Sample Input:
+
+User1: Name = "Frank", Email = null
+User2: Name = "Grace", Email = null
+
+Expected Output :
+
+Sending email to Frank at null
+Sending email to Grace at null
+
+ans:
+package com.test7;
+
+public interface Notifier {
+	void notifyUsers(User... users);	
+
+}
+
+
+package com.test7;
+
+public class User {
+	private String name;
+	private String email;
+	
+	public User(String name, String email) {
+		super();
+		this.name = name;
+		this.email = email;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+}
+
+
+package com.test7;
+
+public class EmailNotifier implements Notifier {
+	
+	private void sendEmail(User user) {
+		System.out.println("Sending email to " + user.getName() + " at " + user.getEmail());
+		
+	}
+
+	@Override
+	public void notifyUsers(User... users) {
+		   for (User user : users) {
+	            sendEmail(user);
+	        }
+
+	}
+
+}
+
+
+package com.test7;
+
+public class NotifierTest {
+
+	public static void main(String[] args) {
+	     System.out.println("Test Case 1:");
+	        User user1 = new User("Alice", "alice@example.com");
+	        User user2 = new User("Bob", "bob@example.com");
+	        Notifier emailNotifier = new EmailNotifier();
+	        emailNotifier.notifyUsers(user1, user2); 
+
+	      
+	        System.out.println("\nTest Case 2:");
+	        User user3 = new User("Charlie", "charlie@example.com");
+	        emailNotifier.notifyUsers(user3);
+
+
+	        System.out.println("\nTest Case 3:");
+	        User user4 = new User("Frank", null);
+	        User user5 = new User("Grace", null);
+	        emailNotifier.notifyUsers(user4, user5); 
+	}
+
+}
+
