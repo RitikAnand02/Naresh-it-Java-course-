@@ -1,4 +1,4 @@
-package com.test1;
+package com.test;
 
 class UserThread extends Thread
 {
@@ -25,3 +25,7 @@ public class MainThread1 {
 	}
 
 }
+
+//In the above program, we have two threads, main thread which is responsible to execute 
+//main method and Thread-0 thread which is responsible to execute run()
+//method. [10-DEC-24]
