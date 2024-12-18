@@ -1,0 +1,134 @@
+
+//Offer.java
+public class Offer {
+   private String offerText;
+
+public Offer(String offerText) {
+	super();
+	this.offerText = offerText;
+}
+
+public String getOfferText() {
+	return offerText;
+}
+
+
+@Override
+public String toString() {
+	return "Offer [offerText=" + offerText + "]";
+}
+   
+}
+
+//Course.java
+public class Course {
+	private int courseId;
+	private String courseName;
+	private double corseFee;
+
+	public Course(int courseId, String courseName, double corseFee) {
+		super();
+		this.courseId = courseId;
+		this.courseName = courseName;
+		this.corseFee = corseFee;
+	}
+
+	public int getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
+	}
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+	public double getCorseFee() {
+		return corseFee;
+	}
+
+	public void setCorseFee(double corseFee) {
+		this.corseFee = corseFee;
+	}
+
+	@Override
+	public String toString() {
+		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", corseFee=" + corseFee + "]";
+	}
+
+}
+
+
+//EducationalInstitute.java
+public class EducationalInstitute {
+	private Course[] courses;
+	private Offer[] offers;
+
+	public EducationalInstitute(Course[] courses, Offer[] offers) {
+		super();
+		this.courses = courses;
+		this.offers = offers;
+	}
+
+	public Course[] getCourses() {
+		return courses;
+	}
+
+	public Offer[] getOffers() {
+		return offers;
+	}
+
+	public void enrollStudentInCourse(int courseId, String studentName) {
+		String courseName = "";
+		for (Course c : courses) {
+			if (courseId == c.getCourseId()) {
+				courseName = c.getCourseName();
+			}
+		}
+		if (!courseName.isEmpty())
+			System.out.println(studentName + " enrolled " + courseName);
+		else
+			System.out.println("Invalid Course Id...");
+	}
+
+}
+//EducationalInstituteApp.java
+public class EducationalInstituteApp {
+	public static void main(String[] args) throws InterruptedException {
+	Course[] c1 = {
+			new Course(1,"Java", 3000),
+			new Course(2,"English", 5000),
+			new Course(3,"Math", 7000),
+			new Course(4,"Science", 2000),
+			};
+	Offer[] o = {
+		new Offer("Special discount: Get 20% off on all courses!"),
+		new Offer("Limited time offer: Enroll in any two courses and get one course free!\r\n")
+	};
+	EducationalInstitute e1 = new EducationalInstitute(c1, o);
+	Student s1 = new Student("Virat", e1);
+	Student s2 = new Student("Dhoni", e1);
+	
+	Thread t1 = new Thread(() ->{ 
+		s1.viewCoursesAndFees();
+		s1.viewOffers();
+		s1.enrollInCourse(1);
+	});
+	
+	Thread t2 = new Thread(() -> {
+		s2.viewCoursesAndFees();
+		s2.viewOffers();
+		s2.enrollInCourse(3);
+	});
+	t1.start();
+	t1.join();
+	t2.start();	
+}
+}
+
