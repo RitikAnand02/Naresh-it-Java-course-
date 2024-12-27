@@ -1,0 +1,141 @@
+package com.ravi.bakery_example;
+
+public class Baker implements Runnable
+{
+  private Bakery bakery;
+
+    public Baker(Bakery bakery)
+    {
+        super();
+        this.bakery = bakery;
+    }
+ 
+    @Override
+    public void run()
+    {
+        try
+        {
+            while(!bakery.isProductionFinished())
+            {
+              bakery.bakeGoods();
+              Thread.sleep(1000);
+            }
+        }
+        catch(Exception e)
+        {
+            //Thread.currentThread().interrupt();
+        }
+        System.out.println("Baker has finished baking for the day.");
+    }
+ 
+}
+
+package com.ravi.bakery_example;
+
+public class Bakery {
+    private int goodsAvailable;
+    private final int MAX_GOODS_PER_DAY = 100;
+    private int goodsProducedToday;
+
+    public synchronized void bakeGoods() throws InterruptedException {
+        while (goodsAvailable > 0) {
+            wait();
+        }
+        if (goodsProducedToday < MAX_GOODS_PER_DAY) {
+            goodsAvailable = 10;
+            goodsProducedToday += goodsAvailable;
+            System.out.println("Baker bake 10 goods, Total produced :" + goodsProducedToday);
+            notifyAll();
+        }
+    }
+
+    public synchronized void buyGoods(String customerName) throws InterruptedException {
+        if (goodsAvailable == 0) {
+            wait();
+        }
+        goodsAvailable--;
+
+        System.out.println(customerName + " purchased a good, Goods left :" + goodsAvailable);
+
+        if (goodsAvailable == 0) {
+            notifyAll();
+        }
+    }
+
+    public boolean isProductionFinished() {
+        return goodsProducedToday >= MAX_GOODS_PER_DAY && goodsAvailable == 0;
+
+    }
+
+}
+
+
+
+package com.ravi.bakery_example;
+
+public class Customer implements Runnable
+{
+    private final Bakery bakery;
+    private final String customerName;
+   
+    public Customer(Bakery bakery, String customerName)
+    {
+        super();
+        this.bakery = bakery;
+        this.customerName = customerName;
+    }
+   
+    @Override
+    public void run()
+    {
+        try
+        {
+            while (!bakery.isProductionFinished())
+            {
+                bakery.buyGoods(customerName);
+                Thread.sleep(500); // Simulate time to consume the good
+            }
+        }
+        catch (InterruptedException e)
+        {
+           // Thread.currentThread().interrupt();
+        }
+        System.out.println(customerName + " is done shopping for the day.");
+    }
+}
+   
+
+
+package com.ravi.bakery_example;
+
+public class Main {
+    public static void main(String[] args) {
+        Bakery bakery = new Bakery();
+
+        Baker baker = new Baker(bakery);
+        Thread t1 = new Thread(baker);
+        t1.start();
+
+        Customer customer1 = new Customer(bakery, "Customer 1");
+        Customer customer2 = new Customer(bakery, "Customer 2");
+        Customer customer3 = new Customer(bakery, "Customer 3");
+
+        Thread c1 = new Thread(customer1);
+        c1.start();
+        Thread c2 = new Thread(customer2);
+        c2.start();
+        Thread c3 = new Thread(customer3);
+        c3.start();
+
+        try {
+            t1.join();
+            c1.join();
+            c2.join();
+            c3.join();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        System.out.println("Bakery operation has finished for the day.");
+    }
+}
