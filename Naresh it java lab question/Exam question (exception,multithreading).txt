@@ -1,0 +1,333 @@
+													  SET-A
+													----------
+
+
+Question-1
+--------------
+ Develop a Java program using inter-thread communication to manage student data and analyze their performance.
+//
+// Objective:
+// Design a program that uses inter-thread communication to calculate student percentages and determine promotion status.
+// Threads will interact using synchronized methods and the wait-notify mechanism to ensure proper communication between threads.
+//
+// Problem Description:
+// 1. Create an abstract class "Student" with the following:
+//    - Instance variables:
+//      - studentName: protected String
+//      - studentClass: protected String
+//      - totalNoOfStudents: protected static int
+
+//    - Methods:
+//      - A synchronized static method `incrementTotalNoOfStudents()` to increment the total number of students.
+//      - An abstract method `getPercentage()` with a return type of int.
+//      - A static method `getTotalNoOfStudents()` to return the total number of students.
+
+//      - Two constructors: a no-argument constructor and a parameterized constructor to initialize student name and class, incrementing the total number of students.
+//
+// 2. Create a class "ScienceStudent" inheriting from "Student":
+//    - Instance variables:
+//      - physicsMarks, chemistryMarks, mathsMarks: private int
+//      - percentage: private int (calculated by getPercentage)
+//      - percentageCalculated: private boolean (default false)
+//    - Methods:
+//      - Implement `getPercentage() - to calculate and return the percentage of marks.
+//        Notify the thread waiting to check promotion after calculation.
+//      - A synchronized method `isPromoted()- that checks if the student has failed in two or more subjects (marks below 40) and its's      			total percentage    	is less than 	60 % then it's not promoted to next batch otherwise it's promoted to next batch.
+
+// 3. Create a class "HistoryStudent" inheriting from "Student":
+//    - Instance variables:
+//      - historyMarks, civicsMarks: private int
+//      - percentage: private int (calculated by getPercentage)
+//      - percentageCalculated: private boolean (default false)
+//    - Methods:
+//      - Implement `getPercentage()` to calculate and return the percentage of marks.
+//        Notify the thread waiting to check promotion after calculation.
+//      - A synchronized method `isPromoted()`-> that checks if the student has failed in two or more subjects (marks below 40) or its's total percentage    	is less than 	60 % then it's not promoted to next batch otherwise it's promoted to next batch.
+
+// 4. Develop a "StudentTester" class:
+//    - Create instances of ScienceStudent and HistoryStudent.
+//    - Use separate threads for:
+//      - Calculating the percentage for each student.
+//      - Checking the promotion status for each student.
+//    - Ensure inter-thread communication using synchronized methods and wait-notify mechanism.
+//    - Display the total number of students after all threads have completed execution.
+//
+// Example:
+// Input: 
+// - Science Student: Virat, Class: 12th, Marks: [85, 40, 35]
+// - History Student: Dhoni, Class: 11th, Marks: [70, 35]
+//
+// Output:
+// - Science Student: Virat
+//   Percentage: 53%
+//   Promoted: No
+// - History Student: Dhoni
+//   Percentage: 52%
+//   Promoted: Yes
+// - Total Number of Students: 2
+
+
+
+Q-2)
+------
+
+Problem Description:
+
+Create an ATM class with the following functionalities:
+
+Instance Variables:
+accountBalance: private double
+accountNumber: private String
+Methods:
+A constructor to initialize accountNumber and accountBalance.
+A deposit(double amount) method to add funds to the account. If the deposit amount is negative, throw a IllegalArgumentException with the message "Deposit amount must be positive."
+A withdraw(double amount) method to deduct funds from the account:
+If the withdrawal amount exceeds the current balance, throw a custom exception InsufficientBalanceException with the message "Insufficient balance."
+If the withdrawal amount is negative, throw a IllegalArgumentException with the message "Withdrawal amount must be positive."
+A checkBalance() method to display the current account balance.
+A static method validateAccount(String accountNumber):
+If the account number is invalid (null, empty, or does not follow a specific pattern, e.g., 10 digits), throw a custom exception InvalidAccountException with the message "Invalid account number."
+Create Custom Exceptions:
+
+InvalidAccountException: Custom exception class for handling invalid account numbers.
+InsufficientBalanceException: Custom exception class for handling insufficient balance during withdrawals.
+Develop an ATMTester class:
+
+Simulate the functionalities of the ATM class, such as deposit, withdraw, and balance inquiry.
+Handle scenarios such as:
+Depositing funds into the account.
+Withdrawing funds, including cases where the balance is insufficient.
+Checking the balance.
+Invalid account numbers.
+Demonstrate how exceptions are caught and handled gracefully.
+
+
+Sample Input:
+
+Account Number: "1234567890", Initial Balance: 1000.0
+Transactions:
+Deposit: 500.0
+Withdraw: 300.0
+Withdraw: 1500.0
+Check Balance
+Invalid Account: "1234"
+
+Expected Output:
+
+Deposit successful. New Balance: 1500.0
+Withdrawal successful. New Balance: 1200.0
+Withdrawal failed: Insufficient balance.
+Current Balance: 1200.0
+Error: Invalid account number.
+
+
+														SET-B
+														--------
+
+Q-1)
+------
+
+Create an abstract class Employee:
+
+Instance Variables:
+employeeName: protected String
+employeeDepartment: protected String
+totalNoOfEmployees: protected static int
+Methods:
+A synchronized static method incrementTotalNoOfEmployees() to increment the total number of employees.
+An abstract method getPerformanceScore() with a return type of int.
+A static method getTotalNoOfEmployees() to return the total number of employees.
+Two constructors: a no-argument constructor and a parameterized constructor to initialize employee name and department, incrementing the total number of employees.
+Create a class TechEmployee inheriting from Employee:
+
+Instance Variables:
+codingSkill: private int
+problemSolving: private int
+teamwork: private int
+score: private int (calculated by getPerformanceScore)
+scoreCalculated: private boolean (default false)
+Methods:
+Implement getPerformanceScore() to calculate and return the performance score. Notify the thread waiting to check promotion after calculation.
+A synchronized method isPromoted() to determine if the employee is promoted. Wait for score calculation if necessary.
+Create a class HRExecutive inheriting from Employee:
+
+Instance Variables:
+communicationSkill: private int
+conflictResolution: private int
+score: private int (calculated by getPerformanceScore)
+scoreCalculated: private boolean (default false)
+Methods:
+Implement getPerformanceScore() to calculate and return the performance score. Notify the thread waiting to check promotion after calculation.
+A synchronized method isPromoted() to determine if the employee is promoted. Wait for score calculation if necessary.
+Develop an EmployeeTester class:
+
+Create instances of TechEmployee and HRExecutive.
+Use separate threads for:
+Calculating the performance score for each employee.
+Checking the promotion status for each employee.
+Ensure inter-thread communication using synchronized methods and wait-notify mechanism.
+Display the total number of employees after all threads have completed execution.
+Example Input:
+
+Tech Employee: HARDIK, Department: IT, Scores: [85, 75, 90]
+HR Executive: ROHIT, Department: HR, Scores: [80, 70]
+Expected Output:
+
+Tech Employee: HARDIK
+Performance Score: 83
+Promoted: Yes
+
+HR Executive: HARDIK
+Performance Score: 75
+Promoted: No
+
+Total Number of Employees: 2
+
+
+Q-2)
+------
+Create a custom exception class InvalidPasswordException:
+
+This exception class should accept an error message during instantiation to describe why the password is invalid.
+
+Develop a PasswordValidator class:
+
+Implement a static method validatePassword(String password) that performs the following checks:
+
+Minimum Length Check: The password must be at least 8 characters long. If not, throw an InvalidPasswordException with the message: "Password must be at least 8 characters long."
+Uppercase Check: The password must contain at least one uppercase letter. If not, throw an InvalidPasswordException with the message: "Password must contain at least one uppercase letter."
+Lowercase Check: The password must contain at least one lowercase letter. If not, throw an InvalidPasswordException with the message: "Password must contain at least one lowercase letter."
+Digit Check: The password must contain at least one digit. If not, throw an InvalidPasswordException with the message: "Password must contain at least one digit."
+
+
+Develop a PasswordTester class:
+
+Implement a main method that:
+Prompts the user to input a password.
+Calls the validatePassword method to validate the input.
+Handles exceptions and displays the specific error message if the password is invalid.
+Prints a success message, "Password is valid.", if the password meets all criteria.
+
+
+																	
+														SET-C
+														-------
+
+Create an abstract class Project:
+
+Instance Variables:
+projectName: protected String
+projectManager: protected String
+totalNoOfProjects: protected static int
+
+Methods:
+A synchronized static method incrementTotalNoOfProjects() to increment the total number of projects.
+An abstract method getSuccessRate() with a return type of int.
+A static method getTotalNoOfProjects() to return the total number of projects.
+
+Two constructors: a no-argument constructor and a parameterized constructor to initialize project name and manager, incrementing the total number of projects.
+
+Create a class DevelopmentProject inheriting from Project:
+
+Instance Variables:
+requirementsMet: private int
+bugsResolved: private int
+onTimeDelivery: private int
+successRate: private int (calculated by getSuccessRate)
+rateCalculated: private boolean (default false)
+
+Methods:
+
+Implement getSuccessRate() to calculate and return the success rate. Notify the thread waiting to check success status after calculation.
+A synchronized method isSuccessful() to determine if the project is successful. Wait for rate calculation if necessary.
+
+Create a class ResearchProject inheriting from Project:
+
+Instance Variables:
+
+innovationScore: private int
+resourceUtilization: private int
+successRate: private int (calculated by getSuccessRate)
+rateCalculated: private boolean (default false)
+
+Methods:
+
+Implement getSuccessRate() to calculate and return the success rate. Notify the thread waiting to check success status after calculation.
+A synchronized method isSuccessful() to determine if the project is successful. Wait for rate calculation if necessary.
+
+Develop a ProjectTester class:
+
+Create instances of DevelopmentProject and ResearchProject.
+
+Use separate threads for:
+Calculating the success rate for each project.
+Checking the success status for each project.
+
+Ensure inter-thread communication using synchronized methods and wait-notify mechanism.
+Display the total number of projects after all threads have completed execution.
+
+
+Sample Input:
+
+Development Project: Project A, Manager: John, Scores: [90, 80, 95]
+Research Project: Project B, Manager: Sarah, Scores: [85, 75]
+
+Sample Output:
+
+Development Project: Project A
+Success Rate: 88
+Successful: Yes
+
+Research Project: Project B
+Success Rate: 80
+Successful: Yes
+
+Total Number of Projects: 2
+
+Q-2)
+------
+Create a program to calculate BMI based on user-provided weight and height. Implement robust error-handling mechanisms to ensure valid input and meaningful results.
+
+Problem Description:
+Create a BMICalculator class:
+
+Implement a method calculateBMI(double weight, double height) to compute BMI using the formula:
+BMI = weight / (height * height)
+Ensure the BMI value is returned with two decimal precision.
+Error Handling:
+
+Handle the following scenarios:
+Non-Numeric Input: If the user enters non-numeric weight or height, throw a NumberFormatException with the message: "Invalid input: Numeric value expected for weight and height."
+Negative or Zero Values: If weight or height is less than or equal to zero, throw an IllegalArgumentException with the message: "Invalid input: Weight and height must be positive values."
+Unrealistic Height: If height is greater than 3 meters, throw a RuntimeException with the message: "Invalid input: Height exceeds realistic human range."
+Develop a BMICalculatorTester class:
+
+Implement a main method that:
+Prompts the user to enter weight (in kilograms) and height (in meters).
+Calls the calculateBMI method to compute the BMI.
+Displays the BMI or the appropriate error message if an exception occurs.
+
+Example:
+Input 1:
+Enter weight (kg): 70
+Enter height (m): 1.75
+
+Output 1:
+Your BMI is: 22.86
+
+Input 2:
+Enter weight (kg): -45
+Enter height (m): 1.5
+
+Output 2:
+Invalid input: Weight and height must be positive values.
+
+Input 3:
+Enter weight (kg): 60
+Enter height (m): 3.5
+
+Output 3:
+Invalid input: Height exceeds realistic human range.
+
+
+
